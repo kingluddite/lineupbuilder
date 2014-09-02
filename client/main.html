@@ -9,32 +9,41 @@
 <template name="tMainApp">
     <div class="container">
         <h1>Lineupbuilder!</h1>
-        <div class="field">
-            <div class="player">
-                <button type="button" class="btn btn-default btn-lg player-edit">
-                    <span class="glyphicon glyphicon-user"></span>Left Striker
-                </button>
-                {{#if sPlayerEdit}}
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="field">
+                
+                    <div class="player">
+                        <button type="button" class="btn btn-default btn-lg player-edit">
+                        Goalie
+                        </button>
+                        {{#if sPlayerEdit}}
 
-                <input type="text" class="first-name">
-                <button type="button" class="btn btn-success btn-xs player-add">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </button>
-                <button type="button" class="btn btn-danger btn-xs player-remove">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-                {{/if}}
+                        <input type="text" class="first-name">
+                        <button type="button" class="btn btn-success btn-xs player-add">
+                            <span class="glyphicon glyphicon-ok">&nbsp;</span>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-xs player-remove">
+                            <span class="glyphicon glyphicon-remove">&nbsp;</span>
+                        </button>
+                        {{/if}}
+                    </div>
+                    <!-- END .player -->
+                </div>
+                <!-- END .field -->
             </div>
-            <!-- END .player -->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="virtual-field">
+                    
+                        {{#each players}}
+                          {{> tEditPlayer}}
+                        {{/each}}
+                   
+                </div>
+            </div>
         </div>
-        <!-- END .field -->
-        <div class="virtual-field">
-            <ul>
-                {{#each players}}
-                  {{> tEditPlayer}}
-                {{/each}}
-            </ul>
-        </div>
+        
+        
     </div>
     <!-- END .container -->
 </template>
