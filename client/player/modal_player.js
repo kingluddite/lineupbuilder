@@ -47,9 +47,3 @@ var updatePlayer = function(firstName, gameStatus, fieldPosition, gerseyNumber, 
 
   return true;
 }
-
-var removeProject = function() {
-  Projects.remove({
-    _id: Session.get('editing_project')
-  });
-};

@@ -19,18 +19,6 @@ UI.body.events({
   }
 });
 
-// getting drop downs to populate properly
-// Template.tAddPlayer.rendered = function(evt, tmpl) {
-//   var player = Players.findOne({
-//     _id: Session.get('sPlayerId')
-//   });
-//   $('.game-status').val(player.gameStatus);
-// };
-
-// Template.tAddPlayer.rendered = function(evt, tmpl) {
-//   $('.first-name').val("").focus();
-// };
-
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
   // when someone clicks a class of player-edit
