@@ -8,6 +8,10 @@ Template.tRoster.players = function() {
   });
 };
 
+Template.tRoster.sPlayerId = function() {
+  return Session.get('sPlayerId');
+};
+
 Template.tRoster.playersOff = function() {
   return Players.find({
     gameStatus: "out"
@@ -47,6 +51,10 @@ Template.tRoster.events({
     Session.set('sPlayerId', this._id);
     removePlayer();
     Session.set('sPlayerId', null);
+  },
+  'click .not-playing': function(evt, tmpl) {
+    console.log('yo');
+    Session.equals('sPlayerId', this._id);
   }
 });
 

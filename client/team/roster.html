@@ -16,8 +16,12 @@ no subs
 {{#if missingPlayers}}
   <ol>
     {{#each playersOff}}
-      <li>
-        {{firstName}} <span class="oweStuff">{{moneyOwed}}</span><span class="badge">{{gerseyNumber}}</span> <span class="glyphicon glyphicon-trash remove-sub"></span>
+      <li class="not-playing">
+      {{#if sPlayerId}}
+       <input type="text" class="edit-player" value="{{firstName}}">
+       {{else}}
+        {{firstName}} <span class="oweStuff">{{moneyOwed}}</span><span class="badge">{{gerseyNumber}}</span> <span class="glyphicon glyphicon-trash remove-sub"></span>{{sPlayerId}}
+      {{/if}}
       </li>
     {{/each}}
   </ol>

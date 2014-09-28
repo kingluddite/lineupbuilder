@@ -29,6 +29,10 @@ Template.tField.events({
   'click .remove-name': function(evt, tmpl) {
     Session.set('sPlayerId', this._id);
     removePlayer();
+  },
+  'click .player-edit': function(evt, tmpl) {
+    Session.set('sShowModal', true);
+    console.log('yo');
   }
 });
 
