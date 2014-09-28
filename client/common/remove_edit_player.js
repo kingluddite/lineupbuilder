@@ -14,7 +14,9 @@ Template.tRemoveEditPlayer.events({
         Session.set('sPlayerId', this._id);
         $("#modal-id").modal("show");
         var player = Players.findOne(Session.get("sPlayerId"));
+        // make dropdown equal to the current value in the collection record
         $(".game-status").val(player.gameStatus);
+        $(".field-position").val(player.fieldPosition);
     }
 });
 

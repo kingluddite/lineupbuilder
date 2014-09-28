@@ -8,17 +8,6 @@ Template.tAddPlayer.sPlayerId = function() {
   return Session.get('sPlayerId');
 };
 
-UI.body.events({
-  'click': function (evt, tmpl) {
-
-    // console.log( evt.target.nodeName );
-    if (evt.target.nodeName !== "BUTTON") {
-
-      Session.set("sPlayerEdit", false);
-    } 
-  }
-});
-
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
   // when someone clicks a class of player-edit
@@ -49,7 +38,7 @@ Template.tAddPlayer.events({
     var firstName = tmpl.find('.first-name').value;
     var fieldPosition = tmpl.find('.field-position').value;
     var gameStatus = tmpl.find('.game-status').value;
-    var gerseyNumber = tmpl.find('.gersey-number').value;
+    var jerseyNumber = tmpl.find('.jersey-number').value;
     var seasonFeeOwed = tmpl.find('.season-fee-owed').value;
     var seasonFeePaid = tmpl.find('.season-fee-paid').value;
     var gameNotes = tmpl.find('.game-notes').value;
@@ -61,7 +50,7 @@ Template.tAddPlayer.events({
     // call the addPlayer method (note below it is a variable that has a function tied to it)
     //  and pass the addPlayer method, the variable firstName (which remember..
     // hold whatever the user typed in the text box... the name of the player)
-    addPlayer(firstName, fieldPosition, gameStatus, gerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes);
+    addPlayer(firstName, fieldPosition, gameStatus, jerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes);
 
   },
   'keyup .season-fee-paid': function(evt, tmpl) {
@@ -76,7 +65,7 @@ Template.tAddPlayer.events({
     var firstName = $('.first-name').val();
     var fieldPosition = $('.field-position').val();
     var gameStatus = $('.game-status').val();
-    var gerseyNumber = $('.gersey-number').val();
+    var jerseyNumber = $('.jersey-number').val();
     var seasonFeeOwed = $('.season-fee-owed').val();
     var seasonFeePaid = $('.season-fee-paid').val();
     var gameNotes = $('.game-notes').val();
@@ -85,7 +74,7 @@ Template.tAddPlayer.events({
       // call the addPlayer method (note below it is a variable that has a function tied to it)
       //  and pass the addPlayer method, the variable firstName (which remember..
       // hold whatever the user typed in the text box... the name of the player)
-      addPlayer(firstName, fieldPosition, gameStatus, gerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes);
+      addPlayer(firstName, fieldPosition, gameStatus, jerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes);
     }
   }
 });
@@ -94,12 +83,12 @@ Template.tAddPlayer.events({
 // it takes the firstName argument that was passed and stores it in its parameter
 //   then the method takes the parameter value and uses MongoDb syntax
 //   to insert the name into our collection (aka table)
-var addPlayer = function(firstName, fieldPosition, gameStatus, gerseyNumber, seasonFeePaid, seasonFeeOwed, gameNotes) {
+var addPlayer = function(firstName, fieldPosition, gameStatus, jerseyNumber, seasonFeePaid, seasonFeeOwed, gameNotes) {
   Players.insert({
     firstName: firstName,
     fieldPosition: fieldPosition,
     gameStatus: gameStatus,
-    gerseyNumber: gerseyNumber,
+    jerseyNumber: jerseyNumber,
     seasonFeePaid: seasonFeePaid,
     seasonFeeOwed: seasonFeeOwed,
     gameNotes: gameNotes

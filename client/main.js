@@ -5,6 +5,17 @@ Session.setDefault("sPlayerId", null);
 
 // Meteor.subscribe('players');
 
+UI.body.events({
+  'click': function (evt, tmpl) {
+
+    // console.log( evt.target.nodeName );
+    if (evt.target.nodeName !== "BUTTON") {
+
+      Session.set("sPlayerEdit", false);
+    } 
+  }
+});
+
 UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
 
@@ -20,7 +31,10 @@ UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {
 UI.registerHelper('moneyOwed', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
   if (totalFeesStillOwed > 0) {
+    if (currentUser) {
+      
     return totalFeesStillOwed;
+    }
   } else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0 ) {
     return "yo";
   } else {

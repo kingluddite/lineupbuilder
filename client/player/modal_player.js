@@ -12,8 +12,6 @@ Template.tAddPlayer.sPlayerEdit = function() {
   return Session.get('sPlayerEdit');
 };
 
-// getting drop downs to populate properly
-
 
 
 Template.tModalPlayer.events({
@@ -21,24 +19,24 @@ Template.tModalPlayer.events({
     var firstName = $('.first-name').val();
     var gameStatus = $('.game-status').val();
     var fieldPosition = $('.field-position').val();
-    var gerseyNumber = $('.gersey-number').val();
+    var jerseyNumber = $('.jersey-number').val();
     var seasonFeeOwed = $('.season-fee-owed').val();
     var seasonFeePaid = $('.season-fee-paid').val();
     var gameNotes = $('.game-notes').val();
-    updatePlayer(firstName, gameStatus, fieldPosition, gerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes);
+    updatePlayer(firstName, gameStatus, fieldPosition, jerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes);
     $("#modal-id").modal("hide");
     Session.set('sPlayerId', null);
     Session.set('sPlayerEdit', false);
   }
 });
 
-var updatePlayer = function(firstName, gameStatus, fieldPosition, gerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes) {
+var updatePlayer = function(firstName, gameStatus, fieldPosition, jerseyNumber, seasonFeeOwed, seasonFeePaid, gameNotes) {
   Players.update(Session.get("sPlayerId"), {
     $set: {
       firstName: firstName,
       gameStatus: gameStatus,
       fieldPosition: fieldPosition,
-      gerseyNumber: gerseyNumber,
+      jerseyNumber: jerseyNumber,
       seasonFeeOwed: seasonFeeOwed,
       seasonFeePaid: seasonFeePaid,
       gameNotes: gameNotes

@@ -14,7 +14,21 @@
               <label for="firstName">First Name</label>
               <input type="text" class="first-name form-control" name="firstName" value="{{cPlayer.firstName}}" />
               <label for="fieldPosition">Field Position</label>
-              <input type="text" class="field-position form-control" name="fieldPosition" value="{{cPlayer.fieldPosition}}" />
+              <!-- <input type="text" class="field-position form-control" name="fieldPosition" value="{{cPlayer.fieldPosition}}" /> -->
+                <!-- <input type="text" class="form-control field-position" placeholder="field position"> -->
+                <select class="field-position form-control">
+                <option value="left-striker">Left Striker</option>
+                <option value="right-striker">Right Striker</option>
+                <option value="right-midfielder">Right Midfielder</option>
+                <option value="offensive-midfielder">Offensive Midfielder</option>
+                <option value="defensive-midfielder">Defensive Midfielder</option>
+                <option value="left-midfielder">Left Midfielder</option>
+                <option value="left-fullback">Left Fullback</option>
+                <option value="stopper">Stopper</option>
+                <option value="right-fullback">Sweeper</option>
+                <option value="goalie">Goalie</option>
+                <option value="none">None</option>
+              </select>
               <!-- <input type="text" class="game-status form-control" name="gameStatus" value="{{cPlayer.gameStatus}}" /> -->
               <label for="gameStatus">Game Status</label>
                <select class="game-status form-control">
@@ -24,8 +38,8 @@
                 <option value="out">Not Playing</option>
                 <option value="former">Former Player</option>
               </select>
-              <label for="gerseyNumber">Gersey Number</label>
-              <input type="text" class="gersey-number form-control" name="gerseyNumber" value="{{cPlayer.gerseyNumber}}" />
+              <label for="jerseyNumber">Jersey Number</label>
+              <input type="text" class="jersey-number form-control" name="jerseyNumber" value="{{cPlayer.jerseyNumber}}" />
               <label for="seasonFeeOwed">Season Fee Owed</label>
               <input type="text" class="season-fee-owed form-control" name="seasonFeeOwed" value="{{cPlayer.seasonFeeOwed}}" />
               <label for="seasonFeePaid">Season Fee Paid</label>

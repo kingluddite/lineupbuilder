@@ -1,10 +1,9 @@
 <template name="tStartingLineup">
-  {{#each cStarters}}
-  <div class="btn-group {{fieldPosition}}">
-    <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
-    {{#if currentUser}}
-    {{> tRemoveEditPlayer}}
-    <!-- <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+    {{#each cStarters}}
+    <div class="btn-group {{fieldPosition}}">
+        <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
+        {{#if currentUser}} {{> tRemoveEditPlayer}}
+        <!-- <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
       <span class="fa fa-caret-down"></span>
     </a>
     <ul class="dropdown-menu">
@@ -14,8 +13,8 @@
       </li>
       <li><span class="{{moneyOwedStyle}}">{{moneyOwed}}</span></li>
     </ul> -->
-    {{/if}}
+        {{/if}}
 
-  </div>
-  {{/each}}
+    </div>
+    {{/each}}
 </template>
