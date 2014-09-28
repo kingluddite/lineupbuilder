@@ -4,12 +4,8 @@
 		"selected_items":
 		[
 			[
-				"season",
-				"seasonFeePaid"
-			],
-			[
-				"seasonfeepaid",
-				"season-fee-paid"
+				"game",
+				"game-status"
 			],
 			[
 				"even",
@@ -91,32 +87,20 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 387.0,
+		"height": 207.0,
 		"selected_items":
 		[
 			[
-				"save",
-				"Project: Save As"
-			],
-			[
-				"proj",
-				"Project: Save As"
-			],
-			[
-				"gist",
-				"Gist: Insert Gist"
+				"metif",
+				"Snippet: Meteor {{#if}}"
 			],
 			[
 				"met",
 				"Snippet: Meteor Template Tag"
 			],
 			[
-				"sav",
+				"save",
 				"Project: Save As"
-			],
-			[
-				"add",
-				"Project: Add Folder"
 			],
 			[
 				"packrm",
@@ -124,6 +108,10 @@
 			],
 			[
 				"gi",
+				"Gist: Insert Gist"
+			],
+			[
+				"gist",
 				"Gist: Insert Gist"
 			],
 			[
@@ -145,6 +133,10 @@
 			[
 				"proje",
 				"Project: Save As"
+			],
+			[
+				"add",
+				"Project: Add Folder"
 			],
 			[
 				"git",
@@ -219,10 +211,6 @@
 				"Snippet: label-text-input"
 			],
 			[
-				"metif",
-				"Snippet: Meteor {{#if}}"
-			],
-			[
 				"label",
 				"Snippet: label-text-input"
 			],
@@ -277,6 +265,10 @@
 			[
 				"mod",
 				"Snippet: bs3-modal"
+			],
+			[
+				"sav",
+				"Project: Save As"
 			],
 			[
 				"clo",
@@ -471,6 +463,10 @@
 				"Preferences: Browse Packages"
 			],
 			[
+				"proj",
+				"Project: Save As"
+			],
+			[
 				"inst",
 				"Package Control: Install Package"
 			],
@@ -503,47 +499,37 @@
 	[
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/field",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/common",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/css",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player/add",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player/edit",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team"
 	],
 	"file_history":
 	[
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player/add/add_player.js",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/field/field.less",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/field/field.js",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/roster.js",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/roster.less",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/field/field.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/common/remove_edit_player.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/not_playing.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/former_players.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/former_players.js",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/subs.html",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/roster.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/starters.js",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/starters.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player/modal_player.js",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/main.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/starting_lineup.html",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player/add/add_player.html",
-		"/Users/phowley/.bash_profile",
-		"/Users/phowley/Desktop/week_08_lub/client/player/add/add_player.js",
-		"/Users/phowley/Desktop/week_08_lub/client/main.html",
-		"/Users/phowley/Desktop/week_08_lub/client/player/add/add_player.html",
-		"/Users/phowley/Desktop/week_08_lub/client/main.js",
-		"/Users/phowley/Desktop/lubuilder/client/main.js",
-		"/Users/phowley/Desktop/lubuilder/client/edit_player.js",
-		"/Users/phowley/Desktop/lubuilder/client/edit_player.html",
-		"/Users/phowley/Desktop/lubuilder/client/main.html",
-		"/Users/phowley/Desktop/lubuilder/client/css/styles.less",
-		"/Users/phowley/Desktop/lubuilder/collections/player.js",
-		"/Users/phowley/Desktop/lubuilder/lubuilder.html",
-		"/Users/phowley/Desktop/lubuilder/server/main.js",
-		"/Users/phowley/Desktop/lubuilder/lubuilder.js",
-		"/Users/phowley/Desktop/lubuilder/lubuilder.css",
-		"/Users/phowley/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/views/pages/schedule/junk.js",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/views/pages/schedule/schedule.html",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/views/pages/schedule/edit/schedule_edit.js",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/views/pages/schedule/edit/schedule_edit.html",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/views/pages/schedule/item/schedule_item.js",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/views/pages/schedule/schedule.js",
-		"/Users/phowley/Desktop/new_and_improved_scheduler/client/main.js",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/player/modal_player.html",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/legacy_players.js",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/.meteor/local/build/programs/ctl/node_modules/cordova/node_modules/cordova-lib/node_modules/shelljs/test/resources/find/dir1/a_dir1",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/team/all_players.html",
+		"/Users/phowley/Library/Application Support/Sublime Text 3/Packages/User/Gist.sublime-settings",
+		"/Users/phowley/Dropbox/meteor-stuff/goal/client/views/pages/cardio/edit/edit_cardio.html",
 		"/Users/phowley/Dropbox/meteor-stuff/goal/lib/router.js",
 		"/Users/phowley/Library/Application Support/Sublime Text 3/Packages/Gist/Gist.sublime-settings",
-		"/Users/phowley/Library/Application Support/Sublime Text 3/Packages/User/Gist.sublime-settings",
 		"/Users/phowley/Dropbox/meteor-stuff/goal/client/config/goal.sublime-project",
+		"/Users/phowley/.bash_profile",
 		"/var/folders/j7/wqmn83993fv38f7k3vjxp5wr0000gn/T/add_to_github.html",
 		"/Users/phowley/Desktop/fba2/client/views/pages/car_item.html",
 		"/Users/phowley/Desktop/fba2/client/views/pages/projects/cars.js",
@@ -636,7 +622,20 @@
 		"/Users/phowley/Desktop/fba2/client/views/pages/homepage.html",
 		"/Users/phowley/Desktop/full_blown_app/client/views/projects.html",
 		"/Users/phowley/Desktop/full_blown_app/client/views/about.html",
-		"/Users/phowley/Desktop/full_blown_app/lib/router.js"
+		"/Users/phowley/Desktop/full_blown_app/lib/router.js",
+		"/Users/phowley/Desktop/full_blown_app/client/views/menu.html",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/client/main.js",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/client/views/calendar/edit_event.html",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/client/views/calendar/calendar.html",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/client/views/calendar/calendar.js",
+		"/Users/phowley/Library/Application Support/Sublime Text 3/Packages/User/html/input-text.sublime-snippet",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/packages/iron-router/.build/npm/node_modules/connect/lib/middleware/methodOverride.js",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/.meteor/local/build/programs/ctl/node_modules/esprima/test/module.html",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/router.js",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/collections/calendar.js",
+		"/Users/phowley/Library/Application Support/Sublime Text 3/Packages/User/javascript/def-meteor-session.sublime-snippet",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/client/main.html",
+		"/Users/phowley/Dropbox/meteor-stuff/calendar_app_tutorial/.meteor/local/build/programs/server/npm/minifiers/main/node_modules/uglify-js/lib/mozilla-ast.js"
 	],
 	"find":
 	{
@@ -654,9 +653,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"class=\"",
-			"tMainApp",
-			"span",
+			"tSubs",
+			"cAllPlayers",
 			"i",
 			"client",
 			"child",
@@ -710,7 +708,7 @@
 		[
 			"Done"
 		],
-		"reverse": true,
+		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -726,7 +724,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 41.0
+		"height": 33.0
 	},
 	"input":
 	{
@@ -763,7 +761,7 @@
 	{
 		"height": 0.0
 	},
-	"project": "week_09.sublime-project",
+	"project": "lub.sublime-project",
 	"replace":
 	{
 		"height": 62.0
@@ -775,12 +773,8 @@
 		"selected_items":
 		[
 			[
-				"main.html",
-				"client/main.html"
-			],
-			[
-				"main",
-				"client/main.js"
+				"add",
+				"client/player/add/add_player.html"
 			],
 			[
 				"cars",
@@ -829,6 +823,10 @@
 			[
 				"players.js",
 				"client/views/pages/players/players.js"
+			],
+			[
+				"main",
+				"client/main.js"
 			],
 			[
 				"cal",
@@ -920,7 +918,11 @@
 		[
 			[
 				"",
-				"~/Dropbox/meteor-stuff/goal/client/config/goal.sublime-project"
+				"~/Dropbox/meteor-stuff/lub_v2/config/week_09.sublime-project"
+			],
+			[
+				"car",
+				"~/Dropbox/meteor-stuff/carbrands/client/config/carbrands.sublime-project"
 			],
 			[
 				"go",

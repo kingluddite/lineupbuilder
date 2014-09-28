@@ -1,6 +1,8 @@
-Template.tRoster.players = function() {
+Template.tRoster.cRoster = function() {
   return Players.find({
-    gameStatus: "sub"
+    gameStatus: {
+      $in: ["starting", "sub"]
+    }
   }, {
     sort: {
       firstName: 1
@@ -23,43 +25,15 @@ Template.tRoster.playersOff = function() {
 };
 
 Template.tRoster.helpers({
-  haveSubs: function() {
-    if (Players.find({
-      gameStatus: "sub"
-    }).count() > 0) {
-      return true;
-    }
-  },
-  missingPlayers: function() {
-    if (Players.find({
-      gameStatus: "out"
-    }).count() > 0) {
-      return true;
-    }
-  },
-  moneyOwed: function(evt, tmpl) {
-    var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
-    if (totalFeesStillOwed > 0) {
-      return "$" + totalFeesStillOwed;
-    }
-  }
 
-});
-
-Template.tRoster.events({
-  'click .remove-sub': function(evt, tmpl) {
-    Session.set('sPlayerId', this._id);
-    removePlayer();
-    Session.set('sPlayerId', null);
+  gameDayRosterCount: function() {
+    return Players.find({
+      gameStatus: {
+        $in: ["starting", "sub"]
+      }
+    }).count();
   },
-  'click .not-playing': function(evt, tmpl) {
-    console.log('yo');
-    Session.equals('sPlayerId', this._id);
+  totalRoster: function() {
+    return Players.find().count();
   }
 });
-
-var removePlayer = function() {
-  Players.remove({
-    _id: Session.get('sPlayerId')
-  });
-};
