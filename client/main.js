@@ -30,11 +30,8 @@ UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {
 
 UI.registerHelper('moneyOwed', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
-  if (totalFeesStillOwed > 0) {
-    if (currentUser) {
-      
+  if (totalFeesStillOwed > 0) { 
     return totalFeesStillOwed;
-    }
   } else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0 ) {
     return "yo";
   } else {
