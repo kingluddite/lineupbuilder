@@ -9,6 +9,17 @@ Template.tRoster.cRoster = function() {
     }
   });
 };
+Template.tRoster.cStarters = function() {
+  return Players.find({
+    gameStatus: {
+      $in: ["starting"]
+    }
+  }, {
+    sort: {
+      firstName: 1
+    }
+  });
+};
 
 Template.tRoster.sPlayerId = function() {
   return Session.get('sPlayerId');

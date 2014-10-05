@@ -4,13 +4,13 @@
 <p class="badge">{{totalRoster}} total players</p>
 {{#if cRoster}}
   <ol>
-    {{#each cRoster}}
+    {{#each cStarters}}
       <li>
         {{> tPlayerInfo}}
         
         <ul>
           <li>{{fieldPosition}}</li>
-          <li>{{> tRemoveEditPlayer}}</li>
+         {{#if currentUser}} <li>{{> tRemoveEditPlayer}}</li>{{/if}}
         </ul>
       </li>
     {{/each}}
