@@ -16,6 +16,37 @@ Meteor.startup(function() {
     }
   });
 
+  if (Teams.find().count() === 0) {
+    Teams.insert({
+      "teamName": "Civitas FC",
+      "teamLogo": "none.jpg"
+    });
+    Teams.insert({
+      "teamName": "Civitas United",
+      "teamLogo": "none.jpg"
+    });
+
+  }
+
+  if (Seasons.find().count() === 0) {
+    Seasons.insert({
+      "seasonName": "Civitas FC",
+      "seasonStartDate": "none.jpg",
+      "homeTeamId": "none.jpg",
+      "awayTeamId": "none.jpg",
+      "homeTeamScore": "none.jpg",
+      "awayTeamScore": "none.jpg"
+    });
+    Seasons.insert({
+      "seasonName": "Civitas FC",
+      "seasonStartDate": "none.jpg",
+      "homeTeamId": "none.jpg",
+      "awayTeamId": "none.jpg",
+      "homeTeamScore": "none.jpg",
+      "awayTeamScore": "none.jpg"
+    });
+  }
+
   if (Players.find().count() === 0) {
     Players.insert({
       "firstName": "Phil",

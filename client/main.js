@@ -33,7 +33,7 @@ UI.registerHelper('moneyOwed', function(evt, tmpl) {
   if (totalFeesStillOwed > 0) { 
     return totalFeesStillOwed;
   } else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0 ) {
-    return "yo";
+    return "problem";
   } else {
     return;
   }

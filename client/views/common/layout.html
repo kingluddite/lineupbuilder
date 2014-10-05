@@ -3,6 +3,12 @@
     <div class="navbar">
     <h1><a class="brand" href="{{pathFor 'tHome'}}">Civitas FC</a></h1>
     
+      <ul class="nav navbar-nav">
+        {{> loginButtons}}
+        <li>
+          <a href="{{pathFor 'tFormerPlayers'}}">Former Players</a>
+        </li>
+      </ul>
     </div>
     {{> yield}}
 {{> tModalPlayer}}
