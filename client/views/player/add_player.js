@@ -8,10 +8,6 @@ Template.tAddPlayer.sPlayerId = function() {
   return Session.get('sPlayerId');
 };
 
-Template.tAddPlayer.rendered = function() {
-  $('#firstName').focus();
-};
-
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
   // when someone clicks a class of player-add
@@ -50,7 +46,7 @@ Template.tAddPlayer.events({
       if (error) {
         return alert(error.reason);
       }
-      Router.go('playerPage', _id: id);
+      Router.go('playerPage', {_id: id});
     });
 
 

@@ -18,9 +18,10 @@ Meteor.methods({
       // check that there are no previous posts with the same link
       // if (postAttributes.url && postWithSameLink) {
         // throw new Meteor.Error(302, 'This link has already been posted', postWithSameLink.id);
-      }
+      //}
 
       // pick out the whitelisted keys
+      // Those on the list will be accepted, approved or recognized
       var post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), 
       {
         userId: user._id,
