@@ -1,5 +1,39 @@
 Players = new Meteor.Collection('players');
 
+Meteor.methods({
+  player: function(postAttributes) {
+    var user = Meteor.user(),
+      postWithSameLink = Players.findOne({firstName: postAttributes.firstName});
+
+      // ensure the user is logged in
+      if (!user) {
+        throw new Meteor.Error(401, "You need to login to add new players");
+      }
+
+      // ensure the post has a title
+      if (!postAttributes.jerseyNumber) {
+        throw new Meteor.Error(422, "Please provide a gersey number");
+      }
+
+      // check that there are no previous posts with the same link
+      // if (postAttributes.url && postWithSameLink) {
+        // throw new Meteor.Error(302, 'This link has already been posted', postWithSameLink.id);
+      }
+
+      // pick out the whitelisted keys
+      var post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), 
+      {
+        userId: user._id,
+        author: user.username,
+        submitted: new Date().getTime()
+      });
+
+      var playerId = Players.insert(player);
+
+      return playerId;
+  }
+})
+
 Players.allow({
   insert: function(userId, doc) {
     // only allow posting if you are logged in

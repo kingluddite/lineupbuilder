@@ -46,11 +46,17 @@ Template.tAddPlayer.events({
       playerNotes: $(evt.target).find('[name=playerNotes]').val(),
     };
 
+    Meteor.call('player', player, function(error, id) {
+      if (error) {
+        return alert(error.reason);
+      }
+      Router.go('playerPage', _id: id);
+    });
+
 
     Session.set("sPlayerEdit", false);
 
-    player._id = Players.insert(player);
-    Router.go('playerPage', player);
+    // player._id = Players.insert(player); // we use a meteor call method instead of inserting directly into the Player's collection
   },
 
   'keyup .season-fee-paid': function(evt, tmpl) {
