@@ -42,6 +42,8 @@ minimongo@1.0.3
 mizzao:bootstrap-3@3.2.0_1
 mobile-status-bar@1.0.0
 mongo@1.0.6
+mrt:moment@2.8.1
+mrt:numeral@1.5.3
 natestrauser:font-awesome@4.2.0
 npm-bcrypt@0.7.7
 observe-sequence@1.0.2

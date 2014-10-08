@@ -2,8 +2,8 @@ Players = new Meteor.Collection('players');
 
 Meteor.methods({
   player: function(postAttributes) {
-    var user = Meteor.user(),
-      postWithSameLink = Players.findOne({firstName: postAttributes.firstName});
+    var user = Meteor.user();
+      //, postWithSameLink = Players.findOne({firstName: postAttributes.firstName});
 
       // ensure the user is logged in
       if (!user) {
@@ -12,7 +12,7 @@ Meteor.methods({
 
       // ensure the post has a title
       if (!postAttributes.jerseyNumber) {
-        throw new Meteor.Error(422, "Please provide a gersey number");
+        throw new Meteor.Error(422, "Please provide a jersey number");
       }
 
       // check that there are no previous posts with the same link
@@ -22,8 +22,9 @@ Meteor.methods({
 
       // pick out the whitelisted keys
       // Those on the list will be accepted, approved or recognized
-      var post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), 
+      var player = _.extend(_.pick(postAttributes, 'firstName', 'fieldPosition', 'gameStatus', 'jerseyNumber', 'seasonFeeOwed', 'seasonFeePaid', 'playerNotes'), 
       {
+
         userId: user._id,
         author: user.username,
         submitted: new Date().getTime()
@@ -33,7 +34,7 @@ Meteor.methods({
 
       return playerId;
   }
-})
+});
 
 Players.allow({
   insert: function(userId, doc) {

@@ -38,3 +38,21 @@ UI.registerHelper('moneyOwed', function(evt, tmpl) {
     return;
   }
 });
+
+Handlebars.registerHelper("formatDate", function(datetime) {
+  if (moment) {
+    return moment(datetime).format("MM/DD/YYYY");
+  }
+  else {
+    return datetime;
+  }
+});
+
+Handlebars.registerHelper("formatPrice", function(price) {
+  if (numeral) {
+    return numeral(price).format('$0.00');
+  }
+  else {
+    return price;
+  }
+});
