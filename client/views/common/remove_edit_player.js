@@ -4,9 +4,13 @@ Template.tRemoveEditPlayer.sPlayerId = function() {
 
 Template.tRemoveEditPlayer.events({
     'click .remove-player': function(evt, tmpl) {
-        Session.set('sPlayerId', this._id);
-        removePlayer();
-        Session.set('sPlayerId', null);
+        evt.preventDefault();
+
+        if (confirm("Delete this post?")) {
+          Session.set('sPlayerId', this._id);
+          removePlayer();
+          Session.set('sPlayerId', null);  
+        }
     },
     'click .edit-player': function(evt, tmpl) {
         // need access to session
@@ -19,6 +23,15 @@ Template.tRemoveEditPlayer.events({
         $(".game-status").val(player.gameStatus);
         $(".field-position").val(player.fieldPosition);
     }
+  //   'click .delete': function(e) {
+  //   e.preventDefault();
+
+  //   if (confirm("Delete this post?")) {
+  //     var currentPostId = this._id;
+  //     Posts.remove(currentPostId);
+  //     Router.go('postsList');
+  //   }
+  // }
 });
 
 
