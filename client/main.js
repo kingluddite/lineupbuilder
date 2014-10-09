@@ -3,7 +3,7 @@ Session.setDefault("sPlayerEdit", false);
 // set the id when editing player
 Session.setDefault("sPlayerId", null);
 
-// Meteor.subscribe('players');
+// Meteor.subscribe('players'); // old way to subscribe to published data. better way is through the route
 
 UI.body.events({
   'click': function (evt, tmpl) {
@@ -16,6 +16,7 @@ UI.body.events({
   }
 });
 
+// color code using css classes the player's current money sitation with the team
 UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
 
@@ -28,6 +29,7 @@ UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {
   }
 });
 
+// global way to highlight if a player owes money
 UI.registerHelper('moneyOwed', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
   if (totalFeesStillOwed > 0) { 
@@ -39,6 +41,7 @@ UI.registerHelper('moneyOwed', function(evt, tmpl) {
   }
 });
 
+// allows you to easily format JavaScript dates
 Handlebars.registerHelper("formatDate", function(datetime) {
   if (moment) {
     return moment(datetime).format("MM/DD/YYYY");
@@ -48,6 +51,7 @@ Handlebars.registerHelper("formatDate", function(datetime) {
   }
 });
 
+// show money in the form of $0.00
 Handlebars.registerHelper("formatPrice", function(price) {
   if (numeral) {
     return numeral(price).format('$0.00');
