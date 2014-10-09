@@ -19,13 +19,6 @@ Template.tAddPlayer.events({
     // if (Session.get("sPlayerEdit", false)) {
     Session.set("sPlayerEdit", true);
     // }
-    // tmpl.find('.first-name').focus();
-
-  },
-  // when someone clicks a class of player-remove
-  // set the session sPlayerEdit to false
-  'click .player-close': function() {
-    Session.set("sPlayerEdit", false);
 
   },
 
