@@ -2,19 +2,27 @@
 Session.setDefault("sPlayerEdit", false);
 // set the id when editing player
 Session.setDefault("sPlayerId", null);
+Session.setDefault("sTeamEdit", null);
+Session.setDefault("sTeamId", null);
 
 // Meteor.subscribe('players'); // old way to subscribe to published data. better way is through the route
 
 UI.body.events({
   'click': function (evt, tmpl) {
 
+    console.log('you clicked close');
     // console.log( evt.target.nodeName );
     if (evt.target.nodeName !== "BUTTON") {
 
       Session.set("sPlayerEdit", false);
     } 
+  },
+  // anytime someone click close icon, close open box
+  'click .close': function() {
+    Session.set("sPlayerEdit", false);
   }
 });
+
 
 // color code using css classes the player's current money sitation with the team
 UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {

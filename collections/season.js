@@ -7,8 +7,6 @@
 // awayTeamScore
 
 Seasons = new Meteor.Collection('seasons');
-
-Teams = new Meteor.Collection('teams');
 // id
 // teamName
 // teamLogo
