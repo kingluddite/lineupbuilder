@@ -1,8 +1,8 @@
-<template name="tRoster">
+<template name="tCurrentRoster">
 <h2>Game Day Roster</h2>
 <p class="badge">{{gameDayRosterCount}} players this week</p>
-<p class="badge">{{totalRoster}} total players</p>
-{{#if cRoster}}
+<p class="badge">{{totalCurrentRoster}} total players</p>
+{{#if cCurrentRoster}}
   <ol>
     {{#each cStarters}}
       <li>

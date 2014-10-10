@@ -7,21 +7,22 @@ Session.setDefault("sTeamId", null);
 
 // Meteor.subscribe('players'); // old way to subscribe to published data. better way is through the route
 
-UI.body.events({
-  'click': function (evt, tmpl) {
+// UI.body.events({
+//   // 'click': function (evt, tmpl) {
 
-    console.log('you clicked close');
-    // console.log( evt.target.nodeName );
-    if (evt.target.nodeName !== "BUTTON") {
+//   //   console.log('you clicked close');
+//   //   // console.log( evt.target.nodeName );
+//   //   if (evt.target.nodeName !== "BUTTON") {
 
-      Session.set("sPlayerEdit", false);
-    } 
-  },
-  // anytime someone click close icon, close open box
-  'click .close': function() {
-    Session.set("sPlayerEdit", false);
-  }
-});
+//   //     Session.set("sPlayerEdit", false);
+//   //   } 
+//   // },
+//   // anytime someone click close icon, close open box
+//   'click .close-box': function(evt, tmpl) {
+//     console.log('close');
+//     Session.set("sPlayerEdit", false);
+//   }
+// });
 
 
 // color code using css classes the player's current money sitation with the team

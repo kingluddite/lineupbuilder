@@ -1,4 +1,4 @@
-Template.tRoster.cRoster = function() {
+Template.tCurrentRoster.cCurrentRoster = function() {
   return Players.find({
     gameStatus: {
       $in: ["starting", "sub"]
@@ -9,7 +9,7 @@ Template.tRoster.cRoster = function() {
     }
   });
 };
-Template.tRoster.cStarters = function() {
+Template.tCurrentRoster.cStarters = function() {
   return Players.find({
     gameStatus: {
       $in: ["starting"]
@@ -21,11 +21,11 @@ Template.tRoster.cStarters = function() {
   });
 };
 
-Template.tRoster.sPlayerId = function() {
+Template.tCurrentRoster.sPlayerId = function() {
   return Session.get('sPlayerId');
 };
 
-Template.tRoster.playersOff = function() {
+Template.tCurrentRoster.playersOff = function() {
   return Players.find({
     gameStatus: "out"
   }, {
@@ -35,7 +35,7 @@ Template.tRoster.playersOff = function() {
   });
 };
 
-Template.tRoster.helpers({
+Template.tCurrentRoster.helpers({
 
   gameDayRosterCount: function() {
     return Players.find({
@@ -44,7 +44,7 @@ Template.tRoster.helpers({
       }
     }).count();
   },
-  totalRoster: function() {
+  totalCurrentRoster: function() {
     return Players.find().count();
   }
 });

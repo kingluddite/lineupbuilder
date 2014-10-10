@@ -22,6 +22,10 @@ Template.tAddPlayer.events({
 
   },
 
+  'click .close-box': function(evt, tmpl) {
+    Session.set("sPlayerEdit", false);
+  },
+
   'submit form': function(evt) {
     evt.preventDefault();
 

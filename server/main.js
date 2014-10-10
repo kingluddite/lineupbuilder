@@ -1,9 +1,21 @@
-Meteor.publish('players', function(){
-  return Players.find();
+Meteor.publish('leagues', function(){
+  return Teams.find();
+});
+
+Meteor.publish('seasons', function(){
+  return Teams.find();
+});
+
+Meteor.publish('games', function(){
+  return Teams.find();
 });
 
 Meteor.publish('teams', function(){
   return Teams.find();
+});
+
+Meteor.publish('players', function(){
+  return Players.find();
 });
 
 Meteor.startup(function() {
