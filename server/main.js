@@ -1,13 +1,25 @@
+Meteor.publish('leagues', function(){
+  return Teams.find();
+});
+
+Meteor.publish('seasons', function(){
+  return Teams.find();
+});
+
+Meteor.publish('games', function(){
+  return Teams.find();
+});
+
+Meteor.publish('teams', function(){
+  return Teams.find();
+});
+
 Meteor.publish('players', function(){
   return Players.find({ownerId:this.userId});
 });
 
 Meteor.startup(function() {
-  //BrowserPolicy.content.allowOriginForAll('*.bootstrapcdn.com');
-  // code to run on server at startup
-  // put this on the server
-  // call it on the console to remove all your data
-// and start on a clean sheet
+  
 //Meteor.call('removeAll')
   Meteor.methods({
     removeAll: function() {

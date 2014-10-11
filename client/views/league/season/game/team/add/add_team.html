@@ -1,0 +1,32 @@
+<template name="tAddTeam">
+    <div class="team-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="team">
+                    <a type="button" class="btn btn-default btn-lg team-add">
+                        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Team
+                    </a>
+                    {{#if sTeamEdit}}
+                    <form name="frmAddTeam">
+                        <input type="text" class="form-control" name="teamName" placeholder="team name" />
+                        <input type="submit" value="submit">
+                    </form>
+                    <a class="btn btn-success btn-xs team-add">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                    <a type="button" class="btn btn-danger btn-xs close">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                    {{/if}}
+                </div>
+                <!-- END .team -->
+            </div><!-- END .col6 -->
+        </div><!-- END .row -->
+      <ol>
+      {{#each cTeams}}
+        <li>{{teamName}}</li>
+      {{/each}}
+      </ol>
+    </div>
+    <!-- END .team-container -->
+</template>

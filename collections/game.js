@@ -1,23 +1,22 @@
-Players = new Meteor.Collection('players');
+Games = new Meteor.Collection('games');
 
 Meteor.methods({
-  player: function(postAttributes) {
+  game: function(postAttributes) {
     var user = Meteor.user();
-      //, postWithSameLink = Players.findOne({firstName: postAttributes.firstName});
 
       // ensure the user is logged in
       if (!user) {
-        throw new Meteor.Error(401, "You need to login to add new players");
+        throw new Meteor.Error(401, "You need to login to add new Games");
       }
 
       // ensure the post has a title
-      if (!postAttributes.jerseyNumber) {
-        throw new Meteor.Error(422, "Please provide a jersey number");
+      if (!postAttributes.gameDate) {
+        throw new Meteor.Error(422, "Please provide a season name");
       }
 
       // pick out the whitelisted keys
       // Those on the list will be accepted, approved or recognized
-      var player = _.extend(_.pick(postAttributes, 'firstName', 'fieldPosition', 'gameStatus', 'jerseyNumber', 'seasonFeeOwed', 'seasonFeePaid', 'playerNotes'), 
+      var game = _.extend(_.pick(postAttributes, 'gameDate, homeTeam, awayTeam, homeScore, awayScore, gameNotes'), 
       {
 
         userId: user._id,
@@ -25,15 +24,13 @@ Meteor.methods({
         submitted: new Date().getTime()
       });
 
-      var playerId = Players.insert(player);
+      var gameId = Games.insert(game);
 
-      return playerId;
+      return gameId;
   }
 });
 
-
-
-Players.allow({
+Games.allow({
   insert: function(userId, doc) {
     // only allow posting if you are logged in
     return !! userId;

@@ -1,0 +1,10 @@
+<template name="tStartingLineup">
+    {{#each cStarters}}
+    <div class="btn-group {{fieldPosition}}">
+        <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
+        {{#if currentUser}} 
+          {{> tRemoveEditPlayer}}
+        {{/if}}
+    </div>
+    {{/each}}
+</template>
