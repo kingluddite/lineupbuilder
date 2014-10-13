@@ -30,6 +30,12 @@
                                 <option value="goalie">Goalie</option>
                                 <option value="none">None</option>
                             </select>
+                            <label for="gameStatus">Team Name</label>
+                            <select class="team-name form-control">
+                            {{#each cTeams}}
+                                <option value="{{_id}}">{{teamName}}</option>
+                            {{/each}}
+                            </select>
                             <!-- <input type="text" class="game-status form-control" name="gameStatus" value="{{cPlayer.gameStatus}}" /> -->
                             <label for="gameStatus">Game Status</label>
                             <select class="game-status form-control">

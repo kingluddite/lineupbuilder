@@ -8,7 +8,8 @@ Template.tSubs.sPlayerId = function() {
 
 Template.tSubs.cPlayers = function() {
   return Players.find({
-    gameStatus: "sub"
+    // gameStatus: "sub"
+// teamId: "SpjgPkWe37qb3xQ8q"
   }, {
     sort: {
       firstName: 1

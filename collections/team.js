@@ -11,7 +11,7 @@ Meteor.methods({
     if(!postAttributes.teamName) {
       throw new Meteor.Error(422, "Please provide a team name");
     }
-    console.log(user);
+    
     var team = _.extend(_.pick(postAttributes, 'teamName'), 
       {
 

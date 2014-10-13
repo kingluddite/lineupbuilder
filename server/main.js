@@ -1,13 +1,19 @@
-Meteor.publish('leagues', function(){
-  return Teams.find();
-});
 
-Meteor.publish('seasons', function(){
-  return Teams.find();
-});
 
-Meteor.publish('games', function(){
-  return Teams.find();
+// Meteor.publish('leagues', function(){
+//   return Leagues.find();
+// });
+
+// Meteor.publish('seasons', function(){
+//   return Seasons.find();
+// });
+
+// Meteor.publish('games', function(){
+//   return Games.find();
+// });
+
+Meteor.publish('states', function(){
+  return States.find();
 });
 
 Meteor.publish('teams', function(){
@@ -15,15 +21,15 @@ Meteor.publish('teams', function(){
 });
 
 Meteor.publish('players', function(){
-  return Players.find({ownerId:this.userId});
+  return Players.find();
 });
 
 Meteor.startup(function() {
-  
+
 //Meteor.call('removeAll')
   Meteor.methods({
     removeAll: function() {
-      Players.remove({});
+      Zips.remove({});
       // add other collections if you need to
     }
   });
