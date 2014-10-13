@@ -95,42 +95,48 @@
 			"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/main.js",
 			"settings":
 			{
-				"buffer_size": 1583,
+				"buffer_size": 1975,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "<template name=\"tAddTeam\">\n    <div class=\"team-container\">\n        <div class=\"row\">\n            <div class=\"col-xs-6 col-sm-6 col-md-6 col-lg-6\">\n                <div class=\"team\">\n                    <a type=\"button\" class=\"btn btn-default btn-lg team-add\">\n                        <span class=\"glyphicon glyphicon-user\">&nbsp;</span>Add Team\n                    </a>\n                    {{#if sTeamEdit}}\n                    <form name=\"frmAddTeam\">\n                        <input type=\"text\" class=\"form-control\" name=\"teamName\" placeholder=\"team name\" />\n                        <input type=\"submit\" value=\"submit\">\n                    </form>\n                    <a class=\"btn btn-success btn-xs team-add\">\n                        <span class=\"glyphicon glyphicon-ok\"></span>\n                    </a>\n                    <a type=\"button\" class=\"btn btn-danger btn-xs close\">\n                        <span class=\"glyphicon glyphicon-remove\"></span>\n                    </a>\n                    {{/if}}\n                </div>\n                <!-- END .team -->\n            </div><!-- END .col6 -->\n        </div><!-- END .row -->\n      <ol>\n      {{#each cTeams}}\n        <li>{{teamName}}</li>\n      {{/each}}\n      </ol>\n    </div>\n    <!-- END .team-container -->\n</template>\n",
 			"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team/add_team.html",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 1282,
+				"buffer_size": 1283,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "Template.tRemoveEditPlayer.sPlayerId = function() {\n  return Session.get('sPlayerId');\n};\n\nTemplate.tRemoveEditPlayer.events({\n    'click .remove-player': function(evt, tmpl) {\n        evt.preventDefault();\n\n        if (confirm(\"Delete this post?\")) {\n          Session.set('sPlayerId', this._id);\n          removePlayer();\n          Session.set('sPlayerId', null);  \n        }\n    },\n    'click .edit-player': function(evt, tmpl) {\n        // need access to session\n        Session.set('sPlayerId', this._id);\n        $(\"#modal-id\").modal(\"show\");\n        setTimeout(function() { $('input[name=\"firstName\"]').focus(); }, 500);\n        setTimeout(function() { $('input[name=\"firstName\"]').select(); }, 500);\n        var player = Players.findOne(Session.get(\"sPlayerId\"));\n        // make dropdown equal to the current value in the collection record\n        $(\".game-status\").val(player.gameStatus);\n        $(\".field-position\").val(player.fieldPosition);\n    }\n});\n\n\n\nvar removePlayer = function() {\n    Players.remove({\n        _id: Session.get('sPlayerId')\n    });\n};\n",
+			"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/common/remove_edit_player.js",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 1070,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Template.tAddTeam.cTeams = function() {\n  return Teams.find();\n};\n\n\n\nTemplate.tAddTeam.sTeamId = function() {\n  return Session.get('sTeamId');\n};\n\nTemplate.tAddTeam.sTeamEdit = function() {\n  return Session.get('sTeamEdit');\n};\n\n// adding events to our templates (duh!)\nTemplate.tAddTeam.events({\n  // when someone clicks a class of player-add\n  // set the session sPlayerEdit to true\n  'click .team-add': function(evt, tmpl) {\n    // makes focus on first form work as it should\n  setTimeout(function() { $('input[name=\"teamName\"]').focus(); }, 500);\n    Session.set(\"sTeamEdit\", true);\n  },\n\n  'click .close':function(evt, tmpl) {\n    Session.set(\"sTeamEdit\", false);\n  },\n\n  'submit form': function(evt) {\n    evt.preventDefault();\n\n    var team = {\n      teamName: $(evt.target).find('[name=teamName]').val()\n    };\n    console.log(team.teamName);\n    Meteor.call('team', team, function(error, id) {\n      if (error) {\n        return alert(error.reason);\n      }\n      // Router.go('playerPage', {_id: id});\n    });\n\n\n    Session.set(\"sTeamEdit\", false);\n\n    // team._id = Teams.insert(team); // we use a meteor call method instead of inserting directly into the Player's collection\n  }\n});\n",
 			"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team/add_team.js",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 1194,
+				"buffer_size": 1195,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/server/main.js",
-			"settings":
-			{
-				"buffer_size": 9008,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Router.configure({\n  layoutTemplate: 'layout',\n  loadingTemplate: 'loading',\n  waitOn: function() { return Meteor.subscribe({'players'); }\n});\n\nRouter.map(function() {\n  this.route('tHome', {path: '/'});\n  this.route('tFormerPlayers', {path: '/former_players'});\n  this.route('playerPage', {\n    path: '/players/:_id',\n    data: function() { return Players.findOne(this.params._id); }\n  });\n  this.route('tAddPlayer', {\n    path: '/add/player'\n  });\n  this.route('tAddTeam', {\n    path: '/add/team'\n  });\n});\nvar requireLogin = function(pause) {\n  if (!Meteor.user()) {\n    if(Meteor.loggingIn()) {\n      this.render(this.loadingTemplate);\n    } else {\n      this.render('accessDenied');\n    }\n    pause();\n  }\n};\nRouter.onBeforeAction('loading');\nRouter.onBeforeAction(requireLogin, {only: 'tFormerPlayers'});",
 			"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/lib/router.js",
-			"file_size": 809,
-			"file_write_time": 130573003690000000,
 			"settings":
 			{
-				"buffer_size": 810,
+				"buffer_size": 923,
 				"line_ending": "Unix"
 			}
 		}
@@ -562,9 +568,9 @@
 	[
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/css",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/player",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team",
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/common",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/collections",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/lib",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/public",
@@ -572,6 +578,7 @@
 	],
 	"file_history":
 	[
+		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/server/main.js",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/main.js",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/collections/player.js",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team/add_team.html",
@@ -580,7 +587,6 @@
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team/starting_lineup.html",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/collections/season.js",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/player/player_info.html",
-		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/server/main.js",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/lib/router.js",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/common/navbar.html",
 		"/Users/phowley/Dropbox/meteor-stuff/lub_v2/.meteor/local/build/programs/server/packages/natestrauser_font-awesome.js",
@@ -718,6 +724,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ul",
 			"firstName",
 			"Players",
 			" ",
@@ -786,7 +793,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -795,7 +802,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1583,
+						"buffer_size": 1975,
 						"regions":
 						{
 						},
@@ -825,15 +832,19 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1282,
+						"buffer_size": 1283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1005,
-								1005
+								1144,
+								1144
+							],
+							[
+								1225,
+								1225
 							]
 						],
 						"settings":
@@ -843,27 +854,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 173.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team/add_team.js",
+					"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/common/remove_edit_player.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1194,
+						"buffer_size": 1070,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								66,
-								66
+								960,
+								960
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/client/views/team/add_team.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
 							]
 						],
 						"settings":
@@ -880,50 +921,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/server/main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9008,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								89,
-								89
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
 					"buffer": 4,
 					"file": "/Users/phowley/Dropbox/meteor-stuff/lub_v2/lib/router.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 810,
+						"buffer_size": 923,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								142
+								124,
+								124
 							]
 						],
 						"settings":
@@ -936,7 +947,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
