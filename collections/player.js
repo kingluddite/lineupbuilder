@@ -20,7 +20,7 @@ Meteor.methods({
       var player = _.extend(_.pick(postAttributes, 'firstName', 'fieldPosition', 'teamId', 'gameStatus', 'jerseyNumber', 'seasonFeeOwed', 'seasonFeePaid', 'playerNotes'), 
       {
 
-        userId: user._id,
+        createdBy: user._id,
         author: user.username,
         submitted: new Date().getTime()
       });

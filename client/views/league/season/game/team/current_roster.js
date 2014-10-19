@@ -1,9 +1,14 @@
 Template.tCurrentRoster.cCurrentRoster = function() {
+  var currentUserId = Meteor.userId();
   return Players.find({
     gameStatus: {
-      $in: ["starting", "sub"]
+      $in: ["starting", "sub", "out", "noReply"]
     }
-  }, {
+  },
+  {
+    createdBy: currentUserId
+  }, 
+  {
     sort: {
       firstName: 1
     }
