@@ -24,6 +24,10 @@ Meteor.publish('players', function(){
   return Players.find();
 });
 
+Meteor.publish('games', function() {
+  return Games.find();
+});
+
 Meteor.startup(function() {
 
 //Meteor.call('removeAll')
@@ -33,6 +37,25 @@ Meteor.startup(function() {
       // add other collections if you need to
     }
   });
+
+  // if (Games.find().count() === 0 ) {
+    // Games.insert({
+    //   "gameTime": "TBD",
+    //   "gameField": "aviation",
+    //   "homeTeam": "Civitas FC",
+    //   "homeScore": 5,
+    //   "awayScore": 0,
+    //   "awayTeam": "Civitas United"
+    // });
+  //   Games.insert({
+  //     "gameTime": "TBD",
+  //     "gameField": "aviation",
+  //     "homeTeam": "Civitas FC",
+  //     "homeScore": 5,
+  //     "awayScore": 0,
+  //     "awayTeam": "German Germans"
+  //   });
+  // }
 
 //   if (Teams.find().count() === 0) {
 //     Teams.insert({
