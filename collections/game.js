@@ -1,4 +1,4 @@
-// Games = new Meteor.Collection('games');
+Games = new Meteor.Collection('games');
 
 // Meteor.methods({
 //   game: function(postAttributes) {
