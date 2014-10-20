@@ -1,0 +1,11 @@
+<template name="tTeams">
+  <ol>
+      {{#each cTeams}}
+        <li class="team {{selectedClass}}">{{teamName}}
+          <ul>
+              <li>{{> tRemoveEditTeam}}</li>
+          </ul>
+        </li>
+      {{/each}}
+  </ol>
+</template>

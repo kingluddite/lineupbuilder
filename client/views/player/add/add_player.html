@@ -8,6 +8,13 @@
             {{#if sPlayerEdit}}
             <form name="frmAddPlayer">
                 <input type="text" id="firstName" class="form-control" name="firstName" placeholder="first name" />
+                <input type="text" id="lastNameInitial" class="form-control" name="lastNameInitial" placeholder="last name initial" />
+                <select class="team-name form-control" name="teamId">
+                <option value="">Choose A Team</option>
+                {{#each sTeams}}
+                    <option value="{{_id}}">{{teamName}}</option>
+                {{/each}}
+                </select>
                 <!-- <input type="text" class="form-control field-position" placeholder="field position"> -->
                 <select class="form-control field-position" name="fieldPosition">
                     <option value="right-fullback">Right Fullback</option>
@@ -39,7 +46,7 @@
             <a class="btn btn-success btn-xs player-add">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
-            <a type="button" class="btn btn-danger btn-xs close-box">
+            <a type="button" class="btn btn-danger btn-xs player-remove">
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
             {{/if}}

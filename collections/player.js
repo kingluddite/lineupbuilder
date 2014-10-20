@@ -17,7 +17,7 @@ Meteor.methods({
 
       // pick out the whitelisted keys
       // Those on the list will be accepted, approved or recognized
-      var player = _.extend(_.pick(postAttributes, 'firstName', 'fieldPosition', 'teamId', 'gameStatus', 'jerseyNumber', 'seasonFeeOwed', 'seasonFeePaid', 'playerNotes'), 
+      var player = _.extend(_.pick(postAttributes, 'firstName', 'lastNameInitial', 'teamId', 'fieldPosition', 'teamId', 'gameStatus', 'jerseyNumber', 'seasonFeeOwed', 'seasonFeePaid', 'playerNotes'), 
       {
 
         createdBy: user._id,
