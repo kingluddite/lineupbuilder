@@ -2,7 +2,7 @@
 
     <!-- modal for editing player -->
     <div class="modal fade" id="modal-id">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-player">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -16,12 +16,6 @@
                                 <input type="text" class="first-name form-control" name="firstName" value="{{cPlayer.firstName}}" />
                                 <label for="lastNameInitial">Last Name First Intial</label>
                                 <input type="text" id="lastNameInitial" class="form-control" name="lastNameInitial" placeholder="last name initial" value="{{cPlayer.lastNameInitial}}" />
-                                <select class="team-name form-control" name="teamId">
-                                    <option value="">Choose A Team</option>
-                                    {{#each sTeams}}
-                                    <option value="{{_id}}">{{teamName}}</option>
-                                    {{/each}}
-                                </select>
                                 <label for="fieldPosition">Field Position</label>
 
                                 <select class="form-control field-position" name="fieldPosition">
@@ -38,14 +32,15 @@
                                     <option value="goalie">Goalie</option>
                                     <option value="none">None</option>
                                 </select>
-                                <label for="gameStatus">Team Name</label>
-                                <select class="team-name form-control">
+                                <label for="teamId">Team Name</label>
+                                <select class="team-name form-control" name="teamId">
+                                    <option value="">Choose A Team</option>
                                     {{#each cTeams}}
                                     <option value="{{_id}}">{{teamName}}</option>
                                     {{/each}}
                                 </select>
                                 <label for="gameStatus">Game Status</label>
-                                <select class="game-status form-control">
+                                <select class="game-status form-control" name="gameStatus">
                                     <option value="starting">Starting</option>
                                     <option value="sub">Substitute</option>
                                     <option value="noReply">Did Not Reply</option>
@@ -59,7 +54,7 @@
                                 <label for="seasonFeePaid">Season Fee Paid</label>
                                 <input type="text" class="season-fee-paid form-control" name="seasonFeePaid" value="{{cPlayer.seasonFeePaid}}" />
                                 <label for="seasonFeePaid">Player Notes</label>
-                                <input type="text" class="player-notes form-control" name="player" value="{{cPlayer.playerNotes}}" />
+                                <textarea class="player-notes form-control" name="playerNotes"></textarea>
                             </div>
                         </div>
                     </div>

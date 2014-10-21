@@ -27,6 +27,7 @@ Template.tRemoveEditPlayer.events({
         // make dropdown equal to the current value in the collection record
         $(".game-status").val(player.gameStatus);
         $(".field-position").val(player.fieldPosition);
+        $(".team-id").val(player.teamId);
     }
 });
 
