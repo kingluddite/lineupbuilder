@@ -47,7 +47,7 @@ Template.tAddPlayer.events({
             playerNotes: $(evt.target).find('[name=playerNotes]').val(),
         };
 
-        Meteor.call('player', player, function(error, id) {
+        Meteor.call('addPlayer', player, function(error, id) {
             if (error) {
                 return alert(error.reason);
             }
