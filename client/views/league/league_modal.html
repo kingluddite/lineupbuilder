@@ -1,0 +1,56 @@
+<template name="tModalLeague">
+
+    <!-- modal for editing player -->
+    <div class="modal fade" id="league-modal-id">
+        <div class="modal-dialog modal-league">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">League</h4>
+                </div>
+                <form class="updateLeague">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p>
+                                    <label for="firstName">Name</label>
+                                    <input type="text" class="first-name form-control" name="leagueName" value="{{cLeague.leagueName}}" />
+                                </p>
+                                <p>
+                                    <label for="firstName">Admin First Name</label>
+                                    <input type="text" class="first-name form-control" name="leagueAdminFirstName" value="{{cLeague.leagueAdminFirstName}}" />
+                                </p>
+                               <p>
+                                    <label for="firstName">Admin Last Name</label>
+                                   <input type="text" class="first-name form-control" name="leagueAdminLastName" value="{{cLeague.leagueAdminLastName}}" />
+                               </p>
+                               <p>
+                                    <label for="firstName">Admin Email</label>
+                                   <input type="text" class="first-name form-control" name="leagueAdminEmail" value="{{cLeague.leagueAdminEmail}}" />
+                               </p>
+                                <p>
+                                    <label for="firstName">Admin Phone</label>
+                                    <input type="text" class="first-name form-control" name="leagueAdminPhone" value="{{cLeague.leagueAdminPhone}}" />
+                                </p>
+                                <p>
+                                    <label for="leagueSummary">Summary</label>
+                                    <textarea class="league-summary form-control" name="leagueSummary"></textarea>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END .modal-body -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary save-changes">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- END modal for editing player -->
+
+</template>

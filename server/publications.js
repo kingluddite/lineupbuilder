@@ -13,3 +13,7 @@ Meteor.publish('players', function(){
 Meteor.publish('games', function() {
   return Games.find();
 });
+
+Meteor.publish('leagues', function() {
+  return Leagues.find();
+});
