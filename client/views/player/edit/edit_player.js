@@ -7,7 +7,6 @@ Template.tRemoveEditPlayer.sPlayerId = function() {
 Template.tRemoveEditPlayer.events({
     'click .remove-player': function(evt, tmpl) {
         evt.preventDefault();
-        
         // make sure you want to delete something
         if (confirm("Delete this post?")) {
           Session.set('sPlayerId', this._id);

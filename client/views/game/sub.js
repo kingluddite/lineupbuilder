@@ -9,8 +9,8 @@ Template.tSubs.sPlayerId = function() {
 Template.tSubs.cPlayers = function() {
   var currentUserId = Meteor.userId();
   return Players.find(
-    {createdBy: currentUserId
-    // gameStatus: "sub"
+    {createdBy: currentUserId,
+    gameStatus: "sub"
 // teamId: "SpjgPkWe37qb3xQ8q"
   }, {
     sort: {
