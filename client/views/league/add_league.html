@@ -1,0 +1,52 @@
+<template name="tAddLeague">
+    <div class="container">
+
+        <h1>Add League</h1>
+        <form role="form" style="width:400px; margin: 0 auto;">
+
+            <div class="required-field-block">
+                <input type="text" placeholder="Name" name="leagueName" class="form-control">
+                <div class="required-icon">
+                    <div class="text">*</div>
+                </div>
+            </div>
+
+            <div class="required-field-block">
+                <input type="text" placeholder="Admin First Name" name="leagueAdminFirstName" class="form-control">
+                <div class="required-icon">
+                    <div class="text">*</div>
+                </div>
+            </div>
+
+            <div class="required-field-block">
+                <input type="text" placeholder="Admin Last Name" name="leagueAdminLastName" class="form-control">
+                <div class="required-icon">
+                    <div class="text">*</div>
+                </div>
+            </div>
+
+            <div class="required-field-block">
+                <input type="text" placeholder="Email" name="leagueAdminEmail" class="form-control">
+                <div class="required-icon">
+                    <div class="text">*</div>
+                </div>
+            </div>
+
+            <input type="text" placeholder="Phone" name="leagueAdminPhone" class="form-control">
+
+            <div class="required-field-block">
+                <textarea rows="3" class="form-control" placeholder="About League" name="leagueSummary"></textarea>
+                <div class="required-icon">
+                    <div class="text">*</div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add League</button>
+        </form>
+        <ul>
+        {{#each cLeagues}}
+        <li>{{leagueName}} {{> tEditLeague}}</li>
+        {{/each}}
+        </ul>
+    </div><!-- END .container -->
+</template>
