@@ -2,6 +2,7 @@
     <div class="container">
 
         <h1>Add League</h1>
+        {{#if currentUser}}
         <form role="form" style="width:400px; margin: 0 auto;">
 
             <div class="required-field-block">
@@ -43,10 +44,15 @@
 
             <button type="submit" class="btn btn-primary">Add League</button>
         </form>
+        {{else}}
+          <p>Please log in to add leagues.</p>
+        {{/if}}
+        <h2>Current Leagues</h2>
         <ul>
         {{#each cLeagues}}
         <li>{{leagueName}} {{> tEditLeague}}</li>
         {{/each}}
         </ul>
+          <p>No leagues yet</p>
     </div><!-- END .container -->
 </template>
