@@ -1,7 +1,13 @@
 // give the edit player access to the PlayerId session variable
-Template.tEditDivision.sDivisionId = function() {
-  return Session.get('sDivisionId');
-};
+// Template.tEditDivision.sDivisionId = function() {
+//   return Session.get('sDivisionId');
+// };
+
+Template.tEditDivision.helpers({
+    sDivisionId: function () {
+        return Session.get('sDivisionId');
+    }
+});
 
 // when someone edits or removes adivision 
 Template.tEditDivision.events({

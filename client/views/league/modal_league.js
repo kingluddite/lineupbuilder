@@ -1,19 +1,39 @@
 // find the player primary key to populate the modal
-Template.tModalLeague.cLeague = function() {
-  return Leagues.findOne({
-    _id: Session.get("sLeagueId")
-  });
-};
+// Template.tModalLeague.cLeague = function() {
+//   return Leagues.findOne({
+//     _id: Session.get("sLeagueId")
+//   });
+// };
+
+Template.tModalLeague.helpers({
+  cLeague: function () {
+    return Leagues.findOne({
+      _id: Session.get("sLeagueId")
+    })
+  }
+});
 
 // give the template access to the primary key
-Template.tModalLeague.sLeagueId = function() {
-  Session.get("sLeagueId");
-};
+// Template.tModalLeague.sLeagueId = function() {
+//   Session.get("sLeagueId");
+// };
+
+Template.tModalLeague.helpers({
+  sLeagueId: function () {
+    Session.get("sLeagueId");
+  }
+});
 
 // good session to have to show or hide the modal
-Template.tModalLeague.sLeagueEdit = function() {
-  return Session.get('sLeagueEdit');
-};
+// Template.tModalLeague.sLeagueEdit = function() {
+//   return Session.get('sLeagueEdit');
+// };
+
+Template.tModalLeague.helpers({
+  sEditMode: function () {
+    return Session.get('sEditMode');
+  }
+});
 
 Template.tModalLeague.events({
   'submit form.updateLeague': function(evt) {

@@ -1,7 +1,13 @@
 // we need to grab the id of the team they are part of
-Template.tAddLeague.cLeagues = function() {
-    return Leagues.find();
-};
+// Template.tAddLeague.cLeagues = function() {
+//     return Leagues.find();
+// };
+
+Template.tAddLeague.helpers({
+    cLeagues: function () {
+        return Leagues.find();   
+    }
+});
 // note: session variables are not accessible to the template by default
 // you have to explicitly associate them so...
 // below is associating our sPlayerEdit session to this template

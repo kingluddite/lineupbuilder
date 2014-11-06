@@ -1,7 +1,13 @@
 // give the edit player access to the PlayerId session variable
-Template.tEditLeague.sLeagueId = function() {
-  return Session.get('sLeagueId');
-};
+// Template.tEditLeague.sLeagueId = function() {
+//   return Session.get('sLeagueId');
+// };
+
+Template.tEditLeague.helpers({
+    sLeagueId: function () {
+        return Session.get('sLeagueId');
+    }
+});
 
 // when someone edits or removes a league
 Template.tEditLeague.events({
