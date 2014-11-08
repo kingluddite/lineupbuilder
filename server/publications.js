@@ -18,6 +18,10 @@ Meteor.publish('players', function(){
   return Players.find();
 });
 
+Meteor.publish('seasons', function(){
+  return Players.find();
+});
+
 // Meteor.publish('states', function(){
 //   return States.find();
 // });

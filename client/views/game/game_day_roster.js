@@ -1,25 +1,53 @@
-Template.tRoster.cRoster = function() {
-  return Players.find({
-    gameStatus: {
-      $in: ["starting", "sub"]
-    }
-  }, {
-    sort: {
-      firstName: 1
-    }
-  });
-};
-Template.tRoster.cStarters = function() {
-  return Players.find({
-    gameStatus: {
-      $in: ["starting"]
-    }
-  }, {
-    sort: {
-      firstName: 1
-    }
-  });
-};
+// Template.tRoster.cRoster = function() {
+//   return Players.find({
+//     gameStatus: {
+//       $in: ["starting", "sub"]
+//     }
+//   }, {
+//     sort: {
+//       firstName: 1
+//     }
+//   });
+// };
+
+Template.tRoster.helpers({
+  cRoster: function() {
+    return Players.find({
+      gameStatus: {
+        $in: ["starting", "sub"]
+      }
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
+  }
+});
+// Template.tRoster.cStarters = function() {
+//   return Players.find({
+//     gameStatus: {
+//       $in: ["starting"]
+//     }
+//   }, {
+//     sort: {
+//       firstName: 1
+//     }
+//   });
+// };
+
+Template.tRoster.helpers({
+  cStarters: function() {
+    return Players.find({
+      gameStatus: {
+        $in: ["starting"]
+      }
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
+  }
+});
 
 Template.tRoster.sPlayerId = function() {
   return Session.get('sPlayerId');

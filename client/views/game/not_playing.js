@@ -1,22 +1,45 @@
-Template.tNotPlaying.cPlayer = function() {
-  return Players.findOne({_id:Session.get("sPlayerId")});
-};
+// Template.tNotPlaying.cPlayer = function() {
+//   return Players.findOne({_id:Session.get("sPlayerId")});
+// };
 
-Template.tNotPlaying.sPlayerId = function() {
-  Session.get("sPlayerId");
-};
+Template.tNotPlaying.helpers({
+  cPlayer: function () {
+    return Players.findOne({_id:Session.get("sPlayerId")});
+  }
+});
+
+// Template.tNotPlaying.sPlayerId = function() {
+//   Session.get("sPlayerId");
+// };
+
+Template.tNotPlaying.helpers({
+  sPlayerId: function () {
+    Session.get("sPlayerId");
+  }
+});
+
+// Template.tNotPlaying.cPlayersOut = function() {
+    //   return Players.find({
+    //     gameStatus: "out"
+    //   }, {
+    //     sort: {
+    //       firstName: 1
+    //     }
+    //   });
+    // };
 
 
-
-Template.tNotPlaying.cPlayersOut = function() {
-  return Players.find({
-    gameStatus: "out"
-  }, {
-    sort: {
-      firstName: 1
-    }
-  });
-};
+Template.tNotPlaying.helpers({
+  cPlayersOut: function () {
+    return Players.find({
+      gameStatus: "out"
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
+  }
+});
 
 Template.tNotPlaying.helpers({
   playersOut: function() {

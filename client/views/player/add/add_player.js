@@ -1,17 +1,36 @@
 // we need to grab the id of the team they are part of
-Template.tAddPlayer.sTeams = function() {
-    return Teams.find();
-};
+// Template.tAddPlayer.sTeams = function() {
+//     return Teams.find();
+// };
+
+Template.tAddPlayer.helpers({
+    sTeams: function () {
+        return Teams.find();
+    }
+});
+
 // note: session variables are not accessible to the template by default
 // you have to explicitly associate them so...
 // below is associating our sPlayerEdit session to this template
-Template.tAddPlayer.sPlayerEdit = function() {
-    return Session.get('sPlayerEdit');
-};
-Template.tAddPlayer.sPlayerId = function() {
-    return Session.get('sPlayerId');
-};
+// Template.tAddPlayer.sPlayerEdit = function() {
+//     return Session.get('sPlayerEdit');
+// };
 
+Template.tAddPlayer.helpers({
+    sEditMode: function () {
+        return Session.get('sEditMode');
+    }
+});
+
+// Template.tAddPlayer.sPlayerId = function() {
+//     return Session.get('sPlayerId');
+// };
+
+Template.tAddPlayer.helpers({
+    sPlayerId: function () {
+        return Session.get('sPlayerId');
+    }
+});
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
     // when someone clicks a class of player-add
