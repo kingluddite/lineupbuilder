@@ -1,9 +1,11 @@
 <template name="layout">
-{{> tNav}}
-    <div class="container">
-    {{> yield}}
-{{> tModalPlayer}}
-{{> tModalLeague}}
+  {{> tNav}}
+  <div class="container">
+    {{> yield}} 
+    {{> tModalLeague}} 
+    <!-- {{> tModalSeason}}  -->
+    {{> tModalDivision}} 
+    {{> tModalPlayer}}
   </div>
   <!-- END .container -->
 </template>

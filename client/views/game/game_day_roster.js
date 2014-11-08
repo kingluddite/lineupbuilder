@@ -1,4 +1,4 @@
-// Template.tRoster.cRoster = function() {
+// Template.tGameDayRoster.cRoster = function() {
 //   return Players.find({
 //     gameStatus: {
 //       $in: ["starting", "sub"]
@@ -10,7 +10,7 @@
 //   });
 // };
 
-Template.tRoster.helpers({
+Template.tGameDayRoster.helpers({
   cRoster: function() {
     return Players.find({
       gameStatus: {
@@ -23,7 +23,7 @@ Template.tRoster.helpers({
     });
   }
 });
-// Template.tRoster.cStarters = function() {
+// Template.tGameDayRoster.cStarters = function() {
 //   return Players.find({
 //     gameStatus: {
 //       $in: ["starting"]
@@ -35,7 +35,7 @@ Template.tRoster.helpers({
 //   });
 // };
 
-Template.tRoster.helpers({
+Template.tGameDayRoster.helpers({
   cStarters: function() {
     return Players.find({
       gameStatus: {
@@ -49,11 +49,11 @@ Template.tRoster.helpers({
   }
 });
 
-Template.tRoster.sPlayerId = function() {
+Template.tGameDayRoster.sPlayerId = function() {
   return Session.get('sPlayerId');
 };
 
-Template.tRoster.playersOff = function() {
+Template.tGameDayRoster.playersOff = function() {
   return Players.find({
     gameStatus: "out"
   }, {
@@ -63,7 +63,7 @@ Template.tRoster.playersOff = function() {
   });
 };
 
-Template.tRoster.helpers({
+Template.tGameDayRoster.helpers({
 
   gameDayRosterCount: function() {
     return Players.find({

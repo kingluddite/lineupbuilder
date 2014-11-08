@@ -1,6 +1,12 @@
-Template.tAddTeam.sTeamId = function() {
-    return Session.get('sTeamId');
-};
+// Template.tAddTeam.sTeamId = function() {
+//     return Session.get('sTeamId');
+// };
+
+Template.tAddTeam.helpers({
+    sTeamId: function () {
+        return Session.get('sTeamId');
+    }
+});
 
 Template.tAddTeam.sTeamEdit = function() {
     return Session.get('sTeamEdit');
