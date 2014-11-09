@@ -1,17 +1,8 @@
-// we need to grab the id of the team they are part of
-// Template.tAddDivision.cDivisions = function() {
-//     return Divisons.find();
-// };
-
 Template.tAddDivision.helpers({
     cDivisions: function () {
         return Divisions.find();
     }
 });
-
-// Template.tAddDivision.sEditMode = function() {
-//     return Session.get('sEditMode');
-// };
 
 Template.tAddDivision.helpers({
     sEditMode: function () {
@@ -24,14 +15,9 @@ Template.tAddDivision.helpers({
         return Session.get('sDivisionId');
     }
 });
-// Template.tAddDivision.sLeagueId = function() {
-//     return Session.get('sDivisionId');
-// };
 
 Template.tAddDivision.events({
-    // when someone clicks a class of division-add
-    // set the session sPlayerEdit to true
-    'click .division-add': function(evt, tmpl) {
+    'click .add': function(evt, tmpl) {
         // makes focus on first form work as it should
         setTimeout(function() {
             $('input[name="divisionName"]').focus();
@@ -39,7 +25,7 @@ Template.tAddDivision.events({
         Session.set("sEditMode", true);
     },
 
-    'click .division-remove': function(evt, tmpl) {
+    'click .remove': function(evt, tmpl) {
         Session.set("sEditMode", false);
     },
 

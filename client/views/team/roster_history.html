@@ -1,4 +1,4 @@
-<template name="tFormerPlayers">
+<template name="tRosterHistory">
 <h2>Former Players</h2>
 <p class="badge">{{formerCount}} former players</p>
 {{#if cFormerPlayers}}
@@ -6,7 +6,7 @@
     {{#each cFormerPlayers}}
       <li>
         {{> tPlayerInfo}}
-        {{> tRemoveEditPlayer}}
+        {{> tEditPlayer}}
         <!-- <ul>
           <li>{{fieldPosition}}</li>
         </ul> -->

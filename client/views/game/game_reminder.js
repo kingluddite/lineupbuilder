@@ -1,6 +1,22 @@
-// Template.tNotPlaying.cPlayer = function() {
-//   return Players.findOne({_id:Session.get("sPlayerId")});
-// };
+Template.tDidNotReply.cDidNotReply = function() {
+  return Players.find({
+     gameStatus: "noReply"
+  }, {
+    sort: {
+      firstName: 1
+    }
+  });
+};
+
+Template.tDidNotReply.helpers({
+  formerCount: function () {
+    return Players.find({gameStatus: "noReply"}).count();
+  }
+});
+
+Template.tDidNotReply.sPlayerId = function() {
+    Session.get("sPlayerId");
+};
 
 Template.tNotPlaying.helpers({
   cPlayer: function () {
@@ -8,25 +24,11 @@ Template.tNotPlaying.helpers({
   }
 });
 
-// Template.tNotPlaying.sPlayerId = function() {
-//   Session.get("sPlayerId");
-// };
-
 Template.tNotPlaying.helpers({
   sPlayerId: function () {
     Session.get("sPlayerId");
   }
 });
-
-// Template.tNotPlaying.cPlayersOut = function() {
-    //   return Players.find({
-    //     gameStatus: "out"
-    //   }, {
-    //     sort: {
-    //       firstName: 1
-    //     }
-    //   });
-    // };
 
 
 Template.tNotPlaying.helpers({

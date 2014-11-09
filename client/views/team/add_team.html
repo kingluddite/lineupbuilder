@@ -4,21 +4,23 @@
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="team">
                 {{#if currentUser}}
-                    <a type="button" class="btn btn-default btn-lg team-add">
+                    <a type="button" class="btn btn-default btn-lg add">
                         <span class="glyphicon glyphicon-user">&nbsp;</span>Add Team
                     </a>
                 {{else}}
                   <p>Log in to add teams</p>
                 {{/if}}
-                    {{#if sTeamEdit}}
+                    {{#if sEditMode}}
                     <form name="frmAddTeam">
                         <input type="text" class="form-control" name="teamName" placeholder="team name" />
+                        <input type="text" class="form-control" name="leagueId" placeholder="league name" />
+                    
                         <input type="submit" value="submit">
                     </form>
-                    <a class="btn btn-success btn-xs team-add">
+                    <a class="btn btn-success btn-xs add">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a>
-                    <a type="button" class="btn btn-danger btn-xs team-remove">
+                    <a type="button" class="btn btn-danger btn-xs remove">
                         <span class="glyphicon glyphicon-remove"></span>
                     </a>
                     {{/if}}

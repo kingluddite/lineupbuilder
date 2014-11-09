@@ -1,38 +1,35 @@
-// Template.tAddTeam.sTeamId = function() {
-//     return Session.get('sTeamId');
-// };
-
 Template.tAddTeam.helpers({
     sTeamId: function () {
         return Session.get('sTeamId');
     }
 });
 
-Template.tAddTeam.sTeamEdit = function() {
-    return Session.get('sTeamEdit');
-};
+Template.tAddTeam.helpers({
+    sEditMode: function () {
+        return Session.get('sEditMode');
+    }
+});
 
 // adding events to our templates (duh!)
 Template.tAddTeam.events({
-    // when someone clicks a class of player-add
-    // set the session sPlayerEdit to true
-    'click .team-add': function(evt, tmpl) {
+    'click .add': function(evt, tmpl) {
         // makes focus on first form work as it should
         setTimeout(function() {
             $('input[name="teamName"]').focus();
         }, 500);
-        Session.set("sTeamEdit", true);
+        Session.set("sEditMode", true);
     },
 
-    'click .team-remove': function(evt, tmpl) {
-        Session.set("sTeamEdit", false);
+    'click .remove': function(evt, tmpl) {
+        Session.set("sEditMode", false);
     },
 
     'submit form': function(theEvent, theTemplate) {
         theEvent.preventDefault();
 
         var team = {
-            teamName: $(theEvent.target).find('[name=teamName]').val()
+            teamName: $(theEvent.target).find('[name=teamName]').val(),
+            leagueId: $(theEvent.target).find('[name=teamName]').val()
         };
 
         Meteor.call('addTeam', team, function(error, id) {
@@ -43,6 +40,6 @@ Template.tAddTeam.events({
         });
 
 
-        Session.set("sTeamEdit", false);
+        Session.set("sEditMode", false);
     }
 });

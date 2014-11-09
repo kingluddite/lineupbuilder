@@ -21,7 +21,9 @@ UI.registerHelper('moneyOwed', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
   if (totalFeesStillOwed > 0) { 
     return totalFeesStillOwed;
-  } else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0 ) {
+  } else if (totalFeesStillOwed === 0) {
+    return "PAID";
+  }else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0 ) {
     return "problem";
   } else {
     return;

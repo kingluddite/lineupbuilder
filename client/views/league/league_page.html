@@ -1,0 +1,15 @@
+<template name="tLeaguePage">
+  <h2>Thank you for adding your league.</h2>
+
+  <h3>Here is a list of current leagues.</h3>
+  {{#if cLeagues}}
+    <ul>
+    {{#each cLeagues}}
+      <li>{{leagueName}} {{> tEditLeague}}</li>
+    {{/each}}
+    </ul>
+  {{else}}
+    <p>Sorry, no leagues yet</p>
+  {{/if}}  
+  now add divisions to your league.
+</template>

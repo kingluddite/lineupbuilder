@@ -1,11 +1,11 @@
 // give the edit player access to the PlayerId session variable
-Template.tRemoveEditPlayer.sPlayerId = function() {
+Template.tEditPlayer.sPlayerId = function() {
   return Session.get('sPlayerId');
 };
 
 // when someone edits or removes a player
-Template.tRemoveEditPlayer.events({
-    'click .remove-player': function(evt, tmpl) {
+Template.tEditPlayer.events({
+    'click .remove': function(evt, tmpl) {
         evt.preventDefault();
         // make sure you want to delete something
         if (confirm("Delete this post?")) {
@@ -15,7 +15,8 @@ Template.tRemoveEditPlayer.events({
         }
     },
     // when someone edits a player, open the modal winow, place the cursor in the first box and highlight the current placeholder content
-    'click .edit-player': function(evt, tmpl) {
+    'click .edit': function(evt, tmpl) {
+
         // need access to session
         Session.set('sPlayerId', this._id);
         $("#modal-id").modal("show");

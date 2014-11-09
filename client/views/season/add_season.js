@@ -17,7 +17,7 @@ Template.tAddSeason.helpers({
 });
 
 Template.tAddSeason.events({
-    'click .season-add': function(evt, tmpl) {
+    'click .add': function(evt, tmpl) {
         // makes focus on first form work as it should
         setTimeout(function() {
             $('input[name="seasonName"]').focus();
@@ -25,7 +25,7 @@ Template.tAddSeason.events({
         Session.set("sEditMode", true);
     },
 
-    'click .season-remove': function(evt, tmpl) {
+    'click .remove': function(evt, tmpl) {
         Session.set("sEditMode", false);
     },
 

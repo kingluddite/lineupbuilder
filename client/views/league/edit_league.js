@@ -1,8 +1,3 @@
-// give the edit player access to the PlayerId session variable
-// Template.tEditLeague.sLeagueId = function() {
-//   return Session.get('sLeagueId');
-// };
-
 Template.tEditLeague.helpers({
     sLeagueId: function () {
         return Session.get('sLeagueId');
@@ -11,7 +6,7 @@ Template.tEditLeague.helpers({
 
 // when someone edits or removes a league
 Template.tEditLeague.events({
-    'click .remove-league': function(evt, tmpl) {
+    'click .remove': function(evt, tmpl) {
         evt.preventDefault();
         
         // make sure you want to delete something
@@ -22,7 +17,7 @@ Template.tEditLeague.events({
         }
     },
     // when someone edits a league, open the modal winow, place the cursor in the first box and highlight the current placeholder content
-    'click .edit-league': function(evt, tmpl) {
+    'click .edit': function(evt, tmpl) {
         // need access to session
         Session.set('sLeagueId', this._id);
         $("#league-modal-id").modal("show");

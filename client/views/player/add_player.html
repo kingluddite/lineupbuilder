@@ -1,11 +1,11 @@
 <template name="tAddPlayer">
     <div class="player-container">
         <div class="player">
-            <a type="button" class="btn btn-default btn-lg player-add">
+            <a type="button" class="btn btn-default btn-lg add">
                 <span class="glyphicon glyphicon-user">&nbsp;</span>Add Player
             </a>
 
-            {{#if sPlayerEdit}}
+            {{#if sEditMode}}
             <form name="frmAddPlayer">
                 <input type="text" id="firstName" class="form-control" name="firstName" placeholder="first name" />
                 <input type="text" id="lastNameInitial" class="form-control" name="lastNameInitial" placeholder="last name initial" />
@@ -43,10 +43,10 @@
                 <input type="text" class="form-control" name="playerNotes" placeholder="player notes">
                 <input type="submit" value="submit">
             </form>
-            <a class="btn btn-success btn-xs player-add">
+            <a class="btn btn-success btn-xs add">
                 <span class="glyphicon glyphicon-ok"></span>
             </a>
-            <a type="button" class="btn btn-danger btn-xs player-remove">
+            <a type="button" class="btn btn-danger btn-xs remove">
                 <span class="glyphicon glyphicon-remove"></span>
             </a>
             {{/if}}

@@ -1,43 +1,22 @@
-// for the teams dropdown
-//Template.tModalPlayer.cTeams = function() {
- // return Teams.find();
-//};
-
 Template.tModalPlayer.helpers({
   cTeams: function () {
     return Teams.find();
   }
 });
 
-// find the player primary key to populate the modal
-// Template.tModalPlayer.cPlayer = function() {
-//   return Players.findOne({
-//     _id: Session.get("sPlayerId")
-//   });
-// };
-
 Template.tModalPlayer.helpers({
   cPlayer: function () {
     return Players.findOne({
-      _id: Session.get("PlayerId")
+      _id: Session.get("sPlayerId")
     });
   }
 });
 
-// give the template access to the primary key
-//Template.tModalPlayer.sPlayerId = function() {
-  //return Session.get("sPlayerId");
-// };
 Template.tModalPlayer.helpers({
   sPlayerId: function () {
     return Session.get("sPlayerId");
   }
 });
-
-// good session to have to show or hide the modal
-//Template.tModalPlayer.sPlayerEdit = function() {
-  // return Session.get('sPlayerEdit');
-// };
 
 Template.tModalPlayer.helpers({
   sEditMode: function () {
@@ -48,9 +27,9 @@ Template.tModalPlayer.helpers({
 Template.tModalPlayer.events({
   'submit form.updatePlayer': function(evt) {
       evt.preventDefault();
-
-      var currentPlayerId = this._id;
-
+      
+      var currentPlayerId = Session.get("sPlayerId");
+      console.log( currentPlayerId );
       var playerProperties = {
           firstName: $(evt.target).find('[name=firstName]').val(),
           lastNameInitial: $(evt.target).find('[name=lastNameInitial]').val(),
@@ -70,6 +49,6 @@ Template.tModalPlayer.events({
       });
       $("#modal-id").modal("hide");
       Session.set('sPlayerId', null);
-      Session.set('sPlayerEdit', false);
+      Session.set('sEditMode', false);
     }
 });
