@@ -2,7 +2,7 @@ Template.tModalLeague.helpers({
   cLeague: function () {
     return Leagues.findOne({
       _id: Session.get("sLeagueId")
-    })
+    });
   }
 });
 
@@ -22,7 +22,7 @@ Template.tModalLeague.events({
   'submit form.updateLeague': function(evt) {
       evt.preventDefault();
 
-      var currentLeagueId = this._id;
+      var currentLeagueId = Session.get("sLeagueId");
 
       var leagueProperties = {
           leagueName: $(evt.target).find('[name=leagueName]').val(),
