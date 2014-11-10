@@ -1,0 +1,24 @@
+<template name="tLeagueList">
+<ol class="breadcrumb">
+  <li><a href="{{pathFor 'tHome'}}">Home</a></li>
+  <li class="active">League</li>
+</ol>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h2>Thank you for adding your league.</h2>
+
+            <h3>Here is a list of current leagues.</h3>
+            {{#if cLeagues}}
+            <ul>
+                {{#each cLeagues}}
+                <li class="league {{selectedClass}}"><a href="{{pathFor 'tLeagueDetail'}}">{{leagueName}}</a> {{> tEditLeague}}</li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>Sorry, no leagues yet</p>
+            {{/if}}
+            <p>Select the league you want to enter.</p>
+        </div>
+        <!-- END .col6 -->
+    </div>
+</template>

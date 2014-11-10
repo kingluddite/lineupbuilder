@@ -37,7 +37,7 @@ Template.tModalDivision.events({
           divisionSummary: $(evt.target).find('[name=divisionSummary]').val(),
       };
 
-      divisions.update(currentdivisionId, {$set: divisionProperties}, function(error) {
+      Divisions.update(currentdivisionId, {$set: divisionProperties}, function(error) {
         if (error) {
           alert(error.reason);
         } 

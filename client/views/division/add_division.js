@@ -1,3 +1,5 @@
+
+
 Template.tAddDivision.helpers({
     cDivisions: function () {
         return Divisions.find();
@@ -12,7 +14,7 @@ Template.tAddDivision.helpers({
 
 Template.tAddDivision.helpers({
     sLeagueId: function () {
-        return Session.get('sDivisionId');
+        return Session.get('sLeagueId');
     }
 });
 
@@ -34,7 +36,7 @@ Template.tAddDivision.events({
 
         var division = {
             divisionName: $(evt.target).find('[name=divisionName]').val(),
-            divisionId: $(evt.target).find('[name=divisionId]').val(),
+            leagueId: $(evt.target).find('[name=leagueId]').val(),
             divisionSummary: $(evt.target).find('[name=divisionSummary]').val(),
         };
 
@@ -42,6 +44,9 @@ Template.tAddDivision.events({
             if (error) {
                 return alert(error.reason);
             }
+            Router.go('tDivisionDetail', {
+                _id: id
+            });
         });
 
 

@@ -25,6 +25,7 @@ Template.tEditDivision.events({
     'click .edit': function(evt, tmpl) {
         // need access to session
         Session.set('sDivisionId', this._id);
+        console.log(this);
         $("#division-modal-id").modal("show");
         setTimeout(function() { $('input[name="divisionName"]').focus(); }, 500);
         setTimeout(function() { $('input[name="divisionName"]').select(); }, 500);

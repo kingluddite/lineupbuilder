@@ -34,7 +34,7 @@ Template.tAddLeague.events({
             if (error) {
                 return alert(error.reason);
             }
-            Router.go('tLeaguePage', {
+            Router.go('tLeagueDetail', {
                 _id: id
             });
         });

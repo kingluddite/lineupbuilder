@@ -1,3 +1,5 @@
-Template.tGame.cGames = function() {
-  return Games.find();
-};
+Template.tGames.helpers({
+  cGames: function () {
+    return Games.find();
+  }
+});

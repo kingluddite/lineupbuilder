@@ -1,0 +1,11 @@
+<template name="tDivisionDetail">
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'tHome'}}">Home</a></li>
+    <li><a href="{{pathFor 'tLeagueList'}}">Leagues</a></li>
+    <li><a href="{{pathFor 'tDivisionList'}}">{{cLeague.leagueName}}</a></li>
+    <li class="active">{{divisionName}}</li>
+  </ol>
+
+  division detail
+  {{> tAddTeam}}
+</template>
