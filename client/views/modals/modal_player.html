@@ -1,0 +1,79 @@
+<template name="tModalPlayer">
+
+  <!-- modal for editing player -->
+  <div class="modal fade" id="modal-id">
+    <div class="modal-dialog modal-player">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Starting Player</h4>
+        </div>
+        <form class="updatePlayer">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+                <label for="firstName">First Name</label>
+                <input type="text" class="first-name form-control" name="firstName" value="{{cPlayer.firstName}}" />
+
+                <label for="lastNameInitial">Last Name First Intial</label>
+                <input type="text" id="lastNameInitial" class="last-name-initial form-control" name="lastNameInitial" placeholder="last name initial" value="{{cPlayer.lastNameInitial}}" />
+                <label for="fieldPosition">Field Position</label>
+                <select class="form-control field-position" name="fieldPosition">
+                  <option value="right-fullback">Right Fullback</option>
+                  <option value="right-striker">Right Striker</option>
+                  <option value="right-midfielder">Right Midfielder</option>
+                  <option value="offensive-midfielder">Offensive Midfielder</option>
+                  <option value="defensive-midfielder">Defensive Midfielder</option>
+                  <option value="left-striker">Left Striker</option>
+                  <option value="left-midfielder">Left Midfielder</option>
+                  <option value="left-fullback">Left Fullback</option>
+                  <option value="stopper">Stopper</option>
+                  <option value="sweeper">Sweeper</option>
+                  <option value="goalie">Goalie</option>
+                  <option value="none">None</option>
+                </select>
+
+                <label for="teamId">Team Name</label>
+                <select class="team-name form-control" name="teamId">
+                  <option value="">Choose A Team</option>
+                  {{#each cTeams}}
+                  <option value="{{_id}}">{{teamName}}</option>
+                  {{/each}}
+                </select>
+
+                <label for="gameStatus">Game Status</label>
+                <select class="game-status form-control" name="gameStatus">
+                  <option value="starting">Starting</option>
+                  <option value="sub">Substitute</option>
+                  <option value="noReply">Did Not Reply</option>
+                  <option value="out">Not Playing</option>
+                  <option value="former">Former Player</option>
+                </select>
+
+                <label for="jerseyNumber">Jersey Number</label>
+                <input type="text" class="jersey-number form-control" name="jerseyNumber" value="{{cPlayer.jerseyNumber}}" />
+
+                <label for="seasonFeeOwed">Season Fee Owed</label>
+                <input type="text" class="season-fee-owed form-control" name="seasonFeeOwed" value="{{cPlayer.seasonFeeOwed}}" />
+
+                <label for="seasonFeePaid">Season Fee Paid</label>
+                <input type="text" class="season-fee-paid form-control" name="seasonFeePaid" value="{{cPlayer.seasonFeePaid}}" />
+
+                <label for="seasonFeePaid">Player Notes</label>
+                <textarea class="player-notes form-control" name="playerNotes">{{cPlayer.playerNotes}}</textarea>
+              </div>
+            </div>
+          </div>
+          <!-- END .modal-body -->
+          {{> tModalFooter}}
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- END modal for editing player -->
+
+</template>

@@ -9,21 +9,14 @@
           </a>
           {{else}}
           <p>Log in to add teams</p>
-          {{/if}} 
-          {{#if sEditMode}}
+          {{/if}} {{#if sEditMode}}
           <form role="form" name="frmAddTeam">
             <input type="text" class="form-control" name="teamName" placeholder="team name" />
             <input type="text" class="form-control" name="leagueId" placeholder="league name" />
 
             <input type="submit" value="submit">
           </form>
-          <a class="btn btn-success btn-xs add">
-            <span class="glyphicon glyphicon-ok"></span>
-          </a>
-          <a type="button" class="btn btn-danger btn-xs remove">
-            <span class="glyphicon glyphicon-remove"></span>
-          </a>
-          {{/if}}
+          {{> tAddCancelBtns }} {{/if}}
         </div>
         <!-- END .team -->
       </div>

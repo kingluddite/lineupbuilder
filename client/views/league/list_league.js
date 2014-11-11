@@ -1,19 +1,19 @@
 Template.tListLeague.helpers({
-    cLeagues: function () {
-        return Leagues.find();   
-    }
+  cLeagues: function() {
+    return Leagues.find();
+  }
 });
 
 Template.tListLeague.helpers({
-    sEditMode: function () {
-        return Session.get('sEditMode');
-    }
+  sEditMode: function() {
+    return Session.get('sEditMode');
+  }
 });
 
 Template.tListLeague.helpers({
-    sLeagueId: function () {
-        return Session.get('sLeagueId');
-    }
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  }
 });
 
 // highlight currently selected team
@@ -30,10 +30,10 @@ Template.tListLeague.helpers({
 });
 
 Template.tListLeague.events({
-    'click .add': function(evt, tmpl) {
-        Session.set("sEditMode", true);
-    },
-    'mouseover li.league': function(evt, tmpl) {
+  'click .add': function(evt, tmpl) {
+    Session.set("sEditMode", true);
+  },
+  'mouseover li.league': function(evt, tmpl) {
     var leagueId = this._id;
     Session.set('sLeagueId', leagueId);
     var selectedLeague = Session.get('sLeagueId');

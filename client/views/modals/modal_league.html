@@ -6,7 +6,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">League: <strong>{{cLeague.leagueName}}</strong></h4>
+          <h4 class="modal-title">League:
+            <strong>{{cLeague.leagueName}}</strong>
+          </h4>
         </div>
         <form class="updateLeague">
           <div class="modal-body">
@@ -40,10 +42,7 @@
             </div>
           </div>
           <!-- END .modal-body -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary save-changes">Save changes</button>
-          </div>
+          {{> tModalFooter}}
         </form>
       </div>
       <!-- /.modal-content -->

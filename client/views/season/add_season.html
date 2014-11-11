@@ -36,7 +36,7 @@
         </div>
       </div>
 
-       <div class="required-field-block">
+      <div class="required-field-block">
         <input type="text" placeholder="status" name="seasonStatus" class="form-control">
         <div class="required-icon">
           <div class="text">*</div>
@@ -50,8 +50,7 @@
           <div class="text">*</div>
         </div>
       </div>
-
-      <button type="submit" class="btn btn-primary">Add Season</button>
+      {{> tAddCancelBtns }}
     </form>
     {{else}}
     <p>Please log in to add season.</p>
