@@ -1,0 +1,89 @@
+<template name="tAddGame">
+  <div class="container">
+
+    {{#if currentUser}}
+    <form role="form">
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Game Date" name="gameDate" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Game Time" name="gameTime" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <!-- pull in the home jersey color from the teams table -->
+      <!-- pull in the away jersey color from the teams table -->
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Home Team" name="homeTeamId" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Home Score" name="homeTeamScore" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <!-- How do I add goals scored by player to this game, multiple values? -->
+      <div class="required-field-block">
+        <input type="text" placeholder="Away Team" name="awayTeamId" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Away Score" name="awayTeamScore" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Game Status" name="gameStatus" class="form-control">
+        <!-- to be played, forfeit, played-complete, cancelled, postponed -->
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Email" name="leagueAdminEmail" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+      <input type="text" placeholder="Phone" name="leagueAdminPhone" class="form-control">
+
+      <div class="required-field-block">
+        <textarea rows="3" class="form-control" placeholder="Pre Game Notes" name="preGameNotes"></textarea>
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <textarea rows="3" class="form-control" placeholder="Post Game Notes" name="postGameNotes"></textarea>
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+      {{> tAddCancelBtns }}
+    </form>
+    {{else}}
+    <p>Please log in to add leagues.</p>
+    {{/if}}
+  </div>
+  <!-- END .container -->
+</template>

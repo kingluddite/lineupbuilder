@@ -1,0 +1,75 @@
+<template name="tAddSeason">
+  <div class="container">
+
+    <h1>Add Season</h1>
+    {{#if currentUser}}
+    <form role="form">
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Name" name="seasonName" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <!-- needs to be a dropdown here with league names and captures league id -->
+      <div class="required-field-block">
+        <input type="text" placeholder="League Name" name="leagueId" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Division Name" name="divisionId" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <!-- validation rule - teams can not play themselves -->
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Start Date" name="startDate" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <!-- register, regular, playoffs, completed -->
+      <div class="required-field-block">
+        <input type="text" placeholder="status" name="seasonStatus" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Season Fee" name="seasonFee" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <!-- does textarea have a placeholder attribute or does the code go inside it? -->
+      <div class="required-field-block">
+        <textarea rows="3" class="form-control" placeholder="About season" name="seasonSummary"></textarea>
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+      {{> tAddCancelBtns }}
+    </form>
+    {{else}}
+    <p>Please log in to add season.</p>
+    {{/if}}
+    <h2>Current League Season</h2>
+    <ul>
+      {{#each cSeasons}}
+      <li>{{seasonName}} {{> tEditSeason}}</li>
+      {{/each}}
+    </ul>
+    <p>No Seasons yet</p>
+  </div>
+  <!-- END .container -->
+</template>

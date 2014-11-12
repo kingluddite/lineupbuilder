@@ -2,6 +2,7 @@
 <!-- {{> tZipCodes}} -->
     <div id="main" class="row"><strong></strong>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+<<<<<<< HEAD
             <h5>Season Fee</h5>
             <p>$2000.00</p>
             <h5>Fee Owed By Players</h5>
@@ -9,13 +10,18 @@
             <h5>Fee Paid By Players</h5>
             <p>{{formatPrice playersPaidThisAmount}}</p>
             {{> tAddPlayer}} {{> tRoster}} 
+=======
+          {{#if currentUser}}
+            {{> tAddPlayer}} 
+          {{/if}}
+          {{> tGameDayRoster}} 
+>>>>>>> 80a4e521d68103828fbac4c8553d73493ad4cd8a
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
             {{> tField}} 
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             {{> tSubs}}
-            {{> tDidNotReply}}
             {{> tNotPlaying}}
         </div>
     </div>

@@ -1,0 +1,38 @@
+<template name="tAddDivision">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        {{#if currentUser}}
+        <a type="button" class="btn btn-default btn-lg add">
+          <span class="glyphicon glyphicon-user">&nbsp;</span>Add Division
+        </a>
+        {{else}}
+        <p>Log in to add divisions</p>
+
+        {{/if}} {{#if sEditMode}}
+        <form role="form" name="frmAddDivision">
+          <div class="required-field-block">
+            <input type="text" placeholder="Name" name="divisionName" class="form-control">
+            <div class="required-icon">
+              <div class="text">*</div>
+            </div>
+          </div>
+          <!-- needs to be a dropdown here with league names and captures league id -->
+          <input type="hidden" name="leagueId" value="{{sLeagueId}}">
+          
+
+          <div class="required-field-block">
+            <textarea rows="3" class="form-control" placeholder="About Division" name="divisionSummary"></textarea>
+            <div class="required-icon">
+              <div class="text">*</div>
+            </div>
+          </div>
+          {{> tAddCancelBtns }}
+        </form>
+        {{/if}}
+      </div>
+
+    </div>
+  </div>
+  <!-- END .container -->
+</template>

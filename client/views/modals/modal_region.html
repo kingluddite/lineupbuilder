@@ -1,0 +1,37 @@
+<template name="tModalRegion">
+
+  <!-- modal for editing player -->
+  <div class="modal fade" id="region-modal-id">
+    <div class="modal-dialog modal-region">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Region: <strong>{{cRegion.regionName}}</strong></h4>
+        </div>
+        <form class="updateRegion">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p>
+                  <label for="regionName">Name</label>
+                  <input type="text" class="form-control" name="regionName" value="{{cRegion.regionName}}" />
+                </p>
+                <p>
+                  <label for="regionSummary">Summary</label>
+                  <textarea class="form-control" name="regionSummary" value="{{cRegion.regionSummary}}"></textarea>
+                </p> 
+              </div>
+            </div>
+          </div>
+          <!-- END .modal-body -->
+          {{> tModalFooter}}
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- END modal for editing player -->
+
+</template>

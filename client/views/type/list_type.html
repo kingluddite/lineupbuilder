@@ -1,0 +1,40 @@
+<template name="tListType">
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'tHome'}}">Home</a>
+    </li>
+    <li><a href="{{pathFor 'tListLeague'}}">League</a>
+    </li>
+    <li><a href="{{pathFor 'tHome'}}">{{cLeague.leagueName}}</a>
+    </li>
+    <li><a href="{{pathFor 'tHome'}}">Regions</a>
+    </li>
+    <li class="active">Region Name</li>
+  </ol>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      {{#if currentUser}}
+      <a type="button" class="btn btn-default btn-lg add">
+        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Region
+      </a>
+      {{else}}
+      <p>Log in to add Types</p>
+      {{/if}} 
+      {{#if sEditMode}} 
+        {{> tAddType}} 
+      {{/if}}
+      <h3>Here is a list of current Types for this league.</h3>
+      {{#if cTypes}}
+      <ul>
+        {{#each cTypes}}
+          <li class="type {{selectedClass}}">
+            <a href="{{pathFor 'tDetailType'}}">{{typeName}}</a> {{> tEditType}}</li>
+        {{/each}}
+      </ul>
+      {{else}}
+      <p>Sorry, no Types yet</p>
+      {{/if}}
+      <p>Select the Types you want to enter.</p>
+    </div>
+    <!-- END .col6 -->
+  </div>
+</template>

@@ -1,0 +1,49 @@
+<template name="tAddLeague">
+  <div class="container">
+
+    {{#if currentUser}}
+    <form role="form">
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Name" name="leagueName" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Admin First Name" name="leagueAdminFirstName" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Admin Last Name" name="leagueAdminLastName" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+
+      <div class="required-field-block">
+        <input type="text" placeholder="Email" name="leagueAdminEmail" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+      <input type="text" placeholder="Phone" name="leagueAdminPhone" class="form-control">
+
+      <div class="required-field-block">
+        <textarea rows="3" class="form-control" placeholder="About League" name="leagueSummary"></textarea>
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+      {{> tAddCancelBtns }}
+    </form>
+    {{else}}
+    <p>Please log in to add leagues.</p>
+    {{/if}}
+  </div>
+  <!-- END .container -->
+</template>

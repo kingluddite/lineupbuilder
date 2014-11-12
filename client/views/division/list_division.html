@@ -1,0 +1,25 @@
+<template name="tListDivision">
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'tHome'}}">Home</a>
+    </li>
+    <li><a href="{{pathFor 'tListLeague'}}">Leagues</a>
+    </li>
+    <li><a href="{{pathFor 'tDetailLeague'}}">{{leagueName}}</a>
+    </li>
+    <li class="active">Divisions</li>
+  </ol>
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      {{#if currentUser}} {{> tAddDivision}} {{/if}}
+
+      <h2>{{leagueName}} Divisions</h2>
+      <ul>
+        {{#each cDivisions}}
+        <li>{{divisionName}} {{> tEditDivision}}</li>
+        {{/each}}
+      </ul>
+      <p>No divisions yet</p>
+  </div>
+  <!-- END .col6 -->
+  </div>
+</template>
