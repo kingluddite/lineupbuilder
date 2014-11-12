@@ -25,7 +25,7 @@ Template.tModalPlayer.events({
       evt.preventDefault();
 
       var currentPlayerId = this._id;
-
+      console.log(currentPlayerId);
       var playerProperties = {
           firstName: $(evt.target).find('[name=firstName]').val(),
           lastNameInitial: $(evt.target).find('[name=lastNameInitial]').val(),
