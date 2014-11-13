@@ -1,23 +1,23 @@
-Template.tListLeague.helpers({
+Template.tListLeagues.helpers({
   cLeagues: function() {
     return Leagues.find();
   }
 });
 
-Template.tListLeague.helpers({
+Template.tListLeagues.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   }
 });
 
-Template.tListLeague.helpers({
+Template.tListLeagues.helpers({
   sLeagueId: function() {
     return Session.get('sLeagueId');
   }
 });
 
 // highlight currently selected team
-Template.tListLeague.helpers({
+Template.tListLeagues.helpers({
   selectedClass: function() {
     var selectedLeague = Session.get('sLeagueId');
     var leagueId = this._id;
@@ -29,7 +29,7 @@ Template.tListLeague.helpers({
   }
 });
 
-Template.tListLeague.events({
+Template.tListLeagues.events({
   'click .add': function(evt, tmpl) {
     Session.set("sEditMode", true);
   },
