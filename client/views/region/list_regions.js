@@ -17,7 +17,7 @@ Template.tListRegions.helpers({
   }
 });
 
-Template.tListLeague.helpers({
+Template.tListRegions.helpers({
     sLeagueId: function () {
         return Session.get('sLeagueId');
     }

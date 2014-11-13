@@ -4,6 +4,8 @@
 </template>
 
 <template name="tEditDeleteBtns">
-  <button type="submit" class="btn btn-success add">Add</button>
-  <button class="btn btn-danger cancel">Cancel</button>
+  {{#if currentUser}}
+    <i class="fa fa-trash remove"></i> 
+    <i class="fa fa-pencil edit"></i>
+  {{/if}}
 </template>
