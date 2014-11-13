@@ -6,9 +6,9 @@ Meteor.publish('regions', function() {
   return Regions.find();
 });
 
-// Meteor.publish('type', function() {
-//   return Types.find();
-// });
+Meteor.publish('type', function() {
+  return Types.find();
+});
 
 // Meteor.publish('seasons', function(){
 //   return Seasons.find();
