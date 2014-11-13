@@ -1,15 +1,15 @@
-Template.tListRegion.helpers({
+Template.tListRegions.helpers({
   cRegions: function() {
     return Regions.find();
   }
 });
-Template.tListRegion.helpers({
+Template.tListRegions.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   }
 });
 
-Template.tListRegion.helpers({
+Template.tListRegions.helpers({
   cLeague: function() {
     return Leagues.findOne({
       _id: Session.get("sLeagueId")
@@ -17,20 +17,20 @@ Template.tListRegion.helpers({
   }
 });
 
-Template.tListLeague.helpers({
+Template.tListRegions.helpers({
     sLeagueId: function () {
         return Session.get('sLeagueId');
     }
 });
 
-Template.tListRegion.helpers({
+Template.tListRegions.helpers({
   sRegionId: function() {
     return Session.get('sRegionId');
   }
 });
 
 // highlight currently selected team
-Template.tListRegion.helpers({
+Template.tListRegions.helpers({
   selectedClass: function() {
     var selectedRegion = Session.get('sRegionId');
     var regionId = this._id;
@@ -42,7 +42,7 @@ Template.tListRegion.helpers({
   }
 });
 
-Template.tListRegion.events({
+Template.tListRegions.events({
   'click .add': function(evt, tmpl) {
     Session.set("sEditMode", true);
   },

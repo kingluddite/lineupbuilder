@@ -1,25 +1,25 @@
 // grab all teams in this season
-Template.tTeams.helpers({
+Template.tListTeams.helpers({
   cTeams: function() {
     return Teams.find();
   }
 });
 
 // grab the team id
-Template.tTeams.helpers({
+Template.tListTeams.helpers({
   sTeamId: function() {
     return Session.get('sTeamId');
   }
 });
 
-Template.tTeams.helpers({
+Template.tListTeams.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   }
 });
 
 // highlight currently selected team
-Template.tTeams.helpers({
+Template.tListTeams.helpers({
   selectedClass: function() {
     var selectedTeam = Session.get('sTeamId');
     var teamId = this._id;
@@ -29,7 +29,7 @@ Template.tTeams.helpers({
   }
 });
 
-Template.tTeams.events({
+Template.tListTeams.events({
   'click li.team': function() {
     var teamId = this._id;
     Session.set('sTeamId', teamId);

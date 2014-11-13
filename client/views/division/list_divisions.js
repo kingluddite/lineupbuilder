@@ -1,17 +1,17 @@
-Template.tListDivision.helpers({
+Template.tListDivisions.helpers({
   cDivisions: function() {
     return Divisions.find();
   }
 });
 
-Template.tListDivision.helpers({
+Template.tListDivisions.helpers({
   sDivisionId: function() {
     return Session.get('sDivisionId');
   }
 });
 
 // highlight currently selected team
-Template.tListDivision.helpers({
+Template.tListDivisions.helpers({
   selectedClass: function() {
     var selectedDivision = Session.get('sDivisionId');
     var DivisionId = this._id;
@@ -23,7 +23,7 @@ Template.tListDivision.helpers({
   }
 });
 
-Template.tListDivision.events({
+Template.tListDivisions.events({
   'click .remove': function(evt, tmpl) {
     Session.set("sEditMode", false);
   },

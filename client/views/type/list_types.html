@@ -1,20 +1,23 @@
-<template name="tListType">
+<template name="tListTypes">
+[list_types]
   <ol class="breadcrumb">
     <li><a href="{{pathFor 'tHome'}}">Home</a>
     </li>
-    <li><a href="{{pathFor 'tListLeague'}}">League</a>
+    <li><a href="{{pathFor 'tListLeagues'}}">Leagues</a>
     </li>
-    <li><a href="{{pathFor 'tHome'}}">{{cLeague.leagueName}}</a>
+    <li><a href="{{pathFor 'tDetailLeague'}}">{{cLeague.leagueName}}</a>
     </li>
-    <li><a href="{{pathFor 'tHome'}}">Regions</a>
+    <li><a href="{{pathFor 'tListRegions'}}">Regions</a>
     </li>
-    <li class="active">Region Name</li>
+    <li>Regions Name
+    </li>
+    <li class="active">Type</li>
   </ol>
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       {{#if currentUser}}
       <a type="button" class="btn btn-default btn-lg add">
-        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Region
+        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Type
       </a>
       {{else}}
       <p>Log in to add Types</p>
@@ -23,6 +26,7 @@
         {{> tAddType}} 
       {{/if}}
       <h3>Here is a list of current Types for this league.</h3>
+      <p>Each league has a variety of different type of matches. Whether it's 11 v 11 Men or 7 v 7 Coed, this is the area where you define all the types of games your league offers.</p>
       {{#if cTypes}}
       <ul>
         {{#each cTypes}}

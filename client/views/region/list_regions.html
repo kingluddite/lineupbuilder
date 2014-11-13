@@ -1,10 +1,11 @@
-<template name="tListRegion">
+<template name="tListRegions">
   <ol class="breadcrumb">
     <li><a href="{{pathFor 'tHome'}}">Home</a>
     </li>
-    <li><a href="{{pathFor 'tListLeague'}}">League</a>
+    <li><a href="{{pathFor 'tListLeagues'}}">Leagues</a>
     </li>
-    <li><a href="{{pathFor 'tHome'}}">{{cLeague.leagueName}}</a>
+    <!-- PROBLEM - How do I make tDetailLeague link back to South Bay Sports? -->
+    <li><a href="{{pathFor 'tDetailLeague'}}">{{cLeague.leagueName}}</a>
     </li>
     <li class="active">Regions</li>
   </ol>

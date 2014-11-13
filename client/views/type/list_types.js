@@ -1,15 +1,15 @@
-Template.tListType.helpers({
+Template.tListTypes.helpers({
   cTypes: function() {
     return Types.find();
   }
 });
-Template.tListType.helpers({
+Template.tListTypes.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   }
 });
 
-Template.tListType.helpers({
+Template.tListTypes.helpers({
   cType: function() {
     return Types.findOne({
       _id: Session.get("sTypeId")
@@ -17,20 +17,20 @@ Template.tListType.helpers({
   }
 });
 
-Template.tListType.helpers({
+Template.tListTypes.helpers({
     sTypeId: function () {
         return Session.get('sTypeId');
     }
 });
 
-Template.tListType.helpers({
+Template.tListTypes.helpers({
   sTypeId: function() {
     return Session.get('sTypeId');
   }
 });
 
 // highlight currently selected team
-Template.tListType.helpers({
+Template.tListTypes.helpers({
   selectedClass: function() {
     var selectedType = Session.get('sTypeId');
     var TypeId = this._id;
@@ -42,7 +42,7 @@ Template.tListType.helpers({
   }
 });
 
-Template.tListType.events({
+Template.tListTypes.events({
   'click .add': function(evt, tmpl) {
     Session.set("sEditMode", true);
   },
