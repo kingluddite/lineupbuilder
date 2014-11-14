@@ -5,26 +5,26 @@
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       {{#if currentUser}}
       <a type="button" class="btn btn-default btn-lg add">
-        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Region
+        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Season
       </a>
       {{else}}
-      <p>Log in to add teams</p>
+      <p>Log in to add Seasons</p>
       {{/if}} 
       {{#if sEditMode}} 
-        {{> tAddRegion}} 
+        {{> tAddSeason}} 
       {{/if}}
-      <h3>Here is a list of current regions for this league.</h3>
-      {{#if cRegions}}
+      <h3>Here is a list of current seasons for this league.</h3>
+      {{#if cSeasons}}
       <ul>
-        {{#each cRegions}}
-          <li class="region {{selectedClass}}">
-            <a href="{{pathFor 'tDetailRegion'}}">{{regionName}}</a> {{> tEditRegion}}</li>
+        {{#each cSeasons}}
+          <li class="seasons {{selectedClass}}">
+            <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditRegion}}</li>
         {{/each}}
       </ul>
       {{else}}
-      <p>Sorry, no regions yet</p>
+      <p>Sorry, no seasons yet</p>
       {{/if}}
-      <p>Select the region you want to enter.</p>
+      <p>Select the season you want to enter.</p>
     </div>
     <!-- END .col6 -->
   </div>

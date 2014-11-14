@@ -35,11 +35,12 @@ Template.tAddSeason.events({
         // if season status is complete no games can be added
         // not started, started, playoffs, completed
         var season= {
-            seasonName: $(evt.target).find('[name=seasonName]').val(),
             leagueId: $(evt.target).find('[name=leagueId]').val(),
-            divisionId: $(evt.target).find('[name=divisionId]').val(),
-            seasonStatus: $(evt.target).find('[name=seasonStatus').val(),
-            seasonStartDate: $(evt.target).find('[name=seasonStartDate').val(),
+            regionId: $(evt.target).find('[name=regionId]').val(),
+            seasonName: $(evt.target).find('[name=seasonName]').val(),
+            seasonDivision: $(evt.target).find('[name=seasonDivision]').val(),
+            seasonStartDate: $(evt.target).find('[name=seasonStartDate]').val(),
+            seasonStatus: $(evt.target).find('[name=seasonStatus]').val(),
             seasonSummary: $(evt.target).find('[name=seasonSummary]').val(),
         };
 
