@@ -1,6 +1,6 @@
 
 
-Template.tHome.helpers({
+Template.tCivitas.helpers({
   playersOweThisAmount: function() {
     var total = 0;
     Players.find({teamId: "WSNoNmbiT63pxxLr4"}).map(function(doc) {

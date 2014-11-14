@@ -1,3 +1,92 @@
+<template name="tGameReminder">
+  <div class="page-header">
+    <h1>Game<small>Reminder</small></h1>
+    <p>Here is the result to this week's game reminder. I would like 17 players for Sunday's game so I'm now sending invites to our reserve team.</p>
+  </div><div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h2>Yes</h2>
+      {{> tYesWillPlay}}
+    </div><!-- END yes -->
+
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h2>No</h2>
+      {{> tNoWillNotPlay}}
+
+      <h3>Injured</h3>
+      {{> tInjured}}
+    </div><!-- END no -->
+
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <h2>No</h2>
+      {{> tDidNotReply}}
+    </div><!-- END no reply -->
+  </div>
+</template>
+
+
+<template name="tYesWillPlay">
+<h2>Did Not Reply</h2>
+<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
+{{#if cDidNotReply}}
+  <ol>
+    {{#each cDidNotReply}}
+      <li>
+        {{> tPlayerInfo}}
+        {{> tEditPlayer}}
+        <!-- <ul>
+          <li>{{fieldPosition}}</li>
+        </ul> -->
+      </li>
+    {{/each}}
+  </ol>
+
+{{else}}
+<p>no players on this team</p>
+{{/if}}
+</template>
+
+<template name="tNoWillNotPlay">
+<h2>Did Not Reply</h2>
+<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
+{{#if cDidNotReply}}
+  <ol>
+    {{#each cDidNotReply}}
+      <li>
+        {{> tPlayerInfo}}
+        {{> tEditPlayer}}
+        <!-- <ul>
+          <li>{{fieldPosition}}</li>
+        </ul> -->
+      </li>
+    {{/each}}
+  </ol>
+
+{{else}}
+<p>no players on this team</p>
+{{/if}}
+</template>
+
+<template name="tInjured">
+<h2>Did Not Reply</h2>
+<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
+{{#if cDidNotReply}}
+  <ol>
+    {{#each cDidNotReply}}
+      <li>
+        {{> tPlayerInfo}}
+        {{> tEditPlayer}}
+        <!-- <ul>
+          <li>{{fieldPosition}}</li>
+        </ul> -->
+      </li>
+    {{/each}}
+  </ol>
+
+{{else}}
+<p>no players on this team</p>
+{{/if}}
+</template>
+
 <template name="tDidNotReply">
 <h2>Did Not Reply</h2>
 <p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
