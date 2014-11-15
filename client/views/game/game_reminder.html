@@ -1,109 +1,116 @@
 <template name="tGameReminder">
   <div class="page-header">
-    <h1>Game<small>Reminder</small></h1>
-    <p>Here is the result to this week's game reminder. I would like 17 players for Sunday's game so I'm now sending invites to our reserve team.</p>
-  </div><div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <img src="/images/civitas_logo.jpg" alt="Civitas Logo">
+    </div>
+
+    <h1>Game
+      <small>Reminder</small>
+    </h1>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <h2>Game Notes</h2>
+        <p>Here is the result to this week's game reminder. I would like 17 players for Sunday's game so I'm now sending invites to our reserve team.</p>
+      </div>
+      {{> tCalendar}}
+    </div>
+  </div>
+  <div class="row">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <h2>Yes</h2>
-      {{> tYesWillPlay}}
-    </div><!-- END yes -->
+      {{> tWillPlay}}
+    </div>
+    <!-- END yes -->
 
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
       <h2>No</h2>
-      {{> tNoWillNotPlay}}
+      {{> tWillNotPlay}}
 
-      <h3>Injured</h3>
-      {{> tInjured}}
-    </div><!-- END no -->
+    </div>
+    <!-- END no -->
 
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <h2>No</h2>
+      <h2>Did Not Reply</h2>
       {{> tDidNotReply}}
-    </div><!-- END no reply -->
+    </div>
+    <!-- END no reply -->
   </div>
 </template>
 
 
-<template name="tYesWillPlay">
-<h2>Did Not Reply</h2>
-<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
-{{#if cDidNotReply}}
+<template name="tWillPlay">
+      <h2>Yes  <span class="badge">{{yesCount}}</span></h2>
+
+  {{#if cWillPlay}}
   <ol>
-    {{#each cDidNotReply}}
-      <li>
-        {{> tPlayerInfo}}
-        {{> tEditPlayer}}
-        <!-- <ul>
+    {{#each cWillPlay}}
+    <li>
+      {{> tPlayerInfo}} {{> tEditPlayer}}
+      <!-- <ul>
           <li>{{fieldPosition}}</li>
         </ul> -->
-      </li>
+    </li>
     {{/each}}
   </ol>
 
-{{else}}
-<p>no players on this team</p>
-{{/if}}
+  {{else}}
+  <p>no players on this team</p>
+  {{/if}}
 </template>
 
-<template name="tNoWillNotPlay">
-<h2>Did Not Reply</h2>
-<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
-{{#if cDidNotReply}}
+<template name="tWillNotPlay">
+  <p class="badge">{{noCount}}</p>
+
   <ol>
-    {{#each cDidNotReply}}
-      <li>
-        {{> tPlayerInfo}}
-        {{> tEditPlayer}}
-        <!-- <ul>
+    {{#each cWillNotPlay}}
+    <li>
+      {{> tPlayerInfo}} {{> tEditPlayer}}
+      <!-- <ul>
           <li>{{fieldPosition}}</li>
         </ul> -->
-      </li>
+    </li>
     {{/each}}
   </ol>
 
-{{else}}
-<p>no players on this team</p>
-{{/if}}
+  <p>no players on this team</p>
+
 </template>
 
-<template name="tInjured">
-<h2>Did Not Reply</h2>
-<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
-{{#if cDidNotReply}}
+<template name="tDidNotRespond">
+  <p class="badge">{{cNoCount}}</p>
+  {{#if cNoResponse}}
   <ol>
-    {{#each cDidNotReply}}
-      <li>
-        {{> tPlayerInfo}}
-        {{> tEditPlayer}}
-        <!-- <ul>
+    {{#each cNoResponse}}
+    <li>
+      {{> tPlayerInfo}} {{> tEditPlayer}}
+      <!-- <ul>
           <li>{{fieldPosition}}</li>
         </ul> -->
-      </li>
+    </li>
     {{/each}}
   </ol>
 
-{{else}}
-<p>no players on this team</p>
-{{/if}}
+  {{else}}
+  <p>no players on this team</p>
+  {{/if}}
 </template>
 
-<template name="tDidNotReply">
-<h2>Did Not Reply</h2>
-<p class="badge">{{didNotReplyCount}} Did Not Reply Yet</p>
-{{#if cDidNotReply}}
-  <ol>
-    {{#each cDidNotReply}}
-      <li>
-        {{> tPlayerInfo}}
-        {{> tEditPlayer}}
-        <!-- <ul>
-          <li>{{fieldPosition}}</li>
-        </ul> -->
-      </li>
-    {{/each}}
-  </ol>
+<template name="tCalendar">
+  <div class="row">
 
-{{else}}
-<p>no players on this team</p>
-{{/if}}
+    <div class="col-sm-4">
+      <hr/>
+      <div class="date-picker" data-date="2014/11/16">
+        <div class="date-container pull-left">
+          <h4 class="weekday">Monday</h4>
+          <h2 class="date">Februray 4th</h2>
+          <h4 class="year pull-right">2014</h4>
+        </div>
+        <span data-toggle="datepicker" data-type="subtract" data-amt="1" class="fa fa-angle-left pull-left"></span>
+        <span data-toggle="datepicker" data-amt="1" class="fa fa-angle-right pull-right"></span>
+      </div>
+    </div>
+    <div class="col-sm-4" style="text-align:center">
+      <span style="font-size: 36px; font-family: 'Roboto', sans-serif;">@ 11:15am</span>
+    </div>
+  </div>
 </template>

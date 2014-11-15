@@ -36,6 +36,7 @@ Template.tModalPlayer.events({
           lastNameInitial: $(evt.target).find('[name=lastNameInitial]').val(),
           teamId: $(evt.target).find('[name=teamId]').val(),
           fieldPosition: $(evt.target).find('[name=fieldPosition]').val(),
+          gameReminderStatus: $(evt.target).find('[name=gameReminderStatus]').val(),
           gameStatus: $(evt.target).find('[name=gameStatus]').val(),
           jerseyNumber: $(evt.target).find('[name=jerseyNumber]').val(),
           seasonFeeOwed: $(evt.target).find('[name=seasonFeeOwed]').val(),
