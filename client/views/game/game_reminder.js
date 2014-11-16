@@ -74,14 +74,13 @@ Template.tGameReminder.rendered = function() {
     });
 };
 
-
-Template.tDidNotRespond.helpers({
-  cNoCount: function() {
+Template.tDidNotReply.helpers({
+  cNoReply: function() {
     return Players.find({
       gameReminderStatus: "didNotReply"
     }).count();
   },
-  cDidNot: function() {
+  cDidNotReply: function() {
     return Players.find({
       gameReminderStatus: "didNotReply"
     }, {
@@ -95,59 +94,36 @@ Template.tDidNotRespond.helpers({
 Template.tWillPlay.helpers({
   cWillPlay: function() {
     return Players.find({
-      gameReminderStatus: "true"
+      gameReminderStatus: "yes"
     }, {
       sort: {
         firstName: 1
       }
     });
   },
-  cPlayers: function() {
-    return Players.find();
-  },
-  playersOut: function() {
-    if (Players.find({
-        gameStatus: "out"
-      }).count() > 0) {
-      return true;
-    } else {
-      return "no players are out";
-    }
-  },
 
-  yesCount: function() {
+  cYesCount: function() {
     return Players.find({
-      gameReminderStatus: "true"
+      gameReminderStatus: "yes"
     }).count();
   }
 });
 
 Template.tWillNotPlay.helpers({
-
-  
   cWillNotPlay: function() {
     return Players.find({
-      gameReminderStatus: "false"
+      gameReminderStatus: "no"
     }, {
       sort: {
         firstName: 1
       }
     });
+    //return Players.find();
   },
- 
-  // playersOut: function() {
-  //   if (Players.find({
-  //       gameStatus: "out"
-  //     }).count() > 0) {
-  //     return true;
-  //   } else {
-  //     return "no players are out";
-  //   }
-  // },
 
-  noCount: function() {
+  cNoCount: function() {
     return Players.find({
-      gamReminderStatus: "willNotPlay"
+      gameReminderStatus: "no"
     }).count();
   }
 });

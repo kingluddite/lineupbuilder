@@ -27,6 +27,7 @@ Template.tEditPlayer.events({
     var player = Players.findOne(Session.get("sPlayerId"));
     // make dropdown equal to the current value in the collection record
     $(".game-status").val(player.gameStatus);
+    $(".game-reminder-status").val(player.gameReminderStatus);
     $(".field-position").val(player.fieldPosition);
     $(".team-id").val(player.teamId);
   }

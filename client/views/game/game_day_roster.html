@@ -1,23 +1,12 @@
 <template name="tGameDayRoster">
-<h2>Game Day Roster</h2>
+<h2>Game Day Starting Lineup</h2>
 <p class="badge">{{gameDayRosterCount}} players this week</p>
 <p class="badge">{{totalRoster}} total players</p>
 {{#if cRoster}}
   <ol>
     {{#each cStarters}}
-      <li>
-        {{> tPlayerInfo}}
-        
-        <ul>
-          <li>{{fieldPosition}} {{playerNotes}}
-              {{#if currentUser}}
-              <ul>
-                <li>{{> tEditPlayer}}</li>
-              </ul>
-              {{/if}}
-          </li>
-        </ul>
-      </li>
+        {{> tListPlayers}}
+        <ul><li>{{fieldPosition}}</li></ul>
     {{/each}}
   </ol>
 
@@ -50,12 +39,11 @@
 {{#if haveSubs}}
   <ol>
     {{#each cPlayers}}
-     <li> {{> tPlayerInfo}}
-        {{> tEditPlayer}}</li>
+     {{> tListPlayers}}
     {{/each}}
   </ol>
 {{else}}
-no subs
+<p>no subs</p>
 {{/if}}
 </template>
 
