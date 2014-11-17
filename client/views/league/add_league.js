@@ -47,6 +47,7 @@ Template.tAddLeague.events({
             // return alert(error.reason);
             return throwError(error.reason);
           }
+          console.log(result);
           if (result.postExists) {
             throwError('This link has already been posted');
           }
