@@ -31,7 +31,8 @@ Template.tAddTeam.events({
 
     Meteor.call('addTeam', team, function(error, id) {
       if (error) {
-        return alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
       // Router.go('playerPage', {_id: id});
     });

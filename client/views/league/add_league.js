@@ -27,7 +27,8 @@ Template.tAddLeague.events({
 
     Meteor.call('addLeague', league, function(error, id) {
       if (error) {
-        return alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       } else {
         Session.set('sEditMode', false);
         Router.go('tDetailLeague', {

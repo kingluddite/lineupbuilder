@@ -35,7 +35,8 @@ Template.tAddRegion.events({
 
     Meteor.call('addRegion', region, function(error, id) {
       if (error) {
-        return alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
       // Router.go('tDetailRegion', {
       //   _id: id

@@ -35,7 +35,8 @@ Template.tModalDivision.events({
       $set: divisionProperties
     }, function(error) {
       if (error) {
-        alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
     });
     $("#division-modal-id").modal("hide");

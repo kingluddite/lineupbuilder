@@ -41,7 +41,8 @@ Template.tAddPlayer.events({
 
     Meteor.call('addPlayer', player, function(error, id) {
       if (error) {
-        return alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
       // Router.go('playerPage', {
       //     _id: id

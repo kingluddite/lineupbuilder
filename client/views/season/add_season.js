@@ -47,7 +47,8 @@ Template.tAddSeason.events({
 
     Meteor.call('addSeason', season, function(error, id) {
       if (error) {
-        return alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
     });
 

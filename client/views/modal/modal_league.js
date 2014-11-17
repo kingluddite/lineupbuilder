@@ -31,7 +31,8 @@ Template.tModalLeague.events({
       $set: leagueProperties
     }, function(error) {
       if (error) {
-        alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
     });
     $("#league-modal-id").modal("hide");

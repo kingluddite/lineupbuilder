@@ -38,7 +38,8 @@ Template.tModalPlayer.events({
       $set: playerProperties
     }, function(error) {
       if (error) {
-        alert(error.reason);
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
     });
     $("#modal-id").modal("hide");
