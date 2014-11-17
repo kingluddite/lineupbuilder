@@ -9,10 +9,7 @@ Template.tGameDayRoster.helpers({
         firstName: 1
       }
     });
-  }
-});
-
-Template.tGameDayRoster.helpers({
+  },
   cStarters: function() {
     return Players.find({
       gameStatus: {
@@ -23,25 +20,20 @@ Template.tGameDayRoster.helpers({
         firstName: 1
       }
     });
-  }
-});
+  },
+  sPlayerId: function() {
+    return Session.get('sPlayerId');
 
-Template.tGameDayRoster.sPlayerId = function() {
-  return Session.get('sPlayerId');
-};
-
-Template.tGameDayRoster.playersOff = function() {
-  return Players.find({
-    gameStatus: "out"
-  }, {
-    sort: {
-      firstName: 1
-    }
-  });
-};
-
-Template.tGameDayRoster.helpers({
-
+  },
+  playersOff: function() {
+    return Players.find({
+      gameStatus: "out"
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
+  },
   gameDayRosterCount: function() {
     return Players.find({
       gameStatus: {
@@ -51,24 +43,21 @@ Template.tGameDayRoster.helpers({
   },
   totalRoster: function() {
     return Players.find().count();
-  }
-});
-
-Template.tSubs.helpers({
+  },
   cPlayer: function() {
     return Players.findOne({
       _id: Session.get("sPlayerId")
     });
   }
+
+
 });
 
+// Subs template
 Template.tSubs.helpers({
   sPlayerId: function() {
     Session.get("sPlayerId");
-  }
-});
-
-Template.tSubs.helpers({
+  },
   cPlayers: function() {
     // var currentUserId = Meteor.userId();
     return Players.find({
@@ -79,10 +68,7 @@ Template.tSubs.helpers({
         firstName: 1
       }
     });
-  }
-});
-
-Template.tSubs.helpers({
+  },
   haveSubs: function() {
     if (Players.find({
         gameStatus: "sub"
@@ -97,10 +83,12 @@ Template.tSubs.helpers({
       gameStatus: "sub"
     }).count();
   }
+
 });
 
+// starting lineup template
 Template.tStartingLineup.helpers({
-  cStarters: function () {
+  cStarters: function() {
     return Players.find({
       gameStatus: "starting"
     }, {
@@ -112,13 +100,13 @@ Template.tStartingLineup.helpers({
 });
 
 Template.tStartingLineup.helpers({
-  sPlayerId: function () {
+  sPlayerId: function() {
     return Session.get("sPlayerId");
   }
 });
 
-Template.tField.cPlayers = function() {
-  return Players.find({
-    gameStatus: "starting"
-  });
-};
+// Template.tField.cPlayers = function() {
+//   return Players.find({
+//     gameStatus: "starting"
+//   });
+// };

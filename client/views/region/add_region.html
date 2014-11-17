@@ -1,28 +1,33 @@
 <template name="tAddRegion">
   <div class="container">
-    <h1>Add Region</h1>
-    {{#if currentUser}}
-    <form role="form">
-      <input type="hidden" name="leagueId" id="inputLeagueId" class="form-control" value="{{sLeagueId}}">
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <h1>Add Region</h1>
+        {{#if currentUser}}
+        <form role="form">
+          <input type="hidden" name="leagueId" id="inputLeagueId" class="form-control" value="{{sLeagueId}}">
 
-      <div class="required-field-block">
-        <input type="text" placeholder="Name" name="regionName" class="form-control">
-        <div class="required-icon">
-          <div class="text">*</div>
-        </div>
-      </div>
+          <div class="required-field-block">
+            <input type="text" placeholder="Name" name="regionName" class="form-control">
+            <div class="required-icon">
+              <div class="text">*</div>
+            </div>
+          </div>
 
-      <div class="required-field-block">
-        <textarea rows="3" class="form-control" placeholder="About Region" name="regionSummary"></textarea>
-        <div class="required-icon">
-          <div class="text">*</div>
-        </div>
+          <div class="required-field-block">
+            <textarea rows="3" class="form-control" placeholder="About Region" name="regionSummary"></textarea>
+            <div class="required-icon">
+              <div class="text">*</div>
+            </div>
+          </div>
+          {{> tAddCancelBtns }}
+        </form>
+        {{else}}
+        <p>Please log in to add regions.</p>
+        {{/if}}
       </div>
-      {{> tAddCancelBtns }}     
-    </form>
-    {{else}}
-    <p>Please log in to add regions.</p>
-    {{/if}}
+    </div>
+
   </div>
   <!-- END .container -->
 </template>

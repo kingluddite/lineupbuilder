@@ -1,30 +1,25 @@
 Template.tListSeasons.helpers({
   cSeasons: function() {
-    return Regions.find();
-  }
-});
-Template.tListSeasons.helpers({
+    return Seasons.find();
+  },
   sEditMode: function() {
     return Session.get('sEditMode');
-  }
-});
-
-Template.tListSeasons.helpers({
+  },
   cSeason: function() {
-    return Leagues.findOne({
-      _id: Session.get("sLeagueId")
+    return Seasons.findOne({
+      _id: Session.get("sSeasonId")
     });
-  }
-});
-
-Template.tListSeasons.helpers({
+  },
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  },
+  sRegionId: function() {
+    return Session.get('sRegionId');
+  },
   sSeasonId: function() {
     return Session.get('sSeasonId');
-  }
-});
-
-// highlight currently selected team
-Template.tListSeasons.helpers({
+  },
+  // highlight currently selected item
   selectedClass: function() {
     var selectedSeason = Session.get('sSeasonId');
     var seasonId = this._id;

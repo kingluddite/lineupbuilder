@@ -1,9 +1,16 @@
+// when the trashcan icon is clicked, the league is deleted
+var removeLeague = function() {
+  Leagues.remove({
+      _id: Session.get('sLeagueId')
+    });
+};
+
 Template.tEditLeague.helpers({
   sLeagueId: function() {
     return Session.get('sLeagueId');
   }
 });
-
+ 
 // when someone edits or removes a league
 Template.tEditLeague.events({
   'click .remove': function(evt, tmpl) {
@@ -29,16 +36,7 @@ Template.tEditLeague.events({
     }, 500);
     // grab the league id being edited by grabbing the current league id
     var league = Leagues.findOne(Session.get("sLeagueId"));
-    // make dropdown equal to the current value in the collection record
-    // $(".game-status").val(league.gameStatus);
-    // $(".field-position").val(league.fieldPosition);
-    // $(".team-id").val(league.teamId);
   }
 });
 
-// when the trashcan icon is clicked, the league is deleted
-var removeLeague = function() {
-  Leagues.remove({
-    _id: Session.get('sLeagueId')
-  });
-};
+

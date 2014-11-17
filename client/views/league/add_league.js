@@ -1,9 +1,8 @@
 Template.tAddLeague.helpers({
   cLeagues: function() {
     return Leagues.find();
-  }
-});
-Template.tAddLeague.helpers({
+  },
+
   sEditMode: function() {
     return Session.get('sEditMode');
   }

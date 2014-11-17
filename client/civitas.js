@@ -1,5 +1,3 @@
-
-
 Template.tCivitas.helpers({
   playersOweThisAmount: function() {
     var total = 0;
@@ -15,7 +13,7 @@ Template.tCivitas.helpers({
   });
     return total;
   }
-})
+});
 
 // UI.registerHelper('sumSeasonFeeOwed', function(theEvent, theTemplate) {
 //   var total = 0;

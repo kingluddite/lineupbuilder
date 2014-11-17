@@ -10,29 +10,22 @@ Template.tRoster.helpers({
         firstName: 1
       }
     });
-  }
-});
+  },
 
-// what is the players's id?
-Template.tRoster.helpers({
+  // what is the players's id?
   sPlayerId: function() {
     return Session.get('sPlayerId');
-  }
-});
+  },
+  playersOff: function() {
 
-
-Template.tRoster.playersOff = function() {
-  return Players.find({
-    gameStatus: "out"
-  }, {
-    sort: {
-      firstName: 1
-    }
-  });
-};
-
-Template.tRoster.helpers({
-
+    return Players.find({
+      gameStatus: "out"
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
+  },
   gameDayRosterCount: function() {
     return Players.find({
       gameStatus: {

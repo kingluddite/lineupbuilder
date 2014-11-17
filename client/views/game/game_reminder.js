@@ -1,3 +1,5 @@
+// GAME REMINDER
+
 Template.tGameReminder.rendered = function() {
 //http://bootsnipp.com/snippets/featured/simple-datepicker-with-momentjs
 
@@ -61,7 +63,7 @@ Template.tGameReminder.rendered = function() {
         updateDisplay(cur_date);
       });
 
-      if ($datepicker.data('keyboard') == true) {
+      if ($datepicker.data('keyboard') === true) {
         $(window).on('keydown', function(event) {
           if (event.which == 37) {
             $datepicker.find('span:eq(0)').trigger('click');
@@ -87,7 +89,7 @@ Template.tDidNotReply.helpers({
       sort: {
         firstName: 1
       }
-    })
+    });
   }
 });
 

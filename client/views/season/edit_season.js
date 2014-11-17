@@ -8,6 +8,7 @@ Template.tEditSeason.helpers({
 Template.tEditSeason.events({
     'click .remove': function(evt, tmpl) {
         evt.preventDefault();
+          console.log('yo');
         
         // make sure you want to delete something
         if (confirm("Delete this Season?")) {

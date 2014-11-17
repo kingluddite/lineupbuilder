@@ -21,11 +21,11 @@ UI.registerHelper('moneyOwedStyle', function(evt, tmpl) {
 // global way to highlight if a player owes money
 UI.registerHelper('moneyOwed', function(evt, tmpl) {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
-  if (totalFeesStillOwed > 0) { 
+  if (totalFeesStillOwed > 0) {
     return totalFeesStillOwed;
   } else if (totalFeesStillOwed === 0) {
     return "PAID";
-  }else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0 ) {
+  } else if (this.seasonFeePaid === "undefined" || this.seasonFeePaid === null || this.seasonFeePaid === 0) {
     return "problem";
   } else {
     return;
@@ -36,8 +36,7 @@ UI.registerHelper('moneyOwed', function(evt, tmpl) {
 UI.registerHelper("formatDate", function(datetime) {
   if (moment) {
     return moment(datetime).format("MM/DD/YYYY");
-  }
-  else {
+  } else {
     return datetime;
   }
 });
@@ -46,8 +45,7 @@ UI.registerHelper("formatDate", function(datetime) {
 UI.registerHelper("formatPrice", function(price) {
   if (numeral) {
     return numeral(price).format('$0.00');
-  }
-  else {
+  } else {
     return price;
   }
 });

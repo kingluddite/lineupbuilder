@@ -1,36 +1,30 @@
 Template.tListRegions.helpers({
+  // you need the league id to make sure you are only showing regions inside their respective leagues
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  },
+  
   cRegions: function() {
-    return Regions.find();
-  }
-});
-Template.tListRegions.helpers({
+    // only show the regions within their respective leagues
+    return Regions.find({leagueId: Session.get("sLeagueId")});
+  },
+
+  // are you in edit mode or not?
   sEditMode: function() {
     return Session.get('sEditMode');
-  }
-});
+  },
 
-Template.tListRegions.helpers({
   cLeague: function() {
     return Leagues.findOne({
       _id: Session.get("sLeagueId")
     });
-  }
-});
+  },
 
-Template.tListRegions.helpers({
-    sLeagueId: function () {
-        return Session.get('sLeagueId');
-    }
-});
-
-Template.tListRegions.helpers({
   sRegionId: function() {
     return Session.get('sRegionId');
-  }
-});
-
-// highlight currently selected team
-Template.tListRegions.helpers({
+  },
+  
+  // highlight currently selected team
   selectedClass: function() {
     var selectedRegion = Session.get('sRegionId');
     var regionId = this._id;

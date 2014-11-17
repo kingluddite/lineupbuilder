@@ -3,16 +3,10 @@ Template.tModalLeague.helpers({
     return Leagues.findOne({
       _id: Session.get("sLeagueId")
     });
-  }
-});
-
-Template.tModalLeague.helpers({
+  },
   sLeagueId: function() {
     Session.get("sLeagueId");
-  }
-});
-
-Template.tModalLeague.helpers({
+  },
   sEditMode: function() {
     return Session.get('sEditMode');
   }

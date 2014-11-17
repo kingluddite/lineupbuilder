@@ -1,16 +1,10 @@
 Template.tAddPlayer.helpers({
   sTeams: function() {
     return Teams.find();
-  }
-});
-
-Template.tAddPlayer.helpers({
+  },
   sEditMode: function() {
     return Session.get('sEditMode');
-  }
-});
-
-Template.tAddPlayer.helpers({
+  },
   sPlayerId: function() {
     return Session.get('sPlayerId');
   }
