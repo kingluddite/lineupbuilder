@@ -92,6 +92,22 @@ input, textarea, button { margin-top:10px }
 }
 /* Required field END */
 
+/* We're defining a fadeOut CSS animation that specifies four keyframes for the opacity property (at 0%, 10%, 90%, and 100% of the total animation duration), and applying this animation to the .alert class. */
+@-webkit-keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+
 /* error stuff */
 .errors{
   position: fixed;
@@ -103,6 +119,8 @@ input, textarea, button { margin-top:10px }
   bottom: 0px;
   pointer-events: none;
 }
+
+// The animation will run for 2700 milliseconds total, use the ease-in timing equation, run with a delay of 0 seconds, run only once, and finally stay at the last keyframe once it's done running.
 .alert {
           animation: fadeOut 2700ms ease-in 0s 1 forwards;
   -webkit-animation: fadeOut 2700ms ease-in 0s 1 forwards;
