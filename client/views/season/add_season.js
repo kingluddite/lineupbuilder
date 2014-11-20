@@ -44,12 +44,22 @@ Template.tAddSeason.events({
       seasonDivision: $(evt.target).find('[name=seasonDivision]').val(),
       seasonSummary: $(evt.target).find('[name=seasonSummary]').val(),
     };
-
-    Meteor.call('addSeason', season, function(error, id) {
+    /* Method.call function calls a Method named by its first argument.
+        You can provide arguments to the call (we did with our 'season' object
+        we constructed from the form), and finally attach a callback
+        which will execute when the server-side Method is done.
+        Meteor method callbacks ALWAYS have TWO ARGUMENTS (error and result)
+        If there's an error we show it, if not we can redirect them with the
+        Router.go('pageToGoTo', {_id: result._id})
+    */
+    Meteor.call('addSeason', season, function(error, result) {
       if (error) {
-        // return alert(error.reason);
+        // display the error to the user and abort
         return throwError(error.reason);
       }
+
+      // if you wanted to go to another page after submitting
+      // Router.go('pageYouWantToGoTo', {_id: result._id})
     });
 
     Session.set("sEditMode", false);

@@ -1,0 +1,34 @@
+<template name="tListGames">
+  [list_games]
+  {{> tBreadcrumbs}}
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+     {{#if currentUser}}
+      <a type="button" class="btn btn-default btn-lg add">
+        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Game
+      </a>
+      {{else}}
+      <p>Log in to add a game.</p>
+      {{/if}}
+       {{#if sEditMode}} 
+         {{> tAddGame}} 
+        {{/if}}
+      <h3>Here is a list of current games.</h3>
+      {{#if cGames}}
+      <ul>
+        {{#each cGames}}
+        <!-- I need to generate a list of games a + b and sorted from games
+          most current until the end of the season, how do I tell
+          which games have been played? How to I show games that are yet to be played?
+          How to I show the next game? -->
+        <li class="game {{selectedClass}}"><a href="{{pathFor 'tDetailGame'}}">{{gameName}}</a> {{> tEditLeague}}</li>
+        {{/each}}
+      </ul>
+      {{else}}
+      <p>Sorry, no leagues yet</p>
+      {{/if}}
+      <p>Select the league you want to enter.</p>
+    </div>
+    <!-- END .col6 -->
+  </div>
+</template>
