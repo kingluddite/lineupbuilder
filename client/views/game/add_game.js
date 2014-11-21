@@ -6,3 +6,13 @@ Template.tAddGame.helpers({
     return Session.get('sEditMode');
   }
 });
+
+Template.tAddGame.events({
+  
+  'focus #datepicker': function() {
+    $("#datepicker").datepicker();
+  }//,
+  // 'focus #timepicker':function() {
+  //   $("#timepicker").timepicker();
+  // }
+});
