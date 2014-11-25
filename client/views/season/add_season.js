@@ -41,8 +41,8 @@ Template.tAddSeason.events({
       seasonName: $(evt.target).find('[name=seasonName]').val(),
       seasonStartDate: $(evt.target).find('[name=seasonStartDate]').val(),
       seasonStatus: $(evt.target).find('[name=seasonStatus]').val(),
-      seasonDivision: $(evt.target).find('[name=seasonDivision]').val(),
-      seasonSummary: $(evt.target).find('[name=seasonSummary]').val(),
+      seasonFee: $(evt.target).find('[name=seasonFee]').val(),
+      seasonSummary: $(evt.target).find('[name=seasonSummary]').val()
     };
     /* Method.call function calls a Method named by its first argument.
         You can provide arguments to the call (we did with our 'season' object
