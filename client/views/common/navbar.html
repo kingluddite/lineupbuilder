@@ -14,10 +14,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
+      {{#if currentUser}}
         <li><a href="{{pathFor 'tCivitas'}}">Civitas</a></li>
-        <li><a href="{{pathFor 'tCivitas'}}">junk</a></li>
         <li><a href="{{pathFor 'tGameReminder'}}">Game Reminder</a></li>
         <li><a href="{{pathFor 'tListLeagues'}}">Leagues</a></li>
+      {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{> loginButtons}}

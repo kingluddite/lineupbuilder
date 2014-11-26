@@ -18,6 +18,7 @@ Template.tAddLeague.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   }
+  
 });
 
 Template.tAddLeague.events({
