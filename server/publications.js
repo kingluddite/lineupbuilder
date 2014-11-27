@@ -1,3 +1,16 @@
+// Only publish tasks that are public or belong to the current user
+Meteor.publish("tasks", function() {
+  return Tasks.find({
+    $or: [{
+      private: {
+        $ne: true
+      }
+    }, {
+      owner: this.userId
+    }]
+  });
+});
+
 Meteor.publish('leagues', function() {
   return Leagues.find();
 });
@@ -10,7 +23,7 @@ Meteor.publish('regions', function() {
 //   return Types.find();
 // });
 
-Meteor.publish('seasons', function(){
+Meteor.publish('seasons', function() {
   return Seasons.find();
 });
 
@@ -21,12 +34,12 @@ Meteor.publish('games', function() {
   return Games.find();
 });
 
-Meteor.publish('teams', function(){
+Meteor.publish('teams', function() {
   return Teams.find();
 });
 
 
-Meteor.publish('players', function(){
+Meteor.publish('players', function() {
   return Players.find();
 });
 

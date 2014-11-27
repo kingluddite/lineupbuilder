@@ -3,60 +3,54 @@
     <div class="row">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         {{#if currentUser}}
-        <form role="form">
-
-          <div class="required-field-block">
-            <input type="text" placeholder="Name" name="leagueName" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
+          <form role="form">
+            <div class="form-group {{errorClass 'leagueName'}}">
+              <div class="required-field-block">
+                <input type="text" placeholder="Name" name="leagueName" class="form-control">
+                <span class="help-block">{{errorMessage 'leagueName'}}</span>
+                <div class="required-icon">
+                  <div class="text">*</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="form-group {{errorClass 'title'}}">
+
+            <!-- user clicks a league link, that should take them to a list of all leagues
+            if user clicks a particular league that should take them to all regions within that league
+              publish only regions where the leagueId == the id of the current league
+
+            -->
+
             <div class="required-field-block">
+              <input type="text" placeholder="Admin First Name" name="leagueAdminFirstName" class="form-control">
               <div class="required-icon">
                 <div class="text">*</div>
               </div>
-              <!-- <label class="control-label" for="leagueAdminFirstName">Admin First Name</label> -->
-              <div class="controls">
-                <input type="text" placeholder="Admin First Name" name="leagueAdminFirstName" class="form-control">
-                <span class="help-block">{{errorMessage 'leagueAdminFirstName'}}</span>
+            </div>
+
+            <div class="required-field-block">
+              <input type="text" placeholder="Admin Last Name" name="leagueAdminLastName" class="form-control">
+              <div class="required-icon">
+                <div class="text">*</div>
               </div>
             </div>
-          </div>
 
-          <div class="form-group {{errorClass 'title'}}">
-            <label class="control-label" for="title">Title</label>
-            <div class="controls">
-              <input name="title" id="title" type="text" value="" placeholder="Name your post" class="form-control" />
-              <span class="help-block">{{errorMessage 'title'}}</span>
+            <div class="required-field-block">
+              <input type="text" placeholder="Email" name="leagueAdminEmail" class="form-control">
+              <div class="required-icon">
+                <div class="text">*</div>
+              </div>
             </div>
-          </div>
 
-          <div class="required-field-block">
-            <input type="text" placeholder="Admin Last Name" name="leagueAdminLastName" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
+            <div class="required-field-block">
+              <textarea rows="3" class="form-control" placeholder="About League" name="leagueSummary"></textarea>
+              <div class="required-icon">
+                <div class="text">*</div>
+              </div>
             </div>
-          </div>
-
-          <div class="required-field-block">
-            <input type="text" placeholder="Email" name="leagueAdminEmail" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
-          <input type="text" placeholder="Phone" name="leagueAdminPhone" class="form-control">
-
-          <div class="required-field-block">
-            <textarea rows="3" class="form-control" placeholder="About League" name="leagueSummary"></textarea>
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
-          {{> tAddCancelBtns }}
-        </form>
+            {{> tAddCancelBtns }}
+          </form>
         {{else}}
-        <p>Please log in to add leagues.</p>
+          <p>Please log in to add leagues.</p>
         {{/if}}
       </div>
     </div>

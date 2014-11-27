@@ -33,13 +33,11 @@ Template.tAddLeague.events({
           leagueAdminFirstName: $(evt.target).find('[name=leagueAdminFirstName]').val(),
           leagueAdminLastName: $(evt.target).find('[name=leagueAdminLastName]').val(),
           leagueAdminEmail: $(evt.target).find('[name=leagueAdminEmail]').val(),
-          leagueRegion: $(evt.target).find('[name=leagueRegion]').val(),
-          leagueAdminPhone: $(evt.target).find('[name=leagueAdminEmail]').val(),
           leagueSummary: $(evt.target).find('[name=leagueSummary]').val(),
         };
 
-        var errors = validatePost(league);
-        if (errors.title || errors.url) {
+        var errors = validateLeague(league);
+        if (errors.leagueName) {
           return Session.set('postSubmitErrors', errors);
         }
 
@@ -50,12 +48,12 @@ Template.tAddLeague.events({
           }
           console.log(result);
           if (result.postExists) {
-            throwError('This link has already been posted');
+            throwError('A league with this name already exists');
           }
           Session.set('sEditMode', false);
-          Router.go('tDetailLeague', {
-            _id: id
-          });
+          // Router.go('tDetailLeague', {
+          //   _id: _id
+          // });
         });
       }
     });
