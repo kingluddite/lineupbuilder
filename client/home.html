@@ -1,4 +1,17 @@
 <template name="tHome">
+<label class="hide-completed">
+  <input type="checkbox" checked="{{hideCompleted}}" />
+  Hide Completed Tasks
+</label>
+<h1>Todo List ({{incompleteCount}})</h1>
+<form class="new-task">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+  </form>
+<ul>
+      {{#each tasks}}
+        {{> tTask}}
+      {{/each}}
+    </ul>
   <div class="container">
     <div class="row">
         <div class="col-sm-4 col-md-4">
@@ -54,4 +67,14 @@
         </div>
     </div>
 </div>
+</template>
+
+<template name="tTask">
+    <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">{{text}}</span>
+  </li>
 </template>
