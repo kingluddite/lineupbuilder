@@ -14,8 +14,6 @@ iron:router
 sacha:spin
 mrt:moment
 mrt:numeral
-insecure
 mizzao:jquery-ui
 meteorhacks:kadira
 andrasph:clockpicker
-
