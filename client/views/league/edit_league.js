@@ -1,8 +1,8 @@
 // when the trashcan icon is clicked, the league is deleted
 var removeLeague = function() {
   Leagues.remove({
-      _id: Session.get('sLeagueId')
-    });
+    _id: Session.get('sLeagueId')
+  });
 };
 
 Template.tEditLeague.helpers({
@@ -10,7 +10,7 @@ Template.tEditLeague.helpers({
     return Session.get('sLeagueId');
   }
 });
- 
+
 // when someone edits or removes a league
 Template.tEditLeague.events({
   'click .remove': function(evt, tmpl) {
@@ -18,9 +18,12 @@ Template.tEditLeague.events({
 
     // make sure you want to delete something
     if (confirm("Delete this League?")) {
-      Session.set('sLeagueId', this._id);
-      removeLeague();
-      Session.set('sLeagueId', null);
+      // Session.set('sLeagueId', this._id);
+      // removeLeague();
+
+      Meteor.call("deleteLeague", this._id);
+
+      // Session.set('sLeagueId', null);
     }
   },
   // when someone edits a league, open the modal winow, place the cursor in the first box and highlight the current placeholder content
@@ -38,5 +41,3 @@ Template.tEditLeague.events({
     var league = Leagues.findOne(Session.get("sLeagueId"));
   }
 });
-
-

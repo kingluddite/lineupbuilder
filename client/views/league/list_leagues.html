@@ -20,22 +20,6 @@
             {{/if}}
             <p>Select the league you want to enter.</p>
 
-            <hr>
-            <!-- experiment with code here -->
-            <h1>Todo List</h1>
-
-            <!-- add a form below the h1 -->
-            <form>
-                <label class="hide-completed">
-                    <input type="checkbox" checked="{{hideCompleted}}" /> Hide Completed Tasks
-                </label>
-                <input type="text" name="text" placeholder="Type to add new tasks" />
-            </form>
-            <ul>
-                {{#each tasks}} {{> task}} {{/each}}
-            </ul>
-            <!-- add the checkbox to <body> right below the h1 -->
-
         </div>
         <!-- END .col6 -->
     </div>

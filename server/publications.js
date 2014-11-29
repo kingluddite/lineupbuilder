@@ -11,6 +11,23 @@ Meteor.publish("tasks", function() {
   });
 });
 
+/*
+
+roles - https://www.youtube.com/watch?v=ooBEJIirNEo
+example: http://roles.meteor.com/
+roles api - http://alanning.github.io/meteor-roles/classes/Roles.html
+Meteor.publish("secrets", function() {
+ var loggedInUser = Meteor.users.findOne({_id:this.userId});
+
+ if (Roles.userIsInRole(loggedInUser ["manage-secrets", "view-secrets"])) {
+  return Meteor.secrets.find();
+ } 
+
+ this.stop();
+});
+
+*/
+
 Meteor.publish('leagues', function() {
   return Leagues.find();
 });

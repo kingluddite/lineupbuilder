@@ -18,42 +18,42 @@ Template.tAddLeague.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   }
-  
+
 });
 
 Template.tAddLeague.events({
-      'click .cancel': function(evt, tmpl) {
-        Session.set("sEditMode", false);
-      },
-      'submit form': function(evt) {
-        evt.preventDefault();
+  'click .cancel': function(evt, tmpl) {
+    Session.set("sEditMode", false);
+  },
+  'submit form': function(evt) {
+    evt.preventDefault();
 
-        var league = {
-          leagueName: $(evt.target).find('[name=leagueName]').val(),
-          leagueAdminFirstName: $(evt.target).find('[name=leagueAdminFirstName]').val(),
-          leagueAdminLastName: $(evt.target).find('[name=leagueAdminLastName]').val(),
-          leagueAdminEmail: $(evt.target).find('[name=leagueAdminEmail]').val(),
-          leagueSummary: $(evt.target).find('[name=leagueSummary]').val(),
-        };
+    var league = {
+      leagueName: $(evt.target).find('[name=leagueName]').val(),
+      leagueAdminFirstName: $(evt.target).find('[name=leagueAdminFirstName]').val(),
+      leagueAdminLastName: $(evt.target).find('[name=leagueAdminLastName]').val(),
+      leagueAdminEmail: $(evt.target).find('[name=leagueAdminEmail]').val(),
+      leagueSummary: $(evt.target).find('[name=leagueSummary]').val(),
+    };
 
-        var errors = validateLeague(league);
-        if (errors.leagueName) {
-          return Session.set('postSubmitErrors', errors);
-        }
+    var errors = validateLeague(league);
+    if (errors.leagueName) {
+      return Session.set('postSubmitErrors', errors);
+    }
 
-        Meteor.call('addLeague', league, function(error, result) {
-          if (error) {
-            // return alert(error.reason);
-            return throwError(error.reason);
-          }
-          console.log(result);
-          if (result.postExists) {
-            throwError('A league with this name already exists');
-          }
-          Session.set('sEditMode', false);
-          // Router.go('tDetailLeague', {
-          //   _id: _id
-          // });
-        });
+    Meteor.call('addLeague', league, function(error, result) {
+      if (error) {
+        // return alert(error.reason);
+        return throwError(error.reason);
       }
+      console.log(result);
+      if (result.postExists) {
+        throwError('A league with this name already exists');
+      }
+      Session.set('sEditMode', false);
+      // Router.go('tDetailLeague', {
+      //   _id: _id
+      // });
     });
+  }
+});
