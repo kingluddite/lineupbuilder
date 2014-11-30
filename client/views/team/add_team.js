@@ -9,27 +9,27 @@ Template.tAddTeam.helpers({
 
 // adding events to our templates (duh!)
 Template.tAddTeam.events({
-  'click .add': function(evt, tmpl) {
+  'click .add': function() {
     // makes focus on first form work as it should
     setTimeout(function() {
       $('input[name="teamName"]').focus();
     }, 500);
-    Session.set("sEditMode", true);
+    Session.set('sEditMode', true);
   },
 
-  'click .remove': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .remove': function() {
+    Session.set('sEditMode', false);
   },
 
-  'submit form': function(theEvent, theTemplate) {
-    theEvent.preventDefault();
+  'submit form': function(evt) {
+    evt.preventDefault();
 
     var team = {
-      teamName: $(theEvent.target).find('[name=teamName]').val(),
-      leagueId: $(theEvent.target).find('[name=teamName]').val()
+      teamName: $(evt.target).find('[name=teamName]').val(),
+      leagueId: $(evt.target).find('[name=teamName]').val()
     };
 
-    Meteor.call('addTeam', team, function(error, id) {
+    Meteor.call('addTeam', team, function(error) {
       if (error) {
         // return alert(error.reason);
         return throwError(error.reason);
@@ -37,7 +37,6 @@ Template.tAddTeam.events({
       // Router.go('playerPage', {_id: id});
     });
 
-
-    Session.set("sEditMode", false);
+    Session.set('sEditMode', false);
   }
 });

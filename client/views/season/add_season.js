@@ -14,20 +14,20 @@ Template.tAddSeason.helpers({
 });
 
 Template.tAddSeason.events({
-  'click .add': function(evt, tmpl) {
+  'click .add': function() {
     // makes focus on first form work as it should
     setTimeout(function() {
       $('input[name="seasonName"]').focus();
     }, 500);
-    Session.set("sEditMode", true);
+    Session.set('sEditMode', true);
   },
 
   'focus #datepicker': function() {
-    $("#datepicker").datepicker();
+    $('#datepicker').datepicker();
   },
 
-  'click .remove': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .remove': function() {
+    Session.set('sEditMode', false);
   },
 
   'submit form': function(evt) {
@@ -52,16 +52,13 @@ Template.tAddSeason.events({
         If there's an error we show it, if not we can redirect them with the
         Router.go('pageToGoTo', {_id: result._id})
     */
-    Meteor.call('addSeason', season, function(error, result) {
+    Meteor.call('addSeason', season, function(error) {
       if (error) {
         // display the error to the user and abort
         return throwError(error.reason);
       }
-
-      // if you wanted to go to another page after submitting
-      // Router.go('pageYouWantToGoTo', {_id: result._id})
     });
 
-    Session.set("sEditMode", false);
+    Session.set('sEditMode', false);
   }
 });

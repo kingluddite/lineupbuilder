@@ -13,16 +13,16 @@ Template.tAddRegion.helpers({
 });
 
 Template.tAddRegion.events({
-  'click .add': function(evt, tmpl) {
+  'click .add': function() {
     // makes focus on first form work as it should
     setTimeout(function() {
       $('input[name="regionName"]').focus();
     }, 500);
-    Session.set("sEditMode", true);
+    Session.set('sEditMode', true);
   },
 
-  'click .cancel': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .cancel': function() {
+    Session.set('sEditMode', false);
   },
 
   'submit form': function(evt) {
@@ -33,17 +33,13 @@ Template.tAddRegion.events({
       leagueId: $(evt.target).find('[name=leagueId]').val()
     };
 
-    Meteor.call('addRegion', region, function(error, id) {
+    Meteor.call('addRegion', region, function(error) {
       if (error) {
         // return alert(error.reason);
         return throwError(error.reason);
       }
-      // Router.go('tDetailRegion', {
-      //   _id: id
-      // });
     });
 
-
-    Session.set("sEditMode", false);
+    Session.set('sEditMode', false);
   }
 });

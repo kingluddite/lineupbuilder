@@ -12,16 +12,16 @@ Template.tAddPlayer.helpers({
 
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
-  'click .add': function(evt, tmpl) {
+  'click .add': function() {
     // makes focus on first form work as it should
     setTimeout(function() {
       $('input[name="firstName"]').focus();
     }, 500);
-    Session.set("sEditMode", true);
+    Session.set('sEditMode', true);
   },
 
-  'click .remove': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .remove': function() {
+    Session.set('sEditMode', false);
   },
 
   'submit form': function(evt) {
@@ -36,10 +36,10 @@ Template.tAddPlayer.events({
       jerseyNumber: $(evt.target).find('[name=jerseyNumber]').val(),
       seasonFeeOwed: $(evt.target).find('[name=seasonFeeOwed]').val(),
       seasonFeePaid: $(evt.target).find('[name=seasonFeePaid]').val(),
-      playerNotes: $(evt.target).find('[name=playerNotes]').val(),
+      playerNotes: $(evt.target).find('[name=playerNotes]').val()
     };
 
-    Meteor.call('addPlayer', player, function(error, id) {
+    Meteor.call('addPlayer', player, function(error) {
       if (error) {
         // return alert(error.reason);
         return throwError(error.reason);
@@ -49,6 +49,6 @@ Template.tAddPlayer.events({
       // });
     });
 
-    Session.set("sEditMode", false);
+    Session.set('sEditMode', false);
   }
 });

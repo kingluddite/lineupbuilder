@@ -3,10 +3,12 @@ Template.tListRegions.helpers({
   sLeagueId: function() {
     return Session.get('sLeagueId');
   },
-  
+
   cRegions: function() {
     // only show the regions within their respective leagues
-    return Regions.find({leagueId: Session.get("sLeagueId")});
+    return Regions.find({
+      leagueId: Session.get('sLeagueId')
+    });
   },
 
   // are you in edit mode or not?
@@ -16,14 +18,14 @@ Template.tListRegions.helpers({
 
   cLeague: function() {
     return Leagues.findOne({
-      _id: Session.get("sLeagueId")
+      _id: Session.get('sLeagueId')
     });
   },
 
   sRegionId: function() {
     return Session.get('sRegionId');
   },
-  
+
   // highlight currently selected team
   selectedClass: function() {
     var selectedRegion = Session.get('sRegionId');
@@ -37,20 +39,17 @@ Template.tListRegions.helpers({
 });
 
 Template.tListRegions.events({
-  'click .add': function(evt, tmpl) {
-    Session.set("sEditMode", true);
+  'click .add': function() {
+    Session.set('sEditMode', true);
   },
-  'click .remove': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .remove': function() {
+    Session.set('sEditMode', false);
   },
   'mouseover li.Region': function() {
     var RegionId = this._id;
     Session.set('sRegionId', RegionId);
-    var selectedRegion = Session.get('sRegionId');
   },
   'mouseout li.Region': function() {
-    var RegionId = this._id;
     Session.set('sRegionId', null);
-    var selectedRegion = Session.get('sRegionId');
   }
 });

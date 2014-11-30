@@ -7,7 +7,7 @@ Template.tListSeasons.helpers({
   },
   cSeason: function() {
     return Seasons.findOne({
-      _id: Session.get("sSeasonId")
+      _id: Session.get('sSeasonId')
     });
   },
   sLeagueId: function() {
@@ -32,20 +32,17 @@ Template.tListSeasons.helpers({
 });
 
 Template.tListSeasons.events({
-  'click .add': function(evt, tmpl) {
-    Session.set("sEditMode", true);
+  'click .add': function() {
+    Session.set('sEditMode', true);
   },
-  'click .remove': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .remove': function() {
+    Session.set('sEditMode', false);
   },
   'mouseover li.season': function() {
     var seasonId = this._id;
     Session.set('sSeasonId', seasonId);
-    var selectedSeason = Session.get('sSeasonId');
   },
   'mouseout li.season': function() {
-    var seasonId = this._id;
     Session.set('sSeasonId', null);
-    var selectedRegion = Session.get('sSeasonId');
   }
 });

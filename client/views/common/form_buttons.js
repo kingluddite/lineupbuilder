@@ -5,7 +5,7 @@ Template.tAddCancelBtns.helpers({
 });
 
 Template.tAddCancelBtns.events({
-  'click .cancel': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .cancel': function() {
+    Session.set('sEditMode', false);
   }
 });

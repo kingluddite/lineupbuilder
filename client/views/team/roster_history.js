@@ -1,7 +1,7 @@
 Template.tRosterHistory.helpers({
   cFormerPlayers: function() {
     return Players.find({
-      gameStatus: "former"
+      gameStatus: 'former'
     }, {
       sort: {
         firstName: 1
@@ -11,11 +11,11 @@ Template.tRosterHistory.helpers({
 
   formerPlayersCount: function() {
     return Players.find({
-      gameStatus: "former"
+      gameStatus: 'former'
     }).count();
   },
 
   sPlayerId: function() {
-    Session.get("sPlayerId");
+    Session.get('sPlayerId');
   }
 });

@@ -26,12 +26,11 @@ Template.tListTeams.events({
   'click li.team': function() {
     var teamId = this._id;
     Session.set('sTeamId', teamId);
-    var selectedTeam = Session.get('sTeamId');
   },
-  'click .add': function(evt, tmpl) {
-    Session.set("sEditMode", true);
+  'click .add': function() {
+    Session.set('sEditMode', true);
   },
-  'click .remove': function(evt, tmpl) {
-    Session.set("sEditMode", false);
-  },
+  'click .remove': function() {
+    Session.set('sEditMode', false);
+  }
 });

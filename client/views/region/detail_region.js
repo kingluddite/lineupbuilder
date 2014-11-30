@@ -1,5 +1,5 @@
 Template.tDetailRegion.helpers({
-  sRegionId: function () {
+  sRegionId: function() {
     return Session.get('sRegionId');
   }
 });

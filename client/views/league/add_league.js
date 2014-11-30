@@ -22,8 +22,8 @@ Template.tAddLeague.helpers({
 });
 
 Template.tAddLeague.events({
-  'click .cancel': function(evt, tmpl) {
-    Session.set("sEditMode", false);
+  'click .cancel': function() {
+    Session.set('sEditMode', false);
   },
   'submit form': function(evt) {
     evt.preventDefault();
@@ -33,7 +33,7 @@ Template.tAddLeague.events({
       leagueAdminFirstName: $(evt.target).find('[name=leagueAdminFirstName]').val(),
       leagueAdminLastName: $(evt.target).find('[name=leagueAdminLastName]').val(),
       leagueAdminEmail: $(evt.target).find('[name=leagueAdminEmail]').val(),
-      leagueSummary: $(evt.target).find('[name=leagueSummary]').val(),
+      leagueSummary: $(evt.target).find('[name=leagueSummary]').val()
     };
 
     var errors = validateLeague(league);

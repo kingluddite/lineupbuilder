@@ -1,5 +1,5 @@
 // Only publish tasks that are public or belong to the current user
-Meteor.publish("tasks", function() {
+Meteor.publish('tasks', function() {
   return Tasks.find({
     $or: [{
       private: {
@@ -16,7 +16,7 @@ Meteor.publish("tasks", function() {
 roles - https://www.youtube.com/watch?v=ooBEJIirNEo
 example: http://roles.meteor.com/
 roles api - http://alanning.github.io/meteor-roles/classes/Roles.html
-Meteor.publish("secrets", function() {
+Meteor.publish('secrets", function() {
  var loggedInUser = Meteor.users.findOne({_id:this.userId});
 
  if (Roles.userIsInRole(loggedInUser ["manage-secrets", "view-secrets"])) {
@@ -63,3 +63,7 @@ Meteor.publish('players', function() {
 // Meteor.publish('states', function(){
 //   return States.find();
 // });
+
+Meteor.publish(null, function() {
+  return Meteor.roles.find({});
+});

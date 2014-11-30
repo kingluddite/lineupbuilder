@@ -4,11 +4,11 @@ Template.tModalPlayer.helpers({
   },
   cPlayer: function() {
     return Players.findOne({
-      _id: Session.get("sPlayerId")
+      _id: Session.get('sPlayerId')
     });
   },
   sPlayerId: function() {
-    return Session.get("sPlayerId");
+    return Session.get('sPlayerId');
   },
   sEditMode: function() {
     return Session.get('sEditMode');
@@ -19,7 +19,7 @@ Template.tModalPlayer.events({
   'submit form.updatePlayer': function(evt) {
     evt.preventDefault();
 
-    var currentPlayerId = Session.get("sPlayerId");
+    var currentPlayerId = Session.get('sPlayerId');
 
     var playerProperties = {
       firstName: $(evt.target).find('[name=firstName]').val(),
@@ -31,7 +31,7 @@ Template.tModalPlayer.events({
       jerseyNumber: $(evt.target).find('[name=jerseyNumber]').val(),
       seasonFeeOwed: $(evt.target).find('[name=seasonFeeOwed]').val(),
       seasonFeePaid: $(evt.target).find('[name=seasonFeePaid]').val(),
-      playerNotes: $(evt.target).find('[name=playerNotes]').val(),
+      playerNotes: $(evt.target).find('[name=playerNotes]').val()
     };
 
     Players.update(currentPlayerId, {
@@ -42,7 +42,7 @@ Template.tModalPlayer.events({
         return throwError(error.reason);
       }
     });
-    $("#modal-id").modal("hide");
+    $('#modal-id').modal('hide');
     Session.set('sPlayerId', null);
     Session.set('sEditMode', false);
   }

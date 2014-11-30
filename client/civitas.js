@@ -1,16 +1,20 @@
 Template.tCivitas.helpers({
   playersOweThisAmount: function() {
     var total = 0;
-    Players.find({teamId: "WSNoNmbiT63pxxLr4"}).map(function(doc) {
-    total += Number(doc.seasonFeeOwed);
-  });
+    Players.find({
+      teamId: 'WSNoNmbiT63pxxLr4'
+    }).map(function(doc) {
+      total += Number(doc.seasonFeeOwed);
+    });
     return total;
   },
   playersPaidThisAmount: function() {
     var total = 0;
-    Players.find({teamId: "WSNoNmbiT63pxxLr4"}).map(function(doc) {
-    total += Number(doc.seasonFeePaid);
-  });
+    Players.find({
+      teamId: 'WSNoNmbiT63pxxLr4'
+    }).map(function(doc) {
+      total += Number(doc.seasonFeePaid);
+    });
     return total;
   }
 });

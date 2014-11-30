@@ -1,5 +1,5 @@
 Template.tGames.helpers({
-  cGames: function () {
+  cGames: function() {
     return Games.find();
   }
 });

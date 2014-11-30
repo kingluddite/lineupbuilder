@@ -1,11 +1,11 @@
 Template.tModalRegion.helpers({
   cRegion: function() {
     return Regions.findOne({
-      _id: Session.get("sRegionId")
+      _id: Session.get('sRegionId')
     });
   },
   sRegionId: function() {
-    Session.get("sRegionId");
+    Session.get('sRegionId');
   },
   sEditMode: function() {
     return Session.get('sEditMode');
@@ -16,7 +16,7 @@ Template.tModalRegion.events({
   'submit form.updateRegion': function(evt) {
     evt.preventDefault();
 
-    var currentRegionId = Session.get("sRegionId");
+    var currentRegionId = Session.get('sRegionId');
 
 
     var regionProperties = {
@@ -34,7 +34,7 @@ Template.tModalRegion.events({
       }
     });
 
-    $("#region-modal-id").modal("hide");
+    $('#region-modal-id').modal('hide');
     Session.set('sRegionId', null);
     Session.set('sEditMode', false);
   }

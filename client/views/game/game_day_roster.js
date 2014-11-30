@@ -2,7 +2,8 @@ Template.tGameDayRoster.helpers({
   cRoster: function() {
     return Players.find({
       gameStatus: {
-        $in: ["starting", "sub"]
+
+        $in: ['starting', 'sub']
       }
     }, {
       sort: {
@@ -13,7 +14,7 @@ Template.tGameDayRoster.helpers({
   cStarters: function() {
     return Players.find({
       gameStatus: {
-        $in: ["starting"]
+        $in: ['starting']
       }
     }, {
       sort: {
@@ -27,7 +28,7 @@ Template.tGameDayRoster.helpers({
   },
   playersOff: function() {
     return Players.find({
-      gameStatus: "out"
+      gameStatus: 'out'
     }, {
       sort: {
         firstName: 1
@@ -37,7 +38,7 @@ Template.tGameDayRoster.helpers({
   gameDayRosterCount: function() {
     return Players.find({
       gameStatus: {
-        $in: ["starting", "sub"]
+        $in: ['starting', 'sub']
       }
     }).count();
   },
@@ -46,7 +47,7 @@ Template.tGameDayRoster.helpers({
   },
   cPlayer: function() {
     return Players.findOne({
-      _id: Session.get("sPlayerId")
+      _id: Session.get('sPlayerId')
     });
   }
 
@@ -56,13 +57,13 @@ Template.tGameDayRoster.helpers({
 // Subs template
 Template.tSubs.helpers({
   sPlayerId: function() {
-    Session.get("sPlayerId");
+    Session.get('sPlayerId');
   },
   cPlayers: function() {
     // var currentUserId = Meteor.userId();
     return Players.find({
       // createdBy: currentUserId,
-      gameStatus: "sub"
+      gameStatus: 'sub'
     }, {
       sort: {
         firstName: 1
@@ -71,16 +72,16 @@ Template.tSubs.helpers({
   },
   haveSubs: function() {
     if (Players.find({
-        gameStatus: "sub"
+        gameStatus: 'sub'
       }).count() > 0) {
       return true;
     } else {
-      return "no subs";
+      return 'no subs';
     }
   },
   subCount: function() {
     return Players.find({
-      gameStatus: "sub"
+      gameStatus: 'sub'
     }).count();
   }
 
@@ -90,7 +91,7 @@ Template.tSubs.helpers({
 Template.tStartingLineup.helpers({
   cStarters: function() {
     return Players.find({
-      gameStatus: "starting"
+      gameStatus: 'starting'
     }, {
       sort: {
         firstName: 1
@@ -101,12 +102,12 @@ Template.tStartingLineup.helpers({
 
 Template.tStartingLineup.helpers({
   sPlayerId: function() {
-    return Session.get("sPlayerId");
+    return Session.get('sPlayerId');
   }
 });
 
 // Template.tField.cPlayers = function() {
 //   return Players.find({
-//     gameStatus: "starting"
+//     gameStatus: 'starting'
 //   });
 // };

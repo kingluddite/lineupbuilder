@@ -3,7 +3,7 @@ Template.tRoster.helpers({
   cStarters: function() {
     return Players.find({
       gameStatus: {
-        $in: ["starting"]
+        $in: ['starting']
       }
     }, {
       sort: {
@@ -19,7 +19,7 @@ Template.tRoster.helpers({
   playersOff: function() {
 
     return Players.find({
-      gameStatus: "out"
+      gameStatus: 'out'
     }, {
       sort: {
         firstName: 1
@@ -29,7 +29,7 @@ Template.tRoster.helpers({
   gameDayRosterCount: function() {
     return Players.find({
       gameStatus: {
-        $in: ["starting", "sub"]
+        $in: ['starting', 'sub']
       }
     }).count();
   },

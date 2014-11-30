@@ -1,7 +1,7 @@
 Template.tHome.helpers({
   tasks: function() {
-    if (Session.get("hideCompleted")) {
-      // If hide completed is checked, filter tasks
+    if (Session.get('hideCompleted')) {
+      // If hide completed is checked, filter tasks 
       return Tasks.find({
         checked: {
           $ne: true
@@ -21,7 +21,7 @@ Template.tHome.helpers({
     }
   },
   hideCompleted: function() {
-    return Session.get("hideCompleted");
+    return Session.get('hideCompleted');
   },
   incompleteCount: function() {
     return Tasks.find({
@@ -33,39 +33,39 @@ Template.tHome.helpers({
 });
 
 Template.tHome.events({
-  "submit .new-task": function(event) {
+  'submit .new-task': function(evt) {
     // This function is called when the new task form is submitted
 
-    var text = event.target.text.value;
+    var text = evt.target.text.value;
 
-    Meteor.call("addTask", text);
+    Meteor.call('addTask', text);
 
     // Clear form
-    event.target.text.value = "";
+    evt.target.text.value = '';
 
-    // Prevent default form submit
+    // Prev default form submit
     return false;
   },
-  "change .hide-completed input": function(event) {
-    Session.set("hideCompleted", event.target.checked);
+  'change .hide-completed input': function(evt) {
+    Session.set('hideCompleted', evt.target.checked);
   }
 });
 
 Template.tTask.events({
-  "click .toggle-checked": function() {
+  'click .toggle-checked': function() {
     // Set the checked property to the opposite of its current value
-    Meteor.call("setChecked", this._id, !this.checked);
+    Meteor.call('setChecked', this._id, !this.checked);
   },
-  "click .delete": function() {
-    Meteor.call("deleteTask", this._id);
+  'click .delete': function() {
+    Meteor.call('deleteTask', this._id);
   },
-  "click .toggle-private": function () {
-     Meteor.call("setPrivate", this._id, ! this.private); 
+  'click .toggle-private': function() {
+    Meteor.call('setPrivate', this._id, !this.private);
   }
 });
 
 Template.tTask.helpers({
-    isOwner: function() {
-        return this.owner === Meteor.userId();
-    }
+  isOwner: function() {
+    return this.owner === Meteor.userId();
+  }
 });
