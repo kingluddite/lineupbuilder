@@ -1,10 +1,3 @@
-// when the trashcan icon is clicked, the Season is deleted
-var removeSeason = function() {
-  Seasons.remove({
-    _id: Session.get('sSeasonId')
-  });
-};
-
 Template.tEditSeason.helpers({
   sSeasonId: function() {
     return Session.get('sSeasonId');
@@ -18,9 +11,7 @@ Template.tEditSeason.events({
 
     // make sure you want to delete something
     if (confirm('Delete this Season?')) {
-      Session.set('sSeasonId', this._id);
-      removeSeason();
-      Session.set('sSeasonId', null);
+      Meteor.call('deleteSeason', this._id);
     }
   },
   // when someone edits a Season, open the modal winow, place the cursor in the first box and highlight the current placeholder content
@@ -36,4 +27,3 @@ Template.tEditSeason.events({
     }, 500);
   }
 });
-

@@ -8,7 +8,6 @@ Template.tAddGame.helpers({
 });
 
 Template.tAddGame.events({
-
   'focus .datepicker': function() {
     $('.datepicker').datepicker();
   },

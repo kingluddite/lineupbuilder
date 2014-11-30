@@ -1,10 +1,3 @@
-// when the trashcan icon is clicked, the player is deleted
-var removePlayer = function() {
-  Players.remove({
-    _id: Session.get('sPlayerId')
-  });
-};
-
 // give the edit player access to the PlayerId session variable
 Template.tEditPlayer.sPlayerId = function() {
   return Session.get('sPlayerId');
@@ -16,9 +9,7 @@ Template.tEditPlayer.events({
     evt.preventDefault();
     // make sure you want to delete something
     if (confirm('Delete this post?')) {
-      Session.set('sPlayerId', this._id);
-      removePlayer();
-      Session.set('sPlayerId', null);
+      Meteor.call('removePlayer', this._id);
     }
   },
   // when someone edits a player, open the modal winow, place the cursor in the first box and highlight the current placeholder content
@@ -39,4 +30,3 @@ Template.tEditPlayer.events({
     $('.team-id').val(player.teamId);
   }
 });
-

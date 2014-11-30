@@ -23,7 +23,6 @@ Template.tModalLeague.events({
       leagueName: $(evt.target).find('[name=leagueName]').val(),
       leagueAdminFirstName: $(evt.target).find('[name=leagueAdminFirstName]').val(),
       leagueAdminLastName: $(evt.target).find('[name=leagueAdminLastName]').val(),
-      leagueAdminEmail: $(evt.target).find('[name=leagueAdminEmail]').val(),
       leagueAdminPhone: $(evt.target).find('[name=leagueAdminPhone]').val(),
       leagueSummary: $(evt.target).find('[name=leagueSummary]').val()
     };

@@ -46,7 +46,6 @@ Template.tAddLeague.events({
         // return alert(error.reason);
         return throwError(error.reason);
       }
-      console.log(result);
       if (result.postExists) {
         throwError('A league with this name already exists');
       }
