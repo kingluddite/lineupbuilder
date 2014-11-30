@@ -1,21 +1,21 @@
 // Meteor.startup(function() {
-//   // bootstrap the admin user if they exist -- You'll be replacing the id later
-//   // if (Meteor.users.findOne('zR8QvtCrDhPSi9DSp')) {
-//   //   Roles.addUsersToRoles('zR8QvtCrDhPSi9DSp', ['league-admin']);
-//   // }
+// //   // bootstrap the admin user if they exist -- You'll be replacing the id later
+// //   // if (Meteor.users.findOne('zR8QvtCrDhPSi9DSp')) {
+// //   //   Roles.addUsersToRoles('zR8QvtCrDhPSi9DSp', ['league-admin']);
+// //   // }
 
-//   // // create a couple of roles if they don't already exist (THESE ARE NOT NEEDED -- just for the demo)
-//   // if (!Meteor.roles.findOne({
-//   //     name: 'team-admin'
-//   //   })) {
-//   //   Roles.createRole('team-admin');
-//   // }
+// //   // // create a couple of roles if they don't already exist (THESE ARE NOT NEEDED -- just for the demo)
+// //   // if (!Meteor.roles.findOne({
+// //   //     name: 'team-admin'
+// //   //   })) {
+// //   //   Roles.createRole('team-admin');
+// //   // }
 
-//   // if (!Meteor.roles.findOne({
-//   //     name: 'double-secret'
-//   //   })) {
-//   //   Roles.createRole('double-secret');
-//   // }
+// //   // if (!Meteor.roles.findOne({
+// //   //     name: 'double-secret'
+// //   //   })) {
+// //   //   Roles.createRole('double-secret');
+// //   // }
 
 //   var users = [{
 //     name: 'Player',
