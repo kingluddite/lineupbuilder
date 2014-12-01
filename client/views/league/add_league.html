@@ -1,5 +1,5 @@
 <template name="tAddLeague">
-    <h2>Add A League</h2>
+    <h2>Add League</h2>
     <form role="form">
         <!--  leagueName -->
         <div class="form-group {{errorClass 'leagueName'}}">
@@ -13,26 +13,19 @@
         </div>
 
         <!-- leagueAdminFirstName -->
-        <div class="required-field-block">
+        <p>
             <input type="text" placeholder="Admin First Name" name="leagueAdminFirstName" class="form-control">
-            <div class="required-icon">
-                <div class="text">*</div>
-            </div>
-        </div>
+        </p>
+
         <!-- leagueAdminLastName -->
-        <div class="required-field-block">
+        <p>
             <input type="text" placeholder="Admin Last Name" name="leagueAdminLastName" class="form-control">
-            <div class="required-icon">
-                <div class="text">*</div>
-            </div>
-        </div>
+        </p>
+
         <!-- leagueSummary  -->
-        <div class="required-field-block">
+        <p>
             <textarea rows="3" class="form-control" placeholder="About League" name="leagueSummary"></textarea>
-            <div class="required-icon">
-                <div class="text">*</div>
-            </div>
-        </div>
+        </p>
         {{> tAddCancelBtns }}
     </form>
 </template>

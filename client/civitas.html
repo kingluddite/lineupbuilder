@@ -1,5 +1,5 @@
 <template name="tCivitas">
-[civats]
+    [civatas]
     <!-- {{> tZipCodes}} -->
     <div id="main" class="row">
         <strong></strong>
@@ -10,11 +10,10 @@
             <p>{{formatPrice playersOweThisAmount}}</p>
             <h5>Fee Paid By Players</h5>
             <p>{{formatPrice playersPaidThisAmount}}</p>
-
-
-
-            {{#if currentUser}} {{> tAddPlayer}} {{/if}} {{> tGameDayRoster}}
-
+            {{#if currentUser}}
+                {{> tAddPlayer}}
+            {{/if}}
+            {{> tGameDayRoster}}
         </div>
         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
             {{> tField}}

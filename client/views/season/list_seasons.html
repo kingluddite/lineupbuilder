@@ -1,30 +1,22 @@
 <template name="tListSeasons">
-  [list_seasons] {{> tBreadcrumbs}}
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      {{#if currentUser}}
-        <a type="button" class="btn btn-default btn-lg add">
-          <span class="glyphicon glyphicon-user">&nbsp;</span>Add Season
-        </a>
-      {{else}}
-        <p>Log in to add Seasons</p>
-      {{/if}}
-      {{#if sEditMode}}
-        {{> tAddSeason}}
-      {{/if}}
-      <h3>Here is a list of current seasons for this league.</h3>
-      {{#if cSeasons}}
-        <ul>
-          {{#each cSeasons}}
+<p>[list_seasons]</p>
+{{> tBreadcrumbs}}
+{{#if sEditMode}}
+    {{> tAddSeason}}
+{{else}}
+    <a type="button" class="btn btn-default btn-lg add">Add Season</a>
+{{/if}}
+<h3>Current Seasons</h3>
+{{#if cSeasons}}
+    <p>Select the season you want to enter.</p>
+    <ul>
+        {{#each cSeasons}}
             <li class="seasons {{selectedClass}}">
-              <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <p>Sorry, no seasons yet</p>
-      {{/if}}
-      <p>Select the season you want to enter.</p>
-    </div>
-    <!-- END .col6 -->
-  </div>
+                <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>Sorry, no seasons yet</p>
+{{/if}}
+
 </template>

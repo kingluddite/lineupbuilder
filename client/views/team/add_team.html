@@ -1,121 +1,65 @@
 <template name="tAddTeam">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <h1>Add Team</h1>
-        {{#if currentUser}}
-        <form role="form">
-          <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
-          <input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}">
-          <input type="hidden" name="seasonId" class="form-control" value="{{sSeasonId}}">
+    <h2>Add Team</h2>
+    <form role="form">
+        <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
+        <input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}">
+        <input type="hidden" name="seasonId" class="form-control" value="{{sSeasonId}}">
 
-          <!-- Season Name -->
-          <div class="required-field-block">
+        <!-- Season Name -->
+        <div class="required-field-block">
             <input type="text" placeholder="Name" name="teamName" class="form-control">
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <div class="required-field-block">
+        <p>
             <input type="text" placeholder="coachName" name="coachName" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <div class="required-field-block">
+        <p>
             <select class="form-control" name="seasonDivision">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
+                <option>Division</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <!-- Season Fee -->
-          <div class="required-field-block">
+        <!-- Season Fee -->
+        <p>
             <input type="text" placeholder="Season Fee" name="teamFee" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <div class="required-field-block">
+        <p>
             <input type="text" placeholder="Home Color" name="teamHomeColor" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <div class="required-field-block">
-            <input type="text" placeholder="Home Color" name="teamAwayColor" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        <p>
+            <input type="text" placeholder="Away Color" name="teamAwayColor" class="form-control">
+        </p>
 
-          <div class="required-field-block">
+        <p>
             <input type="text" placeholder="Home Field" name="teamHomeField" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <div class="required-field-block">
-            <input type="text" placeholder="Street" name="teamStreetAddress" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
-
-          <div class="required-field-block">
+        <p>
             <input type="text" placeholder="City" name="teamCity" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <div class="required-field-block">
+        <p>
             <input type="text" placeholder="State" name="teamState" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
-
-          <div class="required-field-block">
+        </p>
+        <p>
             <input type="text" placeholder="Country" name="teamCountry" class="form-control">
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
+        </p>
 
-          <!-- Season Summary -->
-          <!-- does textarea have a placeholder attribute or does the code go inside it? -->
-          <div class="required-field-block">
+        <!-- Season Summary -->
+        <!-- does textarea have a placeholder attribute or does the code go inside it? -->
+        <p>
             <textarea rows="3" class="form-control" placeholder="About Team" name="seasonSummary"></textarea>
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
-          {{> tAddCancelBtns }}
-        </form>
-        {{else}}
-        <p>Please log in to add season.</p>
-        {{/if}}
-        <h2>Current League Season</h2>
-        <ul>
-          {{#each cSeasons}}
-          <li>{{seasonName}} {{> tEditSeason}}</li>
-          {{/each}}
-        </ul>
-        <p>No Seasons yet</p>
-      </div>
-    </div>
-
-  </div>
-  <!-- END .container -->
+        </p>
+        {{> tAddCancelBtns }}
+    </form>
 </template>
