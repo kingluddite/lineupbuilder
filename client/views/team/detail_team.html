@@ -1,20 +1,23 @@
-<template name="tRoster">
-{{#if cRoster}}
-  <ol>
-    {{#each cRoster}}
-      <li>
-        {{> tListPlayers}}
-        
-        <ul>
-          <li>{{fieldPosition}} {{playerNotes}}</li>
-         {{#if currentUser}} <li>{{> tEditPlayer}}</li>{{/if}}
-        </ul>
-      </li>
-    {{/each}}
-  </ol>
+<template name="tDetailTeam">
+    [detail_team] {{> tListPlayers}}
+    <!--     {{#if cRoster}}
+        <ol>
+            {{#each cRoster}}
+                <li>
+                    {{> tListPlayers}}
 
-{{else}}
-<p>no starting players</p>
+                    <ul>
+                        <li>{{fieldPosition}} {{playerNotes}}</li>
+                        {{#if currentUser}}
+                            <li>{{> tEditPlayer}}</li>
+                        {{/if}}
+                    </ul>
+                </li>
+            {{/each}}
+        </ol>
 
-{{/if}}
+    {{else}}
+        <p>no starting players</p>
+
+    {{/if}} -->
 </template>

@@ -1,87 +1,67 @@
 <template name="tAddGame">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        {{#if currentUser}}
-        <form role="form">
+    <form role="form">
         <div class="input-group clockpicker">
-            <input type="text" class="form-control" value="18:00" style="margin-top: 0;">
+            <input type="text" name="gameTime" class="form-control" value="18:00" style="margin-top: 0;">
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-time"></span>
             </span>
-          </div>
-          <!-- add jquery calendar input box here -->
-          <div class="form-group">
+        </div>
+        <!-- add jquery calendar input box here -->
+        <div class="form-group">
             <div class="required-field-block">
-              <div class="required-icon">
-                <div class="text">*</div>
-              </div>
-              <div class="controls">
-                <input type="text" placeholder="Game Date" name="gameDate" class="form-control datepicker">
-              </div>
+                <div class="required-icon">
+                    <div class="text">*</div>
+                </div>
+                <div class="controls">
+                    <input type="text" placeholder="Game Date" name="gameDate" class="form-control datepicker">
+                </div>
             </div>
-          </div>
+        </div>
 
+        <!-- pull in the home jersey color from the teams table -->
+        <!-- pull in the away jersey color from the teams table -->
 
-          <!-- pull in the home jersey color from the teams table -->
-          <!-- pull in the away jersey color from the teams table -->
-
-          <!-- make sure this inserts the team id into the collection -->
-          <div class="required-field-block">
+        <!-- make sure this inserts the team id into the collection -->
+        <div class="required-field-block">
             <select class="team-name form-control" name="homeTeamId">
-              <option value="">Choose Home Team</option>
-              {{#each cTeams}}
-              <option value="{{_id}}">{{teamName}}</option>
-              {{/each}}
+                <option value="">Choose Home Team</option>
+                {{#each cTeams}}
+                <option value="{{_id}}">{{teamName}}</option>
+                {{/each}}
             </select>
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <!-- two same team can't play each other - valiate rule -->
-          <!-- How do I add goals scored by player to this game, multiple values? -->
+        <!-- two same team can't play each other - valiate rule -->
+        <!-- How do I add goals scored by player to this game, multiple values? -->
 
-          <div class="required-field-block">
+        <div class="required-field-block" style="margin-top: 10px">
             <select class="team-name form-control" name="awayTeamId">
-              <option value="">Choose Away Team</option>
-              {{#each cTeams}}
-              <option value="{{_id}}">{{teamName}}</option>
-              {{/each}}
+                <option value="">Choose Away Team</option>
+                {{#each cTeams}}
+                <option value="{{_id}}">{{teamName}}</option>
+                {{/each}}
             </select>
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
 
-          <div class="required-field-block">
+        <div class="required-field-block" style="margin-top: 10px">
             <select class="form-control field-position" name="gameStatus">
-              <option value="null">Game Type</option>
-              <option value="right-fullback">Friendly</option>
-              <option value="right-striker">Regular Season</option>
-              <option value="right-midfielder">Playoff</option>
+                <option value="null">Game Type</option>
+                <option value="right-fullback">Friendly</option>
+                <option value="right-striker">Regular Season</option>
+                <option value="right-midfielder">Playoff</option>
             </select>
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <div class="required-field-block">
-            <textarea rows="3" class="form-control" placeholder="Pre Game Notes" name="preGameNotes"></textarea>
-            <div class="required-icon">
-              <div class="text">*</div>
-            </div>
-          </div>
-
-          {{> tAddCancelBtns }}
-        </form>
-        {{else}}
-        <p>Please log in to add leagues.</p>
-        {{/if}}
-      </div>
-    </div>
-
-  </div>
-  <!-- END .container -->
+        {{> tAddCancelBtns }}
+    </form>
 </template>

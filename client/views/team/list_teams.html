@@ -1,31 +1,19 @@
 <template name="tListTeams">
-[list_teams]
-  {{> tBreadcrumbs}}
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      {{#if currentUser}}
-      <a type="button" class="btn btn-default btn-lg add">
-        <span class="glyphicon glyphicon-user">&nbsp;</span>Add Team 
-      </a>
-      {{else}}
-      <p>Log in to add Teams</p>
-      {{/if}} 
-      {{#if sEditMode}} 
-        {{> tAddTeam}} 
-      {{/if}}
-      <h3>Here is a list of current Teams for this season.</h3>
-      {{#if cTeams}}
-      <ul>
-        {{#each cTeams}}
-          <li class="Teams {{selectedClass}}">
-            <a href="{{pathFor 'tDetailTeam'}}">{{teamName}}</a> {{> tEditTeam}}</li>
-        {{/each}}
-      </ul>
-      {{else}}
-      <p>Sorry, no Teams yet</p>
-      {{/if}}
-      <p>Select the team you want to enter.</p>
+    <p>[list_teams]</p>
+    {{> tBreadcrumbs}} {{#if sEditMode}} {{> tAddTeam}} {{else}}
+    <a type="button" class="btn btn-default btn-lg add">Add Team</a> {{/if}}
+    <h3>{{this.seasonName}} season</h3>
+    <div>
+        {{#if cTeams}}
+        <p>Select the team you want to enter.</p>
+        <ul>
+            {{#each cTeams}}
+            <li class="Teams {{selectedClass}}">
+                <a href="{{pathFor 'tDetailTeam'}}">{{teamName}}</a> {{> tEditTeam}}</li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <p>Sorry, no Teams yet</p>
+        {{/if}}
     </div>
-    <!-- END .col6 -->
-  </div>
 </template>

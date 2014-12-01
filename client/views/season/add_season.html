@@ -1,74 +1,56 @@
 <template name="tAddSeason">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <h1>Add Season</h1>
-        {{#if currentUser}}
-        <form role="form">
-          <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
-          <input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}">
+    <h2>Add Season</h2>
+    <form role="form">
+        <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
+        <input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}">
 
-          <!-- Season Name -->
-          <div class="required-field-block">
+        <!-- Season Name -->
+        <div class="required-field-block">
             <input type="text" placeholder="Name" name="seasonName" class="form-control">
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <!-- validation rule - teams can not play themselves -->
-          <!-- Season Start Date -->
-          <div class="required-field-block">
+        <!-- validation rule - teams can not play themselves -->
+        <!-- Season Start Date -->
+        <div class="required-field-block">
             <input type="text" placeholder="Start Date" name="seasonStartDate" class="form-control" id="datepicker">
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <!-- Season Status - register, regular, playoffs, completed -->
-          <div class="required-field-block">
+        <!-- Season Status - register, regular, playoffs, completed -->
+        <div class="required-field-block" style="margin-top: 10px">
             <select class="form-control" name="seasonStatus">
-              <option value="open">Open</option>
-              <option value="started">Started</option>
-              <option value="playoffs">Playoffs</option>
-              <option value="completed">Completed</option>
+                <option value="open">Open</option>
+                <option value="started">Started</option>
+                <option value="playoffs">Playoffs</option>
+                <option value="completed">Completed</option>
             </select>
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <!-- Season Fee -->
-          <div class="required-field-block">
+        <!-- Season Fee -->
+        <div class="required-field-block">
             <input type="text" placeholder="Season Fee" name="seasonFee" class="form-control">
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
+        </div>
 
-          <!-- Season Summary -->
-          <!-- does textarea have a placeholder attribute or does the code go inside it? -->
-          <div class="required-field-block">
+        <!-- Season Summary -->
+        <!-- does textarea have a placeholder attribute or does the code go inside it? -->
+        <div class="required-field-block">
             <textarea rows="3" class="form-control" placeholder="About season" name="seasonSummary"></textarea>
             <div class="required-icon">
-              <div class="text">*</div>
+                <div class="text">*</div>
             </div>
-          </div>
-          {{> tAddCancelBtns }}
-        </form>
-        {{else}}
-        <p>Please log in to add season.</p>
-        {{/if}}
-        <h2>Current League Season</h2>
-        <ul>
-          {{#each cSeasons}}
-          <li>{{seasonName}} {{> tEditSeason}}</li>
-          {{/each}}
-        </ul>
-        <p>No Seasons yet</p>
-      </div>
-    </div>
+        </div>
+        {{> tAddCancelBtns }}
+    </form>
 
-  </div>
-  <!-- END .container -->
 </template>
