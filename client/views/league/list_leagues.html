@@ -1,28 +1,22 @@
 <template name="tListLeagues">
-    [list_leagues] {{> tBreadcrumbs}}
-    <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            {{#if currentUser}}
-            <a type="button" class="btn btn-default btn-lg add">
-                <span class="glyphicon glyphicon-user">&nbsp;</span>Add League
-            </a>
-            {{else}}
-            <p>Log in to add teams</p>
-            {{/if}} {{#if sEditMode}} {{> tAddLeague}} {{/if}}
-            <h3>Here is a list of current leagues.</h3> {{#if cLeagues}}
-            <ul>
-                {{#each cLeagues}}
-                <li class="league {{selectedClass}}"><a href="{{pathFor 'tDetailLeague'}}">{{leagueName}}</a> {{> tEditLeague}}</li>
-                {{/each}}
-            </ul>
-            {{else}}
-            <p>Sorry, no leagues yet</p>
-            {{/if}}
-            <p>Select the league you want to enter.</p>
-
-        </div>
-        <!-- END .col6 -->
-    </div>
+[list_leagues] {{> tBreadcrumbs}}
+{{#if currentUser}}
+<a type="button" class="btn btn-default btn-lg add">
+    <span class="glyphicon glyphicon-user">&nbsp;</span>Add League
+</a>
+{{else}}
+<p>Log in to add teams</p>
+{{/if}} {{#if sEditMode}} {{> tAddLeague}} {{/if}}
+<h3>Here is a list of current leagues.</h3> {{#if cLeagues}}
+<ul>
+    {{#each cLeagues}}
+    <li class="league {{selectedClass}}"><a href="{{pathFor 'tDetailLeague'}}">{{leagueName}}</a> {{> tEditLeague}}</li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Sorry, no leagues yet</p>
+{{/if}}
+<p>Select the league you want to enter.</p>
 </template>
 
 <template name="task">
