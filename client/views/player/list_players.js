@@ -1,12 +1,12 @@
 // grab all teams in this season
-Template.tListTeams.helpers({
-    cTeams: function() {
-        return Teams.find();
+Template.tListPlayers.helpers({
+    cPlayers: function() {
+        return Players.find();
     },
 
     // grab the team id
-    sTeamId: function() {
-        return Session.get('sTeamId');
+    sPlayerId: function() {
+        return Session.get('sPlayerId');
     },
 
     sEditMode: function() {
@@ -14,18 +14,18 @@ Template.tListTeams.helpers({
     },
     // highlight currently selected team
     selectedClass: function() {
-        var selectedTeam = Session.get('sTeamId');
-        var teamId = this._id;
-        if (selectedTeam === teamId) {
+        var selectedTeam = Session.get('sPlayerId');
+        var playerId = this._id;
+        if (selectedTeam === playerId) {
             return 'selected';
         }
     }
 });
 
-Template.tListTeams.events({
-    'click li.team': function() {
-        var teamId = this._id;
-        Session.set('sTeamId', teamId);
+Template.tListPlayers.events({
+    'click li.player': function() {
+        var playerId = this._id;
+        Session.set('sPlayerId', playerId);
     },
     'click .add': function() {
         Session.set('sEditMode', true);
