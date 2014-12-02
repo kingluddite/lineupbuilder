@@ -34,10 +34,10 @@ Template.tAddTeam.events({
     evt.preventdefault();
 
     var team = {
-      teamName: $(evt.target).find('[name=teamName]').val(),
       leagueId: $(evt.target).find('[name=leagueId]').val(),
       regionId: $(evt.target).find('[name=regionId]').val(),
       seasonId: $(evt.target).find('[name=seasonId]').val(),
+      teamName: $(evt.target).find('[name=teamName]').val(),
       aboutTeam: $(evt.target).find('[name=aboutTeam]').val()
     };
 
