@@ -1,4 +1,5 @@
 <template name="tAddGame">
+    <h2>Add Game</h2>
     <form role="form">
         <div class="input-group clockpicker">
             <input type="text" name="gameTime" class="form-control" value="18:00" style="margin-top: 0;">
@@ -26,7 +27,7 @@
             <select class="team-name form-control" name="homeTeamId">
                 <option value="">Choose Home Team</option>
                 {{#each cTeams}}
-                <option value="{{_id}}">{{teamName}}</option>
+                    <option value="{{_id}}">{{teamName}}</option>
                 {{/each}}
             </select>
             <div class="required-icon">
@@ -41,7 +42,7 @@
             <select class="team-name form-control" name="awayTeamId">
                 <option value="">Choose Away Team</option>
                 {{#each cTeams}}
-                <option value="{{_id}}">{{teamName}}</option>
+                    <option value="{{_id}}">{{teamName}}</option>
                 {{/each}}
             </select>
             <div class="required-icon">
