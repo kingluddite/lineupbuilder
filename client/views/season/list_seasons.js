@@ -3,11 +3,13 @@ Template.tListSeasons.helpers({
         return Session.get('sRegionId');
     },
     cSeasons: function() {
-        //return Seasons.find();
-        return Seasons.find({
-            regionId: Session.get('sRegionId')
-        });
+      //return Seasons.find();
+      return Seasons.find({
+        regionId: Session.get('sRegionId')
+      });
     },
+
+
     sEditMode: function() {
         return Session.get('sEditMode');
     },
