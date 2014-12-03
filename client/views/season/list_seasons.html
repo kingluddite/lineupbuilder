@@ -10,7 +10,7 @@
     <p>Here is a list of all the teams that are in this season. Click on a team to view it's season schedule.</p>
     <ul>
       {{#each cSeasons}}
-        <li class="seasons {{selectedClass}}">
+        <li class="season {{selectedClass sSeasonId}}">
           <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
       {{/each}}
     </ul>

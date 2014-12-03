@@ -17,7 +17,6 @@ UI.registerHelper('moneyOwedStyle', function() {
 });
 
 
-
 // global way to highlight if a player owes money
 UI.registerHelper('moneyOwed', function() {
   var totalFeesStillOwed = this.seasonFeeOwed - this.seasonFeePaid;
