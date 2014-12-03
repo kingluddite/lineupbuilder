@@ -34,33 +34,32 @@ Template.tAddTeam.helpers({
 Template.tAddTeam.events({
 
 
-            'click .cancel': function() {
-                Session.set('sEditMode', false);
-            },
+    'click .cancel': function() {
+        Session.set('sEditMode', false);
+    },
 
-            'submit form': function(evt) {
-                evt.preventdefault();
+    'submit form': function(evt) {
+        evt.preventdefault();
 
-                var team = {
-                    // leagueId: $(evt.target).find('[name=leagueId]').val(),
-                    // regionId: $(evt.target).find('[name=regionId]').val(),
-                    // seasonId: $(evt.target).find('[name=seasonId]').val(),
-                    teamName: $(evt.target).find('[name=teamName]').val(),
-                    aboutTeam: $(evt.target).find('[name=aboutTeam]').val()
-                };
-                var errors = validateTeam(team);
-                if (errors.teamName) {
-                    return Session.set('postSubmitErrors', errors);
-                }
-                Meteor.call('addTeam', team, function(error) {
-                    console.log('yo');
-                    //     if (error) {
-                    //         // return alert(error.reason);
-                    //         return throwError(error.reason);
-                    //     }
-                    //     Session.set('sEditmode', false);
-                    //     // router.go('playerpage', {_id: id});
-                    // });
-                    // }
-                });
-            });
+        var team = {
+            // leagueId: $(evt.target).find('[name=leagueId]').val(),
+            // regionId: $(evt.target).find('[name=regionId]').val(),
+            // seasonId: $(evt.target).find('[name=seasonId]').val(),
+            teamName: $(evt.target).find('[name=teamName]').val(),
+            aboutTeam: $(evt.target).find('[name=aboutTeam]').val()
+        };
+        var errors = validateTeam(team);
+        if (errors.teamName) {
+            return Session.set('postSubmitErrors', errors);
+        }
+        Meteor.call('addTeam', team, function(error) {
+
+            if (error) {
+                // return alert(error.reason);
+                return throwError(error.reason);
+            }
+            Session.set('sEditmode', false);
+            // router.go('playerpage', {_id: id});
+        });
+    }
+});

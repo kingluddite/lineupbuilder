@@ -1,53 +1,53 @@
 <template name="tModalSeason">
 
-    <!-- modal for editing player -->
-    <div class="modal fade" id="season-modal-id">
-        <div class="modal-dialog modal-season">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Season:
+  <!-- modal for editing player -->
+  <div class="modal fade" id="season-modal-id">
+    <div class="modal-dialog modal-season">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Season:
             <strong>{{cSeason.seasonName}}</strong>
           </h4>
-                </div>
-                <form class="updateSeason">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <p>
-                                    <label for="seasonName">Name</label>
-                                    <input type="text" class="form-control" name="seasonName" value="{{cSeason.seasonName}}" />
-                                </p>
-                                <p>
-                                    <label for="seasonStartDate">Start Date</label>
-                                    <input type="text" class="form-control" name="seasonStartDate" value="{{cSeason.seasonStartDate}}" />
-                                </p>
-                                <p>
-                                    <label for="seasonStatus">Status</label>
-                                    <input type="text" class="form-control" name="seasonStatus" value="{{cSeason.seasonStatus}}" />
-                                </p>
-                                <p>
-                                    <label for="seasonFee">Season Fee</label>
-                                    <input type="text" class="form-control" name="seasonFee" value="{{cSeason.seasonFee}}">Season Fee />
-                                </p>
-                                <p>
-                                    <label for="seasonSummary">Summary</label>
-                                    <textarea class="form-control" name="seasonSummary">
-                                        {{cSeason.seasonSummary}}
-                                    </textarea>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END .modal-body -->
-                    {{> tModalFooter}}
-                </form>
-            </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
+        <form class="updateSeason">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p>
+                  <label for="seasonName">Name</label>
+                  <input type="text" class="form-control" name="seasonName" value="{{cSeason.seasonName}}" />
+                </p>
+                <p>
+                  <label for="seasonStartDate">Start Date</label>
+                  <input type="text" class="form-control" name="seasonStartDate" value="{{cSeason.seasonStartDate}}" />
+                </p>
+                <p>
+                  <label for="seasonStatus">Status</label>
+                  <input type="text" class="form-control" name="seasonStatus" value="{{cSeason.seasonStatus}}" />
+                </p>
+                <p>
+                  <label for="seasonFee">Season Fee</label>
+                  <input type="text" class="form-control" name="seasonFee" value="{{cSeason.seasonFee}}">Season Fee />
+                </p>
+                <p>
+                  <label for="seasonSummary">Summary</label>
+                  <textarea class="form-control" name="seasonSummary">
+                    {{cSeason.seasonSummary}}
+                  </textarea>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- END .modal-body -->
+          {{> tModalFooter}}
+        </form>
+      </div>
+      <!-- /.modal-content -->
     </div>
-    <!-- /.modal -->
-    <!-- END modal for editing player -->
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- END modal for editing player -->
 
 </template>

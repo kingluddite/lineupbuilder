@@ -14,5 +14,15 @@ Template.tEditTeam.events({
         if (confirm('Sure you want to delete this?')) {
             Meteor.call('deleteTeam', this._id);
         }
+    },
+    'click .edit': function() {
+        Session.set('sTeamId', this._id);
+        $('#team-modal-id').modal('show');
+        setTimeout(function() {
+            $('input[name="teamName"]').focus();
+        }, 500);
+        setTimeout(function() {
+            $('input[name="teamName"]').select();
+        }, 500);
     }
 });
