@@ -1,7 +1,18 @@
+Template.tAddTeam.created = function() {
+  Session.set('postSubmitErrors', {});
+};
+
+
 Template.tAddTeam.helpers({
-  sTeamId: function() {
-    return Session.get('sTeamId');
+  errorMessage: function(field) {
+    return Session.get('postSubmitErrors')[field];
   },
+
+  errorClass: function(field) {
+    return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
+  },
+
+
   sEditMode: function() {
     return Session.get('sEditMode');
   }
@@ -9,34 +20,30 @@ Template.tAddTeam.helpers({
 
 // adding events to our templates (duh!)
 Template.tAddTeam.events({
-  'click .add': function() {
-    // makes focus on first form work as it should
-    setTimeout(function() {
-      $('input[name="teamName"]').focus();
-    }, 500);
-    Session.set('sEditMode', true);
-  },
-
-  'click .remove': function() {
+  'click .cancel': function() {
     Session.set('sEditMode', false);
   },
 
   'submit form': function(evt) {
-    evt.preventDefault();
+    console.log('you');
+    evt.preventdefault();
 
     var team = {
-      teamName: $(evt.target).find('[name=teamName]').val(),
-      leagueId: $(evt.target).find('[name=teamName]').val()
+      teamName: $(evt.target).find('[name=teamName]').val()
     };
-
+    // var errors = validateTeam(team);
+    // if (errors.teamName) {
+    //   return Session.set('postSubmitErrors', errors);
+    // }
     Meteor.call('addTeam', team, function(error) {
+
       if (error) {
         // return alert(error.reason);
         return throwError(error.reason);
       }
-      // Router.go('playerPage', {_id: id});
     });
 
-    Session.set('sEditMode', false);
+    Session.set('sEditmode', false);
+
   }
 });

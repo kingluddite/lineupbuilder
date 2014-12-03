@@ -7,4 +7,5 @@ Session.setDefault('sLeagueId', null);
 Session.setDefault('sRegionId', null);
 Session.setDefault('sSeasonId', null);
 Session.setDefault('sTeamId', null);
+Session.setDefault('sGameId', null);
 Session.setDefault('sPlayerId', null);

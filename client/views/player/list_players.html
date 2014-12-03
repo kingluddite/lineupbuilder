@@ -1,24 +1,28 @@
 <template name="tListPlayers">
-    <p>[list_players</p>
-    {{> tBreadcrumbs}}
-    {{#if sEditMode}}
-        {{> tAddPlayer}}
-    {{else}}
-        <a type="button" class="btn btn-default btn-lg add">Add Player</a>
-    {{/if}}
-    <h3>Current Players</h3>
+  <p>[list_players]</p>
+  {{> tBreadcrumbs}}
+  {{#if sEditMode}}
+    {{> tAddPlayer}}
+  {{else}}
+    <p>
+      <a href="{{pathFor 'tDetailTeam'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Player</a>
+    </p>
+  {{/if}}
+  <h3>Current Players</h3>
+  <div>
     {{#if cPlayers}}
-        <p>Select the player to see their profile</p>
-        <a href="{{pathFor 'tDetailPlayer'}}">{{firstName}} {{lastNameInitial}}</a>
-        <ul>
-            {{#each cPlayers}}
-                <li class="season {{selectedClass}}">
-                    <a href="{{pathFor 'tDetailPlayer'}}">{{playerFirstName}}></a> {{> tEditPlayer}}
-                </li>
-            {{/each}}
-        </ul>
+      <p>Select the player to see their profile</p>
+      <a href="{{pathFor 'tDetailPlayer'}}">{{firstName}} {{lastNameInitial}}</a>
+      <ul>
+        {{#each cPlayers}}
+          <li class="player {{selectedClass}}">
+            <a href="{{pathFor 'tDetailPlayer'}}">{{firstName}}</a> {{> tEditPlayer}}
+          </li>
+        {{/each}}
+      </ul>
     {{else}}
-        <p>Sorry, this team has no players.</p>
+      <p>Sorry, this team has no players.</p>
     {{/if}}
+  </div>
 
 </template>

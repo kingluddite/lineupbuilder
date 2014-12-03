@@ -23,7 +23,13 @@ Template.tAddPlayer.helpers({
 
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
-    'click .cancel': function() {
+    'click .add': function() {
+        setTimeout(function() {
+            $('input[name="teamName"]').focus();
+        }, 500);
+        Session.set('sEditMode', true);
+    },
+    'click .remove': function() {
         Session.set('sEditMode', false);
     },
 
@@ -47,7 +53,7 @@ Template.tAddPlayer.events({
             return Session.set('postSubmitErrors', errors);
         }
 
-        Meteor.call('addPlayer', player, function(error, result) {
+        Meteor.call('addPlayer', player, function(error) {
             if (error) {
                 // return alert(error.reason);
                 return throwError(error.reason);

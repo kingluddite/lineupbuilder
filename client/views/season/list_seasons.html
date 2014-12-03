@@ -1,19 +1,21 @@
 <template name="tListSeasons">
-    <p>[list_seasons]</p>
-    {{> tBreadcrumbs}} {{#if sEditMode}} {{> tAddSeason}} {{else}}
-    <p><a type="button" class="btn btn-default btn-lg add">Add Season</a>
+  <p>[list_seasons]</p>
+  {{> tBreadcrumbs}}
+  {{#if sEditMode}} {{> tAddSeason}} {{else}}
+    <p><a href="{{pathFor 'tListRegions'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Season</a>
     </p>
-    {{/if}}
-    <h3>Current Seasons</h3> {{#if cSeasons}}
-    <p>Select the season you want to enter.</p>
+  {{/if}}
+  <h3>{{this.regionName}} Seasons</h3>
+  {{#if cSeasons}}
+    <p>Here is a list of all the teams that are in this season. Click on a team to view it's season schedule.</p>
     <ul>
-        {{#each cSeasons}}
-        <li class="seasons {{selectedClass}}">
-            <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
-        {{/each}}
+      {{#each cSeasons}}
+        <li class="season {{selectedClass sSeasonId}}">
+          <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
+      {{/each}}
     </ul>
-    {{else}}
+  {{else}}
     <p>Sorry, no seasons yet</p>
-    {{/if}}
+  {{/if}}
 
 </template>
