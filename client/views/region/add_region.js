@@ -13,14 +13,6 @@ Template.tAddRegion.helpers({
 });
 
 Template.tAddRegion.events({
-  'click .add': function() {
-    // makes focus on first form work as it should
-    setTimeout(function() {
-      $('input[name="regionName"]').focus();
-    }, 500);
-    Session.set('sEditMode', true);
-  },
-
   'click .cancel': function() {
     Session.set('sEditMode', false);
   },

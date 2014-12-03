@@ -1,8 +1,13 @@
 <template name="tListRegions">
   <p>[list_region]</p>
   {{> tBreadcrumbs}}
-  {{#if sEditMode}} {{> tAddRegion}} {{else}}
-    <a href="{{pathFor 'tListLeagues'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Region</a> {{/if}}
+  {{#if sEditMode}}
+    {{> tAddRegion}}
+  {{else}}
+    <p>
+      <a href="{{pathFor 'tListLeagues'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Region</a>
+    </p>
+  {{/if}}
   <h3>{{this.leagueName}} Regions</h3>
   {{#if cRegions}}
     <p>Select the region you want to enter.</p>
