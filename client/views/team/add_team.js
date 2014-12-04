@@ -26,15 +26,17 @@ Template.tAddTeam.events({
 
   'submit form': function(evt) {
     console.log('you');
-    evt.preventdefault();
+    evt.preventDefault();
 
     var team = {
-      teamName: $(evt.target).find('[name=teamName]').val()
+      teamName: $(evt.target).find('[name=teamName]').val(),
+      seasonId: $(evt.target).find('[name=seasonId]').val(),
+      aboutTeam: $(evt.target).find('[name=aboutTeam]').val()
     };
-    // var errors = validateTeam(team);
-    // if (errors.teamName) {
-    //   return Session.set('postSubmitErrors', errors);
-    // }
+    var errors = validateTeam(team);
+    if (errors.teamName) {
+      return Session.set('postSubmitErrors', errors);
+    }
     Meteor.call('addTeam', team, function(error) {
 
       if (error) {

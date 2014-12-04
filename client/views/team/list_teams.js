@@ -6,13 +6,13 @@ Template.tListTeams.helpers({
 
   cTeams: function() {
     return Teams.find({
-
+      seasonId: Session.get('sSeasonId')
     });
 
   },
   // cSeasons: function() {
   //   return Seasons.find({
-  //     regionId: Session.get('sRegionId')
+  //     seasonId: Session.get('sRegionId')
   //   });
   // },
 

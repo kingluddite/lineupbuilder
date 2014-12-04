@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+//Meteor.startup(function() {
 // //   // bootstrap the admin user if they exist -- You'll be replacing the id later
 // //   // if (Meteor.users.findOne('zR8QvtCrDhPSi9DSp')) {
 // //   //   Roles.addUsersToRoles('zR8QvtCrDhPSi9DSp', ['league-admin']);
