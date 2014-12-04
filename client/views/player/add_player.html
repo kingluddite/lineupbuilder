@@ -1,64 +1,64 @@
 <template name="tAddPlayer">
-    <h2>Add Player</h2>
-    <form role="form">
-        <!-- firstName -->
-        <div class="form-gr
+  <h2>Add Player</h2>
+  <form role="form">
+    <!-- firstName -->
+    <div class="form-gr
 oup {{errorClass 'firstName'}}">
-            <div class="required-field-block">
-                <input type="text" placeholder="First Name" name="firstName" class="form-control">
-                <span class="help-block">{{errorMessage 'firstName'}}</span>
-                <div class="required-icon">
-                    <div class="text">*</div>
-                </div>
-            </div>
+      <div class="required-field-block">
+        <input type="text" placeholder="First Name" name="firstName" class="form-control">
+        <span class="help-block">{{errorMessage 'firstName'}}</span>
+        <div class="required-icon">
+          <div class="text">*</div>
         </div>
-        <p>
-            <input type="text" id="lastNameInitial" class="form-control" name="lastNameInitial" placeholder="last name initial" />
-        </p>
-        <p>
-            <select class="team-name form-control" name="teamId">
-                <option value="">Choose A Team</option>
-                {{#each sTeams}}
-                    <option value="{{_id}}">{{teamName}}</option>
-                {{/each}}
-            </select>
-        </p>
-        <p>
-            <select class="form-control field-position" name="fieldPosition">
-                <option value="right-fullback">Right Fullback</option>
-                <option value="right-striker">Right Striker</option>
-                <option value="right-midfielder">Right Midfielder</option>
-                <option value="offensive-midfielder">Offensive Midfielder</option>
-                <option value="defensive-midfielder">Defensive Midfielder</option>
-                <option value="left-striker">Left Striker</option>
-                <option value="left-midfielder">Left Midfielder</option>
-                <option value="left-fullback">Left Fullback</option>
-                <option value="stopper">Stopper</option>
-                <option value="sweeper">Sweeper</option>
-                <option value="goalie">Goalie</option>
-                <option value="none">None</option>
-            </select>
-        </p>
-        <p>
-            <select class="game-status form-control" name="gameStatus">
-                <option value="starting">Starting</option>
-                <option value="sub">Substitute</option>
-                <option value="out">Not Playing</option>
-                <option value="legacy">Former Player</option>
-            </select>
-        </p>
-        <p>
-            <input type="text" class="form-control" name="jerseyNumber" placeholder="jersey number">
-        </p>
-        <p>
-            <input type="text" class="form-control" name="seasonFeeOwed" placeholder="season fee">
-        </p>
-        <p>
-            <input type="text" class="form-control" name="seasonFeePaid" placeholder="season fee paid">
-        </p>
-        <p>
-            <input type="text" class="form-control" name="playerNotes" placeholder="player notes">
-        </p>
-        {{> tAddCancelBtns}}
-    </form>
+      </div>
+    </div>
+    <p>
+      <input type="text" id="lastNameInitial" class="form-control" name="lastNameInitial" placeholder="last name initial" />
+    </p>
+    <p>
+      <select class="team-name form-control" name="teamId">
+        <option value="">Choose A Team</option>
+        {{#each sTeams}}
+          <option value="{{_id}}">{{teamName}}</option>
+        {{/each}}
+      </select>
+    </p>
+    <p>
+      <select class="form-control field-position" name="fieldPosition">
+        <option value="right-fullback">Right Fullback</option>
+        <option value="right-striker">Right Striker</option>
+        <option value="right-midfielder">Right Midfielder</option>
+        <option value="offensive-midfielder">Offensive Midfielder</option>
+        <option value="defensive-midfielder">Defensive Midfielder</option>
+        <option value="left-striker">Left Striker</option>
+        <option value="left-midfielder">Left Midfielder</option>
+        <option value="left-fullback">Left Fullback</option>
+        <option value="stopper">Stopper</option>
+        <option value="sweeper">Sweeper</option>
+        <option value="goalie">Goalie</option>
+        <option value="none">None</option>
+      </select>
+    </p>
+    <p>
+      <select class="game-status form-control" name="gameStatus">
+        <option value="starting">Starting</option>
+        <option value="sub">Substitute</option>
+        <option value="out">Not Playing</option>
+        <option value="legacy">Former Player</option>
+      </select>
+    </p>
+    <p>
+      <input type="text" class="form-control" name="jerseyNumber" placeholder="jersey number">
+    </p>
+    <p>
+      <input type="text" class="form-control" name="seasonFeeOwed" placeholder="season fee">
+    </p>
+    <p>
+      <input type="text" class="form-control" name="seasonFeePaid" placeholder="season fee paid">
+    </p>
+    <p>
+      <input type="text" class="form-control" name="playerNotes" placeholder="player notes">
+    </p>
+    {{> tAddCancelBtns}}
+  </form>
 </template>

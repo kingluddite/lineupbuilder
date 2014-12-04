@@ -28,6 +28,7 @@ Template.tAddTeam.events({
     console.log('you');
     evt.preventDefault();
 
+
     var team = {
       teamName: $(evt.target).find('[name=teamName]').val(),
       seasonId: $(evt.target).find('[name=seasonId]').val(),
