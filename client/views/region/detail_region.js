@@ -1,5 +1,6 @@
-Template.tDetailRegion.helpers({
-  sRegionId: function() {
-    return Session.get('sRegionId');
-  }
-});
+// Template.tDetailRegion.helpers({
+      //   sRegionId: function() {
+      //     return Session.get('sRegionId');
+      //   }
+      // });
+

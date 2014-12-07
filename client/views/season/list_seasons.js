@@ -9,7 +9,6 @@ Template.tListSeasons.helpers({
     });
   },
 
-
   sEditMode: function() {
     return Session.get('sEditMode');
   },
