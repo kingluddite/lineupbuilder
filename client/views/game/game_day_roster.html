@@ -1,73 +1,55 @@
 <template name="tGameDayRoster">
-<h2>Game Day Starting Lineup</h2>
-<p class="badge">{{gameDayRosterCount}} players this week</p>
-<p class="badge">{{totalRoster}} total players</p>
-{{#if cRoster}}
-  <ol>
-    {{#each cStarters}}
-        {{> tListPlayers}}
-        <ul><li>{{fieldPosition}}</li></ul>
-    {{/each}}
-  </ol>
+  <h2>Game Day Starting Lineup</h2>
+  <p class="badge">{{gameDayRosterCount}} players this week</p>
+  <p class="badge">{{totalRoster}} total players</p>
+  {{#if cRoster}}
+    <ol>
+      {{#each cStarters}}
+        <li> {{> tListPlayers}}</li>
+        <!-- <ul>
+  <li>{{fieldPosition}}</li>
+</ul>
+ -->
+      {{/each}}
+    </ol>
 
-{{else}}
-<p>no starting players</p>
-{{/if}}
+  {{else}}
+    <p>no starting players</p>
+  {{/if}}
 </template>
 
 <template name="tStartingLineup">
-    {{#each cStarters}}
+  {{#each cStarters}}
     <div class="btn-group {{fieldPosition}}">
-        <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
-        {{#if currentUser}} 
-          {{> tEditPlayer}}
-        {{/if}}
+      <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
+      {{#if currentUser}}
+        {{> tEditPlayer}}
+      {{/if}}
     </div>
-    {{/each}}
+  {{/each}}
 </template>
 
 <template name="tField">
-    <div class="field">
-        {{> tStartingLineup}}
-    </div>
-    <!-- END .field -->
+  <div class="field">
+    {{> tStartingLineup}}
+  </div>
+  <!-- END .field -->
 </template>
 
 <template name="tSubs">
-<h2>Substitutes</h2>
-<p class="badge">{{subCount}} Subs</p>
-{{#if haveSubs}}
-  <ol>
-    {{#each cPlayers}}
-     {{> tListPlayers}}
-    {{/each}}
-  </ol>
-{{else}}
-<p>no subs</p>
-{{/if}}
+  <h2>Substitutes</h2>
+  <p class="badge">{{subCount}} Subs</p>
+  {{#if haveSubs}}
+    <ol>
+      {{#each cPlayers}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no subs</p>
+  {{/if}}
 </template>
 
 <template name="tNotPlaying">
-  <h2>Out This Week</h2>
-  <p class="badge">{{outCount}} not playing</p>
-{{#if playersOut}}
-  <ol>
-    {{#each cPlayersOut}}
-      <li>
-        {{> tPlayerInfo}}
-        <ul>
-          {{#if playerNotes}}
-          <li>{{playerNotes}}</li>
-          {{/if}}
-          {{#if currentUser}}
-          <li>{{> tEditPlayer}}</li>
-          {{/if}}
-        </ul>
-      </li>
-    {{/each}}
-  </ol>
-{{else}}
-no subs
-{{/if}}
-</template>
 
+</template>
