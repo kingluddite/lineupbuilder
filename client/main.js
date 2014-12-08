@@ -2,6 +2,7 @@
 // Session.setDefault('sPlayerEdit', false);
 // Session.setDefault('sTeamEdit', null);
 Session.setDefault('sEditMode', false);
+Session.setDefault('sTeamEditMode', false);
 // set the id when editing player
 Session.setDefault('sLeagueId', null);
 Session.setDefault('sRegionId', null);

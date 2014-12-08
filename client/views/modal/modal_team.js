@@ -27,7 +27,7 @@ Template.tModalTeam.events({
       leagueSummary: $(evt.target).find('[name=leagueSummary]').val()
     };
 
-    Leagues.update(currentLeagueId, {
+    Leagues.update(currentTeamId, {
       $set: leagueProperties
     }, function(error) {
       if (error) {

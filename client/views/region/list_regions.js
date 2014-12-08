@@ -1,4 +1,9 @@
 Template.tListRegions.helpers({
+  // are you in edit mode or not?
+  sEditMode: function() {
+    return Session.get('sEditMode');
+  },
+
   // you need the league id to make sure you are only showing regions inside their respective leagues
   sLeagueId: function() {
     return Session.get('sLeagueId');
@@ -11,23 +16,18 @@ Template.tListRegions.helpers({
         // leagueId: this._id
     });
   },
-
-  // are you in edit mode or not?
-  sEditMode: function() {
-    return Session.get('sEditMode');
+// in order to show the name of your current league
+// you need to get the session league id
+// and you need to create a collection just for that specific record
+  cLeague: function() {
+    return Leagues.findOne({
+      _id: Session.get('sLeagueId')
+    });
   },
-
-  // cLeague: function() {
-  //   return Leagues.findOne({
-  //     _id: Session.get('sLeagueId')
-  //   });
-  // },
 
   sRegionId: function() {
     return Session.get('sRegionId');
   },
-
-
 
   // highlight currently selected team
   selectedClass: function() {

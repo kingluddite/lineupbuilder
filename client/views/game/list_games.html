@@ -1,15 +1,18 @@
 <template name="tListGames">
   [list_games] {{> tBreadcrumbs}}
-
-  {{#if sEditMode}}
-    {{> tAddGame}}
-  {{else}}
+  {{#if sEditMode}} {{> tAddGame}} {{else}}
     <a type="button" class="btn btn-default btn-lg add">
                     Add Game
                 </a>
-
   {{/if}}
-  <h3>{{this.gameDate}} games this season.</h3>
+  {{#if sTeamEditMode}}
+    {{> tAddTeam}}
+  {{else}}
+    <a type="button" class="btn btn-default btn-lg add-team">
+                    Add Team to this Season
+                </a>
+  {{/if}}
+  <h3>games this season.</h3>
   {{#if cGames}}
     <p>Select the game you want to enter.</p>
     <ul class="list-group">
@@ -19,10 +22,12 @@
           which games have been played? How to I show games that are yet to be played?
           How to I show the next game? -->
         <li class="game {{selectedClass}}">
-          <a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} H:{{homeTeam}} vs A: {{awayTeam}} @ {{gameTime}} {{> tEditGame}}</li>
+          Week {{gameNumber}}<a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} H:{{cHomeTeam.teamName}} vs A: {{cAwayTeam.teamName}} @ {{gameTime}} {{> tEditGame}}</li>
       {{/each}}
     </ul>
   {{else}}
-    <p>Sorry, no leagues yet</p>
+    <p>Sorry, no games yet</p>
   {{/if}}
+
+  <h3>These are all the teams in this season</h3> {{> tListTeams}}
 </template>

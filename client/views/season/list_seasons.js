@@ -12,14 +12,21 @@ Template.tListSeasons.helpers({
   sEditMode: function() {
     return Session.get('sEditMode');
   },
-  cSeason: function() {
-    return Seasons.findOne({
-      _id: Session.get('sSeasonId')
+  cRegion: function() {
+    return Regions.findOne({
+      _id: Session.get('sRegionId')
     });
   },
-  // sLeagueId: function() {
-  //     return Session.get('sLeagueId');
-  // },
+
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  },
+
+  cLeague: function() {
+    return Leagues.findOne({
+      _id: Session.get('sLeagueId')
+    });
+  },
 
   sSeasonId: function() {
     return Session.get('sSeasonId');

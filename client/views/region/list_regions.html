@@ -8,7 +8,8 @@
       <a href="{{pathFor 'tListLeagues'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Region</a>
     </p>
   {{/if}}
-  <h3>{{this.leagueName}} Regions</h3>
+  <h3>Regions </h3>
+    <p>League: <em>{{cLeague.leagueName}}</em></p>
   {{#if cRegions}}
     <p>Select the region you want to enter.</p>
     <ul>

@@ -7,7 +7,8 @@
     <p><a href="{{pathFor 'tListRegions'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Season</a>
     </p>
   {{/if}}
-  <h3>{{this.regionName}} Seasons</h3>
+  <h3>Seasons</h3>
+  <p><strong>League:</strong> <em>{{cLeague.leagueName}}</em> &gt; <strong>Region:</strong> <em>{{cRegion.regionName}}</em> </p>
   {{#if cSeasons}}
     <p>Here is a list of all the teams that are in this season. Click on a team to view it's season schedule.</p>
     <ul>

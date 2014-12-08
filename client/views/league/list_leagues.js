@@ -26,7 +26,7 @@ Template.tListLeagues.events({
   'click .add': function() {
     Session.set('sEditMode', true);
   },
-  'mouseover li.league': function() {
+  'click li.league': function() {
     var leagueId = this._id;
     Session.set('sLeagueId', leagueId);
   }

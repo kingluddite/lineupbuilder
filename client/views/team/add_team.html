@@ -1,10 +1,9 @@
 <template name="tAddTeam">
   <h2>Add Team</h2>
   <form role="form">
-<!--     <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
-<input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}"> -->
-<input type="hidden" name="seasonId" class="form-control" value="{{this._id}}">
-
+    <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
+    <input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}">
+    <input type="hidden" name="seasonId" class="form-control" value="{{sSeasonId}}">
 
     <!-- Season Name -->
     <div class="required-field-block">
@@ -13,20 +12,19 @@
         <div class="text">*</div>
       </div>
     </div>
-
-    <!-- <p>
+    <!--      <p>
             <input type="text" placeholder="coachName" name="coachName" class="form-control">
-        </p>
-        <p>
-            <select class="form-control" name="seasonDivision">
-                <option>Division</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </p>
--->
+        </p> -->
+    <p>
+      <select class="form-control" name="seasonDivision" style="margin-top: 10px;">
+        <option>Division</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </p>
+
     <!-- Season Fee -->
     <!-- p>
             <input type="text" placeholder="Season Fee" name="teamFee" class="form-control">
@@ -54,8 +52,9 @@
     <!-- Season Summary -->
     <!-- does textarea have a placeholder attribute or does the code go inside it? -->
     <p>
-      <textarea rows="3" class="form-control" placeholder="About Team" name="seasonSummary"></textarea>
+      <textarea rows="3" class="form-control" placeholder="About Team" name="aboutTeam"></textarea>
     </p>
-    {{> tAddCancelBtns }}
+    <button type="submit" class="btn btn-success add-team">Add</button>
+    <a style="margin-top: 10px" class="btn btn-danger cancel">Cancel</a>
   </form>
 </template>

@@ -1,14 +1,4 @@
 <template name="tListTeams">
-  <p>[list_teams]</p>
-  {{> tBreadcrumbs}}
-  {{#if sEditMode}}
-    {{> tAddTeam}}
-  {{else}}
-    <p>
-      <a href="{{pathFor 'tListSeasons'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Team</a>
-    </p>
-  {{/if}}
-  <h3>{{this.teamName}} teams</h3>
   {{#if cTeams}}
     <p>Select the team you want to enter.</p>
     <ul>
