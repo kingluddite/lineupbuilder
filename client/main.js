@@ -10,3 +10,5 @@ Session.setDefault('sSeasonId', null);
 Session.setDefault('sTeamId', null);
 Session.setDefault('sGameId', null);
 Session.setDefault('sPlayerId', null);
+Session.setDefault('sHomeTeamId', null);
+Session.setDefault('sAwayTeamId', null);

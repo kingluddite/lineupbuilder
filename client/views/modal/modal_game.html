@@ -1,51 +1,52 @@
 <template name="tModalGame">
 
-    <!-- modal for editing player -->
-    <div class="modal fade" id="game-modal-id">
-        <div class="modal-dialog modal-game">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Game:
+  <!-- modal for editing player -->
+  <div class="modal fade" id="game-modal-id">
+    <div class="modal-dialog modal-game">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Game: {{this._id}}
             <strong>{{cGame.homeTeam}} vs {{cGame.awayTeam}}</strong>
+          
           </h4>
-                </div>
-                <form class="updateGame">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <p>
-                                    <label for="gameTime">Game Time</label>
-                                    <input type="text" class="form-control" name="gameTime" value="{{cGame.gameTime}}" />
-                                </p>
-                                <p>
-                                    <label for="gameDate">Game Date</label>
-                                    <input type="text" class="form-control" name="gameDate" value="{{cGame.gameDate}}" />
-                                </p>
-                                <p>
-                                    <label for="homeTeam">Home Team</label>
-                                    <input type="text" class="form-control" name="homeTeam" value="{{cGame.homeTeam}}" />
-                                </p>
-                                <p>
-                                    <label for="awayTeam">Away Team</label>
-                                    <input type="text" class="form-control" name="awayTeam" value="{{cGame.awayTeam}}" />
-                                </p>
-                                <p>
-                                    <label for="gameType">Game Type</label>
-                                    <input type="text" class="form-control" name="gameType" value="{{cGame.gameType}}" />
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END .modal-body -->
-                    {{> tModalFooter}}
-                </form>
-            </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
+        <form class="updateGame">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <p>
+                  <label for="gameTime">Game Time</label>
+                  <input type="text" class="form-control" name="gameTime" value="{{cGame.gameTime}}" />
+                </p>
+                <p>
+                  <label for="gameDate">Game Date</label>
+                  <input type="text" class="form-control" name="gameDate" value="{{cGame.gameDate}}" />
+                </p>
+                <p>
+                  <label for="homeTeam">Home Team</label>
+                  <input type="text" class="form-control" name="homeTeam" value="{{cHomeTeam.teamName}}" />
+                </p>
+                <p>
+                  <label for="awayTeam">Away Team</label>
+                  <input type="text" class="form-control" name="awayTeam" value="{{cAwayTeam.teamName}}" />
+                </p>
+                <p>
+                  <label for="gameType">Game Type</label>
+                  <input type="text" class="form-control" name="gameType" value="{{cGame.gameType}}" />
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- END .modal-body -->
+          {{> tModalFooter}}
+        </form>
+      </div>
+      <!-- /.modal-content -->
     </div>
-    <!-- /.modal -->
-    <!-- END modal for editing player -->
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- END modal for editing player -->
 
 </template>
