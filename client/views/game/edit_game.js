@@ -18,6 +18,7 @@ Template.tEditGame.helpers({
       _id: this.homeTeam
     });
   }
+
 });
 
 // when someone edits or removes a league
@@ -36,6 +37,10 @@ Template.tEditGame.events({
     Session.set('sHomeTeamId', this.homeTeam);
     Session.set('sAwayTeamId', this.awayTeam);
     Session.set('sGameId', this._id);
+    // var homeTeam = Teams.findOne(Session.get('sHomeTeamId'));
+    // var awayTeam = Teams.findOne(Session.get('sAwayTeamId'));
+    // // make dropdown equal to the current value in the collection record
+    // $('.game-status').val(player.gameStatus);
     $('#game-modal-id').modal('show');
   }
 });

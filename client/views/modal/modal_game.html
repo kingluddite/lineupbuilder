@@ -17,19 +17,31 @@
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <p>
                   <label for="gameTime">Game Time</label>
-                  <input type="text" class="form-control" name="gameTime" value="{{cGame.gameTime}}" />
+                  <input type="text" class="form-control clockpicker" name="gameTime" value="{{cGame.gameTime}}" />
                 </p>
                 <p>
                   <label for="gameDate">Game Date</label>
-                  <input type="text" class="form-control" name="gameDate" value="{{cGame.gameDate}}" />
+                  <input type="text" class="form-control datepicker" name="gameDate" value="{{cGame.gameDate}}" />
+                </p>
+                <!-- 
+                  Dropdowns of all teams in this season but select the current home and away
+                    team in this game
+                -->
+                <p>
+                  <label for="gameStatus">Home Team</label>
+                  <select class="game-status form-control" name="homeTeam">
+                    {{#each cTeams}}
+                      <option value="{{_id}}" {{whichHomeTeamSelected}}>{{teamName}}</option>
+                    {{/each}}
+                  </select>
                 </p>
                 <p>
-                  <label for="homeTeam">Home Team</label>
-                  <input type="text" class="form-control" name="homeTeam" value="{{cHomeTeam.teamName}}" />
-                </p>
-                <p>
-                  <label for="awayTeam">Away Team</label>
-                  <input type="text" class="form-control" name="awayTeam" value="{{cAwayTeam.teamName}}" />
+                  <label for="gameStatus">Away Team</label>
+                  <select class="game-status form-control" name="awayTeam">
+                    {{#each cTeams}}
+                      <option value="{{_id}}" {{whichAwayTeamSelected}}>{{teamName}}</option>
+                    {{/each}}
+                  </select>
                 </p>
                 <p>
                   <label for="gameType">Game Type</label>

@@ -22,7 +22,7 @@
           which games have been played? How to I show games that are yet to be played?
           How to I show the next game? -->
         <li class="game {{selectedClass}}">
-          Week {{gameNumber}}<a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} H:{{cHomeTeam.teamName}} vs A: {{cAwayTeam.teamName}} @ {{gameTime}} {{> tEditGame}}</li>
+          Week {{gameNumber}}<a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} <strong>Away:</strong> {{cAwayTeam.teamName}} vs <strong>Home</strong>: {{cHomeTeam.teamName}} @ {{gameTime}} {{> tEditGame}}</li>
       {{/each}}
     </ul>
   {{else}}

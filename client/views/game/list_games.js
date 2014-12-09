@@ -5,6 +5,11 @@ Template.tListGames.helpers({
   cGames: function() {
     return Games.find({
       seasonId: Session.get('sSeasonId')
+    }, {
+      sort: {
+        gameDate: 1,
+        gameTime: 1
+      }
     });
   },
   // you need to show the team name and not the id
