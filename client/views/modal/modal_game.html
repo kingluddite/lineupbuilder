@@ -6,8 +6,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Game: {{this._id}}
-            <strong>{{cGame.homeTeam}} vs {{cGame.awayTeam}}</strong>
+          <h4 class="modal-title">Game:
+            <strong>{{cAwayTeam.teamName}} at {{cHomeTeam.teamName}}</strong>
           
           </h4>
         </div>
@@ -28,24 +28,54 @@
                     team in this game
                 -->
                 <p>
-                  <label for="gameStatus">Home Team</label>
-                  <select class="game-status form-control" name="homeTeam">
+                  <label for="homeTeam">Home Team</label>
+                  <select class="home-team form-control" name="homeTeam">
                     {{#each cTeams}}
-                      <option value="{{_id}}" {{whichHomeTeamSelected}}>{{teamName}}</option>
+                    <option value="{{_id}}" {{whichHomeTeamSelected}}>{{teamName}}</option>
                     {{/each}}
                   </select>
                 </p>
                 <p>
-                  <label for="gameStatus">Away Team</label>
-                  <select class="game-status form-control" name="awayTeam">
+                  <label for="homeTeamScore">Home Score</label>
+                  <input type="text" class="form-control" name="homeTeamScore" value="{{cGame.homeTeamScore}}" />
+                </p>
+                <p>
+                  <label for="awayTeam">Away Team</label>
+                  <select class="away-team form-control" name="awayTeam">
                     {{#each cTeams}}
-                      <option value="{{_id}}" {{whichAwayTeamSelected}}>{{teamName}}</option>
+                    <option value="{{_id}}" {{whichAwayTeamSelected}}>{{teamName}}</option>
                     {{/each}}
                   </select>
+                </p>
+                <p>
+                  <label for="awayTeamScore">Away Score</label>
+                  <input type="text" class="form-control" name="awayTeamScore" value="{{cGame.awayTeamScore}}" />
                 </p>
                 <p>
                   <label for="gameType">Game Type</label>
-                  <input type="text" class="form-control" name="gameType" value="{{cGame.gameType}}" />
+                  <select class="form-control game-type" name="gameType">
+                    <option value="">Game Type</option>
+                    <option value="friendly">Friendly</option>
+                    <option value="regulation">Regulation</option>
+                    <option value="playoff">Playoff</option>
+                  </select>
+                  <div class="required-icon">
+                    <div class="text">*</div>
+                  </div>
+                </p>
+
+                <p>
+                  <label for="gameStatus">Game Status</label>
+                  <select class="form-control game-status" name="gameStatus">
+                    <option value="">Game Status</option>
+                    <option value="to_be_played">To Be Played</option>
+                    <option value="played">Played</option>
+                    <option value="played_overtime">Played Overtime</option>
+                    <option value="cancelled">Cancelled</option>
+                    <option value="delayed">Delayed</option>
+                    <option value="forfeit_home">Forfeit Home</option>
+                    <option value="forfeit_away">Forfeit Away</option>
+                  </select>
                 </p>
               </div>
             </div>

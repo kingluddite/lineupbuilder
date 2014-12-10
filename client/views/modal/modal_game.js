@@ -24,6 +24,7 @@ Template.tModalGame.helpers({
       _id: Session.get('sGameId')
     });
   },
+  // to replace team ids with names for home and away teams
   cHomeTeam: function() {
     return Teams.findOne({
       _id: Session.get('sHomeTeamId')
@@ -48,6 +49,9 @@ Template.tModalGame.helpers({
     if (this._id === currentAwayTeamId) {
       return 'selected';
     }
+  },
+  whichGameType: function() {
+    console.log(this.gameType);
   }
 });
 
@@ -69,8 +73,11 @@ Template.tModalGame.events({
       gameTime: $(evt.target).find('[name=gameTime]').val(),
       gameDate: $(evt.target).find('[name=gameDate]').val(),
       homeTeam: $(evt.target).find('[name=homeTeam]').val(),
+      homeTeamScore: $(evt.target).find('[name=homeTeamScore]').val(),
       awayTeam: $(evt.target).find('[name=awayTeam]').val(),
-      gameType: $(evt.target).find('[name=gameType]').val()
+      awayTeamScore: $(evt.target).find('[name=awayTeamScore]').val(),
+      gameType: $(evt.target).find('[name=gameType]').val(),
+      gameStatus: $(evt.target).find('[name=gameStatus]').val()
     };
 
     Games.update(currentGameId, {

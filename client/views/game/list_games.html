@@ -1,32 +1,25 @@
 <template name="tListGames">
-  [list_games] {{> tBreadcrumbs}}
-  {{#if sEditMode}} {{> tAddGame}} {{else}}
-    <a type="button" class="btn btn-default btn-lg add">
+  [list_games] {{> tBreadcrumbs}} {{#if sEditMode}} {{> tAddGame}} {{else}}
+  <a type="button" class="btn btn-default btn-lg add">
                     Add Game
-                </a>
-  {{/if}}
-  {{#if sTeamEditMode}}
-    {{> tAddTeam}}
-  {{else}}
-    <a type="button" class="btn btn-default btn-lg add-team">
+                </a> {{/if}} {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
+  <a type="button" class="btn btn-default btn-lg add-team">
                     Add Team to this Season
-                </a>
-  {{/if}}
-  <h3>games this season.</h3>
-  {{#if cGames}}
-    <p>Select the game you want to enter.</p>
-    <ul class="list-group">
-      {{#each cGames}}
-        <!-- I need to generate a list of games a + b and sorted from games
+                </a> {{/if}}
+  <h3>games this season.</h3> {{#if cGames}}
+  <p>Select the game you want to enter.</p>
+  <ul class="list-group">
+    {{#each cGames}}
+    <!-- I need to generate a list of games a + b and sorted from games
           most current until the end of the season, how do I tell
           which games have been played? How to I show games that are yet to be played?
           How to I show the next game? -->
-        <li class="game {{selectedClass}}">
-          Week {{gameNumber}}<a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} <strong>Away:</strong> {{cAwayTeam.teamName}} vs <strong>Home</strong>: {{cHomeTeam.teamName}} @ {{gameTime}} {{> tEditGame}}</li>
-      {{/each}}
-    </ul>
+    <li class="game {{selectedClass}}">
+      Week {{gameNumber}}<a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} <strong>Away:</strong> {{cAwayTeam.teamName}} [{{awayTeamScore}}] vs <strong>Home</strong>: {{cHomeTeam.teamName}} [{{homeTeamScore}}] @ {{gameTime}} [{{gameStatus}}] {{> tEditGame}}</li>
+    {{/each}}
+  </ul>
   {{else}}
-    <p>Sorry, no games yet</p>
+  <p>Sorry, no games yet</p>
   {{/if}}
 
   <h3>These are all the teams in this season</h3> {{> tListTeams}}

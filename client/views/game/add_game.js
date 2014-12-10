@@ -2,6 +2,10 @@ Template.tAddGame.helpers({
   cTeams: function() {
     return Teams.find({
       seasonId: Session.get('sSeasonId')
+    }, {
+      sort: {
+        teamName: 1
+      }
     });
   },
   sEditMode: function() {
@@ -42,7 +46,9 @@ Template.tAddGame.events({
       gameDate: $(evt.target).find('[name=gameDate]').val(),
       gameNumber: $(evt.target).find('[name=gameNumber]').val(),
       homeTeam: $(evt.target).find('[name=homeTeam]').val(),
+      homeTeamScore: $(evt.target).find('[name=homeTeamScore]').val(),
       awayTeam: $(evt.target).find('[name=awayTeam]').val(),
+      awayTeamScore: $(evt.target).find('[name=awayTeamScore]').val(),
       gameType: $(evt.target).find('[name=gameType]').val()
     };
 

@@ -41,13 +41,25 @@
       <select class="team-name form-control" name="homeTeam">
         <option value="">Choose Home Team</option>
         {{#each cTeams}}
-          <option value="{{_id}}">{{teamName}}</option>
+        <option value="{{_id}}">{{teamName}}</option>
         {{/each}}
       </select>
       <div class="required-icon">
         <div class="text">*</div>
       </div>
     </div>
+
+    <div class="form-group">
+      <div class="required-field-block">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+        <div class="controls">
+          <input type="text" placeholder="Home Score" name="homeTeamScore" class="form-control">
+        </div>
+      </div>
+    </div>
+
 
     <!-- two same team can't play each other - valiate rule -->
     <!-- How do I add goals scored by player to this game, multiple values? -->
@@ -56,21 +68,46 @@
       <select class="team-name form-control" name="awayTeam">
         <option value="">Choose Away Team</option>
         {{#each cTeams}}
-          <option value="{{_id}}">{{teamName}}</option>
+        <option value="{{_id}}">{{teamName}}</option>
         {{/each}}
       </select>
       <div class="required-icon">
         <div class="text">*</div>
       </div>
     </div>
-
+    <div class="form-group">
+      <div class="required-field-block">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+        <div class="controls">
+          <input type="text" placeholder="Away Score" name="awayTeamScore" class="form-control">
+        </div>
+      </div>
+    </div>
 
     <div class="required-field-block" style="margin-top: 10px">
-      <select class="form-control field-position" name="gameStatus">
-        <option value="null">Game Type</option>
-        <option value="right-fullback">Friendly</option>
-        <option value="right-striker">Regular Season</option>
-        <option value="right-midfielder">Playoff</option>
+      <select class="form-control game-type" name="gameType">
+        <option value="">Game Type</option>
+        <option value="friendly">Friendly</option>
+        <option value="regulation">Regulation</option>
+        <option value="playoff">Playoff</option>
+      </select>
+      <div class="required-icon">
+        <div class="text">*</div>
+      </div>
+    </div>
+
+    <div class="required-field-block" style="margin-top: 10px">
+      <select class="form-control game-status" name="gameStatus">
+        <option value="">Game Status</option>
+        <option value="to_be_played">To Be Played</option>
+        <option value="played">Played</option>
+        <option value="played_overtime">Played Overtime</option>
+        <option value="cancelled">Cancelled</option>
+        <option value="delayed">Delayed</option>
+        <option value="forfeit_home">Forfeit Home</option>
+        <option value="forfeit_away">Forfeit Away</option>
       </select>
       <div class="required-icon">
         <div class="text">*</div>

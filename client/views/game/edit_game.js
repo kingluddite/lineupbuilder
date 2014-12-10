@@ -39,8 +39,10 @@ Template.tEditGame.events({
     Session.set('sGameId', this._id);
     // var homeTeam = Teams.findOne(Session.get('sHomeTeamId'));
     // var awayTeam = Teams.findOne(Session.get('sAwayTeamId'));
+    var currentGame = Games.findOne(Session.get('sGameId'));
     // // make dropdown equal to the current value in the collection record
-    // $('.game-status').val(player.gameStatus);
+    $('.game-type').val(currentGame.gameType);
+    $('.game-status').val(currentGame.gameStatus);
     $('#game-modal-id').modal('show');
   }
 });
