@@ -7,6 +7,7 @@ Template.tListGames.helpers({
       seasonId: Session.get('sSeasonId')
     }, {
       sort: {
+        gameNumber: 1,
         gameDate: 1,
         gameTime: 1
       }

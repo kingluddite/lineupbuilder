@@ -41,7 +41,7 @@
       <select class="team-name form-control" name="homeTeam">
         <option value="">Choose Home Team</option>
         {{#each cTeams}}
-        <option value="{{_id}}">{{teamName}}</option>
+          <option value="{{_id}}">{{teamName}}</option>
         {{/each}}
       </select>
       <div class="required-icon">
@@ -68,7 +68,7 @@
       <select class="team-name form-control" name="awayTeam">
         <option value="">Choose Away Team</option>
         {{#each cTeams}}
-        <option value="{{_id}}">{{teamName}}</option>
+          <option value="{{_id}}">{{teamName}}</option>
         {{/each}}
       </select>
       <div class="required-icon">
@@ -90,7 +90,7 @@
       <select class="form-control game-type" name="gameType">
         <option value="">Game Type</option>
         <option value="friendly">Friendly</option>
-        <option value="regulation">Regulation</option>
+        <option value="regular_season">Regular Season</option>
         <option value="playoff">Playoff</option>
       </select>
       <div class="required-icon">
