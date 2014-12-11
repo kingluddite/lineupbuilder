@@ -1,25 +1,83 @@
 <template name="tListGames">
-  [list_games] {{> tBreadcrumbs}} {{#if sEditMode}} {{> tAddGame}} {{else}}
-  <a type="button" class="btn btn-default btn-lg add">
+  [list_games] {{> tBreadcrumbs}}
+  {{#if sEditMode}} {{> tAddGame}} {{else}}
+    <a type="button" class="btn btn-default btn-lg add">
                     Add Game
-                </a> {{/if}} {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
-  <a type="button" class="btn btn-default btn-lg add-team">
+                </a> {{/if}}
+  {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
+    <a type="button" class="btn btn-default btn-lg add-team">
                     Add Team to this Season
                 </a> {{/if}}
-  <h3>games this season.</h3> {{#if cGames}}
-  <p>Select the game you want to enter.</p>
-  <ul class="list-group">
-    {{#each cGames}}
-    <!-- I need to generate a list of games a + b and sorted from games
+  <h3>games this season.</h3>
+  {{#if cGames}}
+    <p>Select the game you want to enter.</p>
+    <div id="score-leagues">
+      <div class="page-title">
+        <h1>Scores &amp; Fixtures</h1>
+      </div>
+      <div class="scores">
+        {{#each cGames}}
+          Week {{gameNumber}}
+          <div class="score-box">
+            <div class="score full">
+              <div class="scorebox-container complete">
+                <div class="score-content">
+
+                  <div class="team-names">
+                    <div class="team-name">
+                      <span>
+                <img src="http://placehold.it/22x22" alt="">{{cAwayTeam.teamName}} 
+              </span>
+                    </div>
+                    <!-- END team-name -->
+                    <div class="team-name">
+                      <span>
+                <img src="http://placehold.it/22x22" alt="">{{cHomeTeam.teamName}}
+              </span>
+                    </div>
+                    <!-- END .team-name -->
+                  </div>
+                  <!-- END .team-names -->
+
+                  <div class="team-scores">
+                    <div class="team-score winner">
+                      <span>{{awayTeamScore}}</span>
+                    </div>
+                    <!-- END .team-score -->
+                    <div class="team-score">
+                      <span>{{homeTeamScore}}</span>
+                    </div>
+                    <!-- END .team-score -->
+                  </div>
+                  <!-- END .team-scores -->
+                  <div class="game-info"><span>{{gameStatus}}</span>
+                  </div>
+                  <!-- END .game-info -->
+                </div>
+                <!-- END score-content -->
+              </div>
+              <!-- END .scorebox-container -->
+            </div>
+            <!-- END .score -->
+          </div>
+          <!-- END .score-box -->
+        {{/each}}
+      </div>
+      <!-- END .scores -->
+    </div>
+    <!-- END .score-leagues -->
+    <ul class="list-group">
+
+      <!-- I need to generate a list of games a + b and sorted from games
           most current until the end of the season, how do I tell
           which games have been played? How to I show games that are yet to be played?
           How to I show the next game? -->
-    <li class="game {{selectedClass}}">
-      Week {{gameNumber}}<a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} <strong>Away:</strong> {{cAwayTeam.teamName}} [{{awayTeamScore}}] vs <strong>Home</strong>: {{cHomeTeam.teamName}} [{{homeTeamScore}}] @ {{gameTime}} [{{gameStatus}}] {{> tEditGame}}</li>
-    {{/each}}
-  </ul>
+      <li class="game {{selectedClass}}">
+        <a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} <strong>Away:</strong> [] vs <strong>Home</strong>: [] @ {{gameTime}} [{{gameStatus}}] {{> tEditGame}}</li>
+
+    </ul>
   {{else}}
-  <p>Sorry, no games yet</p>
+    <p>Sorry, no games yet</p>
   {{/if}}
 
   <h3>These are all the teams in this season</h3> {{> tListTeams}}
