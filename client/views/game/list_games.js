@@ -13,6 +13,7 @@ Template.tListGames.helpers({
       }
     });
   },
+
   // you need to show the team name and not the id
   // so you have to search the teams collection
   // and pass the id stored in the games collection
@@ -26,6 +27,27 @@ Template.tListGames.helpers({
     return Teams.findOne({
       _id: this.homeTeam
     });
+  },
+
+  didHomeTeamWin: function() {
+    if (this.homeTeamScore > this.awayTeamScore) {
+      return 'winner';
+    }
+  },
+
+  didAwayTeamWin: function() {
+    if (this.awayTeamScore > this.homeTeamScore) {
+      return 'winner';
+    }
+  },
+  gameResult: function() {
+    if (this.gameStatus == "to_be_played") {
+      return 'upcoming';
+    } else if (this.gameStatus == "played") {
+      return 'complete';
+    } else {
+      return '';
+    }
   },
 
   sLeagueId: function() {

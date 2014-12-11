@@ -1,3 +1,38 @@
+#scores-page #score-leagues {
+  position: relative;
+  z-index: 5;
+  background: #fff;
+  overflow: hidden;
+  padding: 40px 0 0 0;
+}
+#scores-page a.score-table-link.first {
+  right: 33.333%;
+}
+#scores-page h4 {
+  padding: 20px 0 20px 20px;
+  font: 18px/18px "BentonSansBold", Helvetica, Arial, sans-serif;
+}
+#scores-page .score-group {
+  clear: both;
+}
+#scores-page .score-group p {
+  padding: 20px 0;
+  margin: 0 20px;
+  border-top: 1px solid #e6e6e6;
+  font: 12px/12px "BentonSansBold", Helvetica, Arial, sans-serif;
+}
+.score .scorebox-container.upcoming, .score .score-links.upcoming {
+  background: #fff;
+  border-color: #e6e6e6;
+  color: #4c4e52;
+}
+#scores-page .score-box {
+  padding: 0 10px;
+}
+#scores-page .score {
+  width: 100%;
+  margin: 0 auto 20px auto;
+}
 .container {
   background: #fff;
 }
@@ -11,8 +46,14 @@
   padding: 0 16px 32px 0;
   box-sizing: border-box;
 }
-.scores {
+.score {
   position: relative;
+}
+.score .scorebox-container {
+  position: relative;
+}
+.score .scorebox-container, .score .score-links {
+  padding: 0 17.85px;
 }
 .score .scorebox-container.complete, .score .score-links.complete {
   background: #f6f6f6;
@@ -20,7 +61,11 @@
   color: #4c4e52;
 }
 .score .scorebox-container, .score .score-links {
-  padding: 0 17.85px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
 }
 div.score-content {
   display: table;
