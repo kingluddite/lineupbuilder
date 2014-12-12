@@ -1,4 +1,4 @@
-<template name="tListGames">
+<template name="tListGamesByTeam">
   [list_games] {{> tBreadcrumbs}}
   {{#if sEditMode}} {{> tAddGame}} {{else}}
     <a type="button" class="btn btn-default btn-lg add">
@@ -16,7 +16,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
         <ul class="dropdown-menu">
           {{#each cTeams}}
-            <li><a href="{{pathFor 'tListGamesByTeam'}}">{{teamName}}</a>
+            <li><a href="{{pathFor 'tGamesByTeam'}}">{{teamName}}</a>
             </li>
           {{/each}}
         </ul>

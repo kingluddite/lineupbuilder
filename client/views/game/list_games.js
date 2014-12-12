@@ -29,6 +29,14 @@ Template.tListGames.helpers({
     });
   },
 
+  // all teams in dropdown when a team is
+  //  selected only that season will appear
+  cTeams: function() {
+    return Teams.find({
+      seasonId: Session.get('sSeasonId')
+    });
+  },
+
   didHomeTeamWin: function() {
     if (this.homeTeamScore > this.awayTeamScore) {
       return 'winner';
@@ -41,9 +49,9 @@ Template.tListGames.helpers({
     }
   },
   gameResult: function() {
-    if (this.gameStatus == "to_be_played") {
+    if (this.gameStatus === "to_be_played") {
       return 'upcoming';
-    } else if (this.gameStatus == "played") {
+    } else if (this.gameStatus === "played") {
       return 'complete';
     } else {
       return '';
