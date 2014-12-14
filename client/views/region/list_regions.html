@@ -1,5 +1,4 @@
 <template name="tListRegions">
-  <p>[list_region]</p>
   {{> tBreadcrumbs}}
   {{#if sEditMode}}
     {{> tAddRegion}}
@@ -9,7 +8,8 @@
     </p>
   {{/if}}
   <h3>Regions </h3>
-    <p>League: <em>{{cLeague.leagueName}}</em></p>
+  <p>League: <em>{{cLeague.leagueName}}</em>
+  </p>
   {{#if cRegions}}
     <p>Select the region you want to enter.</p>
     <ul>

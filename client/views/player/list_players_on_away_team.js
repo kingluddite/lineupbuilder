@@ -1,9 +1,24 @@
 // grab all teams in this season
-Template.tListPlayers.helpers({
+Template.tListPlayersOnAwayTeam.helpers({
+  sTeamId: function() {
+    return Session.get('sTeamId');
+  },
 
   cPlayers: function() {
-    return Players.find();
+    // console.log(this.awayTeam);
+    return Players.find({
+      teamId: this._id
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
   },
+
+  // cPlayers: function() {
+  //   console.log(this._id);
+  //   return Players.find();
+  // },
 
   // grab the team id
   sPlayerId: function() {
@@ -23,7 +38,7 @@ Template.tListPlayers.helpers({
   }
 });
 
-Template.tListPlayers.events({
+Template.tListPlayersOnAwayTeam.events({
   'click li.player': function() {
     var playerId = this._id;
     console.log(this.teamId);

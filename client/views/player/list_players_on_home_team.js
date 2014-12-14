@@ -1,8 +1,18 @@
 // grab all teams in this season
-Template.tListPlayers.helpers({
+Template.tListPlayersOnHomeTeam.helpers({
+  sTeamId: function() {
+    return Session.get('sTeamId');
+  },
 
   cPlayers: function() {
-    return Players.find();
+    console.log(this._id);
+    return Players.find({
+      teamId: this._id
+    }, {
+      sort: {
+        firstName: 1
+      }
+    });
   },
 
   // grab the team id
@@ -23,7 +33,7 @@ Template.tListPlayers.helpers({
   }
 });
 
-Template.tListPlayers.events({
+Template.tListPlayersOnHomeTeam.events({
   'click li.player': function() {
     var playerId = this._id;
     console.log(this.teamId);
@@ -31,6 +41,13 @@ Template.tListPlayers.events({
   },
   'click .add': function() {
     Session.set('sEditMode', true);
+    console.log('add clicked');
+    setTimeout(function() {
+      $('input[name="firstName"]').focus();
+    }, 500);
+    setTimeout(function() {
+      $('input[name="firstName"]').select();
+    }, 500);
   },
   'click .remove': function() {
     Session.set('sEditMode', false);

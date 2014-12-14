@@ -16,8 +16,8 @@
                 <label for="firstName">First Name</label>
                 <input type="text" class="first-name form-control" name="firstName" value="{{cPlayer.firstName}}" />
 
-                <label for="lastNameInitial">Last Name First Intial</label>
-                <input type="text" id="lastNameInitial" class="last-name-initial form-control" name="lastNameInitial" placeholder="last name initial" value="{{cPlayer.lastNameInitial}}" />
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" class="last-name form-control" name="lastName" placeholder="Last Name" value="{{cPlayer.lastName}}" />
                 <label for="fieldPosition">Field Position</label>
                 <select class="form-control field-position" name="fieldPosition">
                   <option value="right-fullback">Right Fullback</option>
@@ -34,7 +34,7 @@
                   <option value="none">None</option>
                 </select>
 
-                 <label for="gameReminderStatus">Game Reminder Status</label>
+                <label for="gameReminderStatus">Game Reminder Status</label>
                 <select class="form-control game-reminder-status" name="gameReminderStatus">
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
@@ -45,7 +45,7 @@
                 <select class="team-name form-control" name="teamId">
                   <option value="">Choose A Team</option>
                   {{#each cTeams}}
-                  <option value="{{_id}}">{{teamName}}</option>
+                    <option value="{{_id}}">{{teamName}}</option>
                   {{/each}}
                 </select>
 

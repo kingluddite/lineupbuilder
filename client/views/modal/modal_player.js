@@ -23,7 +23,7 @@ Template.tModalPlayer.events({
 
     var playerProperties = {
       firstName: $(evt.target).find('[name=firstName]').val(),
-      lastNameInitial: $(evt.target).find('[name=lastNameInitial]').val(),
+      lastName: $(evt.target).find('[name=lastName]').val(),
       teamId: $(evt.target).find('[name=teamId]').val(),
       fieldPosition: $(evt.target).find('[name=fieldPosition]').val(),
       gameReminderStatus: $(evt.target).find('[name=gameReminderStatus]').val(),

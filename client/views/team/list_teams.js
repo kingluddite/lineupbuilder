@@ -10,12 +10,6 @@ Template.tListTeams.helpers({
     });
 
   },
-  // cSeasons: function() {
-  //   return Seasons.find({
-  //     seasonId: Session.get('sRegionId')
-  //   });
-  // },
-
 
   sEditMode: function() {
     return Session.get('sEditMode');

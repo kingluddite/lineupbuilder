@@ -1,4 +1,11 @@
 <template name="tDetailTeam">
-  [detail_team] {{> tListGames}}
+  {{> tListPlayers}}
+</template>
 
+<template name="tDetailHomeTeam">
+  {{> tListPlayersOnHomeTeam}}
+</template>
+
+<template name="tDetailAwayTeam">
+  {{> tListPlayersOnAwayTeam}}
 </template>

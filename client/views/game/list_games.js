@@ -43,15 +43,21 @@ Template.tListGames.helpers({
     }
   },
 
+  // find out if away team won
+  //   need to test this more to make sure string
+  //   comparison works in many different scenarios
+  //   do testing for home team score as well
   didAwayTeamWin: function() {
     if (this.awayTeamScore > this.homeTeamScore) {
       return 'winner';
     }
   },
-  gameResult: function() {
-    if (this.gameStatus === "to_be_played") {
+  // style will have a white bg if game not played
+  //   and a gray bg it it has been played
+  gameResultStyle: function() {
+    if (this.gameStatus === 'to_be_played') {
       return 'upcoming';
-    } else if (this.gameStatus === "played") {
+    } else if (this.gameStatus === 'played') {
       return 'complete';
     } else {
       return '';
@@ -82,6 +88,11 @@ Template.tListGames.helpers({
 Template.tListGames.events({
   'click .add': function() {
     Session.set('sEditMode', true);
+  },
+  'click .dd-team-name': function(evt) {
+    var teamId = this._id;
+    Session.set('sTeamId', teamId);
+    //console.log(this._id);
   },
   // when the add team button is clicked set the session to true
   'click .add-team': function() {

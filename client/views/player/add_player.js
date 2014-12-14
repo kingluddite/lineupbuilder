@@ -1,65 +1,62 @@
 Template.tAddPlayer.created = function() {
-    Session.set('postSubmitErrors', {});
+  Session.set('postSubmitErrors', {});
 };
 
 Template.tAddPlayer.helpers({
-    // do I show only teams in the season?
-    sTeams: function() {
-        return Teams.find();
-    },
+  // do I show only teams in the season?
+  sTeams: function() {
+    return Teams.find();
+  },
 
-    errorMessage: function(field) {
-        return Session.get('postSubmitErrors')[field];
-    },
+  errorMessage: function(field) {
+    return Session.get('postSubmitErrors')[field];
+  },
 
-    errorClass: function(field) {
-        return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
-    },
+  errorClass: function(field) {
+    return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
+  },
 
-    sEditMode: function() {
-        return Session.get('sEditMode');
-    }
+  sEditMode: function() {
+    return Session.get('sEditMode');
+  }
 });
 
 // adding events to our templates (duh!)
 Template.tAddPlayer.events({
-    'click .add': function() {
-        setTimeout(function() {
-            $('input[name="teamName"]').focus();
-        }, 500);
-        Session.set('sEditMode', true);
-    },
-    'click .remove': function() {
-        Session.set('sEditMode', false);
-    },
+  'click .add': function() {
+    Session.set('sEditMode', true);
+  },
+  'click .remove': function() {
+    Session.set('sEditMode', false);
+  },
 
-    'submit form': function(evt) {
-        evt.preventDefault();
+  'submit form': function(evt) {
+    evt.preventDefault();
 
-        var player = {
-            firstName: $(evt.target).find('[name=firstName]').val(),
-            lastNameInitial: $(evt.target).find('[name=lastNameInitial]').val(),
-            teamId: $(evt.target).find('[name=teamId]').val(),
-            fieldPosition: $(evt.target).find('[name=fieldPosition]').val(),
-            gameStatus: $(evt.target).find('[name=gameStatus]').val(),
-            jerseyNumber: $(evt.target).find('[name=jerseyNumber]').val(),
-            seasonFeeOwed: $(evt.target).find('[name=seasonFeeOwed]').val(),
-            seasonFeePaid: $(evt.target).find('[name=seasonFeePaid]').val(),
-            playerNotes: $(evt.target).find('[name=playerNotes]').val()
-        };
+    var player = {
+      firstName: $(evt.target).find('[name=firstName]').val(),
+      lastName: $(evt.target).find('[name=lastName]').val(),
+      teamId: $(evt.target).find('[name=teamId]').val(),
+      fieldPosition: $(evt.target).find('[name=fieldPosition]').val(),
+      gameStatus: $(evt.target).find('[name=gameStatus]').val(),
+      jerseyNumber: $(evt.target).find('[name=jerseyNumber]').val(),
+      seasonFeeOwed: $(evt.target).find('[name=seasonFeeOwed]').val(),
+      seasonFeePaid: $(evt.target).find('[name=seasonFeePaid]').val(),
+      playerNotes: $(evt.target).find('[name=playerNotes]').val()
+    };
 
-        var errors = validatePlayer(player);
-        if (errors.firstName) {
-            return Session.set('postSubmitErrors', errors);
-        }
-
-        Meteor.call('addPlayer', player, function(error) {
-            if (error) {
-                // return alert(error.reason);
-                return throwError(error.reason);
-            }
-        });
-
-        Session.set('sEditMode', false);
+    var errors = validatePlayer(player);
+    if (errors.firstName) {
+      return Session.set('postSubmitErrors', errors);
     }
+
+    Meteor.call('addPlayer', player, function(error) {
+      if (error) {
+        // return alert(error.reason);
+        return throwError(error.reason);
+      }
+    });
+
+    Session.set('sEditMode', false);
+  }
 });

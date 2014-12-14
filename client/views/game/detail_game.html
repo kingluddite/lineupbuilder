@@ -1,7 +1,3 @@
 <template name="tDetailGame">
-  <a href="{{pathFor 'tListGames'}}">BACK</a> [detail_game]
-
-  <a href="{{pathFor 'tTeamDetail'}}">
-  {{this.homeTeam}}</a> {{this.homeScore}} vs {{this.awayTeam}} {{this.awayScore}} {{this.gameTime}} {{this.gameDate}}
-
+  {{> tListTeams}}
 </template>

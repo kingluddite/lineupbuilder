@@ -1,22 +1,17 @@
-<template name="tListGamesByTeam">
-  [list_games] {{> tBreadcrumbs}}
-  {{#if sEditMode}} {{> tAddGame}} {{else}}
-    <a type="button" class="btn btn-default btn-lg add">
-                    Add Game
-                </a> {{/if}}
-  {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
-    <a type="button" class="btn btn-default btn-lg add-team">
-                    Add Team to this Season
-                </a> {{/if}}
-  <h3>games this season.</h3>
-
+<template name="tScheduleTeam">
+  {{> tBreadcrumbs}}{{sTeamId}}
+  <h2>Team Name: {{cTest}}</h2>
   {{#if cGames}}
+    {{test}}
+    <h3>{{cGames.count}} games this season.</h3>
+    <p>{{cTeams.count}} teams in this season.</p>
+    <p>Select a team to see their season's schedule.</p>
     <ul>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
         <ul class="dropdown-menu">
           {{#each cTeams}}
-            <li><a href="{{pathFor 'tGamesByTeam'}}">{{teamName}}</a>
+            <li><a href="{{pathFor 'tListGamesByTeam'}}">{{teamName}}</a>
             </li>
           {{/each}}
         </ul>
@@ -38,20 +33,18 @@
               {{#each cGames}}
                 <div class="score-box">
                   <div class="score full">
-                    <div class="scorebox-container {{gameResult}}">
+                    <div class="scorebox-container {{gameResultStyle}}">
                       <div class="score-content">
 
                         <div class="team-names">
                           <div class="team-name">
                             <span>
-                  {{cAwayTeam.teamName}} 
+                  <a href="{{pathFor 'tDetailAwayTeam'}}">{{cAwayTeam.teamName}}(a)</a> 
                 </span>
                           </div>
                           <!-- END team-name -->
                           <div class="team-name">
-                            <span>
-                  {{cHomeTeam.teamName}}
-                </span>
+                            <span><a href="{{pathFor 'tDetailHomeTeam'}}">{{cHomeTeam.teamName}}</a></span>
                           </div>
                           <!-- END .team-name -->
                         </div>
@@ -73,6 +66,7 @@
                         <!-- END .game-info -->
                       </div>
                       <!-- END score-content -->
+                      {{> tEditGame}}
                     </div>
                     <!-- END .scorebox-container -->
                   </div>
@@ -104,6 +98,4 @@
   {{else}}
     <p>Sorry, no games yet</p>
   {{/if}}
-
-  <h3>These are all the teams in this season</h3> {{> tListTeams}}
 </template>
