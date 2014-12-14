@@ -17,6 +17,7 @@ Template.tScheduleTeam.helpers({
     // return Games.find({
     //   homeTeam: this._id
     // });
+    // compare mongodb and sql - http://docs.mongodb.org/manual/reference/sql-comparison/
     return Games.find({
       $or: [{
         homeTeam: Session.get('sTeamId')
@@ -25,9 +26,6 @@ Template.tScheduleTeam.helpers({
       }]
     });
 
-  },
-  cTest: function() {
-    Session.get('sTeamId');
   },
   cAwayTeam: function() {
     return Teams.findOne({

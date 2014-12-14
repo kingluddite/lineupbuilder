@@ -34,7 +34,7 @@ UI.registerHelper('moneyOwed', function() {
 // allows you to easily format JavaScript dates
 UI.registerHelper('formatDate', function(datetime) {
   if (moment) {
-    return moment(datetime).format('MM/DD/YYYY');
+    return moment(datetime).format('MM/DD');
   } else {
     return datetime;
   }

@@ -10,15 +10,17 @@
                 </a> {{/if}}
 
   {{#if cGames}}
-    <h3>{{cGames.count}} games this season.</h3>
-    <p>{{cTeams.count}} teams in this season.</p>
+    <h3>There are {{cGames.count}} games this season.</h3>
+    <p>There are {{cTeams.count}} teams in this season.</p>
     <p>Select a team to see their season's schedule.</p>
     <ul>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
         <ul class="dropdown-menu">
           {{#each cTeams}}
-            <li class="dd-team-name"><a href="{{pathFor 'tScheduleTeam'}}">{{teamName}}</a>
+            <!-- <li class="dd-team-name"><a href="{{pathFor 'tScheduleTeam'}}">{{teamName}}</a> 
+            </li>-->
+            <li class="dd-team-name"><a href="{{pathFor 'tListGames'}}">{{teamName}}</a>
             </li>
           {{/each}}
         </ul>
@@ -68,7 +70,7 @@
                           <!-- END .team-score -->
                         </div>
                         <!-- END .team-scores -->
-                        <div class="game-info"><span>{{gameStatus}}</span>
+                        <div class="game-info"><span>{{gameStatusPretty}} {{formatDate gameDate}}</span>
                         </div>
                         <!-- END .game-info -->
                       </div>
@@ -91,20 +93,7 @@
         <!-- END .score-leagues -->
       </div>
     </div>
-
-    <ul class="list-group">
-
-      <!-- I need to generate a list of games a + b and sorted from games
-          most current until the end of the season, how do I tell
-          which games have been played? How to I show games that are yet to be played?
-          How to I show the next game? -->
-      <li class="game {{selectedClass}}">
-        <a href="{{pathFor 'tDetailGame'}}">[Game Detail]</a> {{gameDate}} <strong>Away:</strong> [] vs <strong>Home</strong>: [] @ {{gameTime}} [{{gameStatus}}] {{> tEditGame}}</li>
-
-    </ul>
   {{else}}
     <p>Sorry, no games yet</p>
   {{/if}}
-
-  <h3>These are all the teams in this season</h3> {{> tListTeams}}
 </template>

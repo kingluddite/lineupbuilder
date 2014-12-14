@@ -1,10 +1,27 @@
+// compare mongodb and sql - http://docs.mongodb.org/manual/reference/sql-comparison/
 Template.tListGames.helpers({
   sSeasonId: function() {
     return Session.get('sSeasonId');
   },
+  // cGames: function() {
+  //   return Games.find({
+  //     seasonId: Session.get('sSeasonId')
+  //   }, {
+  //     sort: {
+  //       gameNumber: 1,
+  //       gameDate: 1,
+  //       gameTime: 1
+  //     }
+  //   });
+  // },
   cGames: function() {
+    // compare mongodb and sql - http://docs.mongodb.org/manual/reference/sql-comparison/
     return Games.find({
-      seasonId: Session.get('sSeasonId')
+      $or: [{
+        homeTeam: Session.get('sTeamId')
+      }, {
+        awayTeam: Session.get('sTeamId')
+      }]
     }, {
       sort: {
         gameNumber: 1,
@@ -12,6 +29,7 @@ Template.tListGames.helpers({
         gameTime: 1
       }
     });
+
   },
 
   // you need to show the team name and not the id
@@ -61,6 +79,16 @@ Template.tListGames.helpers({
       return 'complete';
     } else {
       return '';
+    }
+  },
+
+  gameStatusPretty: function() {
+    if (this.gameStatus === 'to_be_played') {
+      return 'TBD';
+    } else if (this.gameStatus === 'played') {
+      return 'FT';
+    } else {
+      return '?';
     }
   },
 
