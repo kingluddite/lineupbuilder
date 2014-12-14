@@ -1,10 +1,8 @@
 <template name="tListPlayers">
-  <a href="{{pathFor 'tDetailPlayer'}}">{{firstName}} {{lastNameInitial}}</a>
-  <ul>
-    <!-- <li class="{{moneyOwedStyle}}">{{formatPrice moneyOwed}}</li> -->
-    {{#if currentUser}}
+  <li> <a href="{{pathFor 'tDetailPlayer'}}">{{firstName}} {{lastNameInitial}}</a>
+    <ul>
       <li>{{> tEditPlayer}}</li>
-    {{/if}}
-    <li>{{fieldPosition}}</li>
-  </ul>
+      <li>{{fieldPosition}}</li>
+    </ul>
+  </li>
 </template>
