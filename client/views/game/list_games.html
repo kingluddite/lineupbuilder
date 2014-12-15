@@ -1,9 +1,11 @@
 <template name="tListGames">
   {{> tBreadcrumbs}}
   {{#if sEditMode}} {{> tAddGame}} {{else}}
-    <a type="button" class="btn btn-default btn-lg add">
+    <p><a href="{{pathFor 'tListSeasons'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">
                     Add Game
-                </a> {{/if}}
+                </a>
+    </p>
+  {{/if}}
   {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
     <a type="button" class="btn btn-default btn-lg add-team">
                     Add Team to this Season
@@ -29,18 +31,20 @@
     <p>Select the game you want to enter.</p>
     <div id="scores-page">
       <div class="scores-page-content">
-        <div class="score-date-area"></div>
-        <div class="score-calendar-large">Calendar</div>
+        <!-- <div class="score-date-area"></div>
+        <div class="score-calendar-large">Calendar</div> -->
         <div id="score-leagues">
           <div class="score-league">
-            <a href="#">League Name</a>
+            <!-- <a href="#">League Name</a>
             <h4><a href="#">League Name</a></h4>
-            <span>(# games)</span>
+            <span>(# games)</span> -->
             <div class="score-group">
-              <p>league name and season</p>
+              <!-- <p>league name and season</p> -->
 
               {{#each cGames}}
                 <div class="score-box">
+                  <div><strong>Game #</strong>{{gameNumber}}</div>
+                  <div>{{teamWins}}</div>
                   <div class="score full">
                     <div class="scorebox-container {{gameResultStyle}}">
                       <div class="score-content">

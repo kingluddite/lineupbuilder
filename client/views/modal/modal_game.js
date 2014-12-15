@@ -72,10 +72,11 @@ Template.tModalGame.events({
     var gameProperties = {
       gameTime: $(evt.target).find('[name=gameTime]').val(),
       gameDate: $(evt.target).find('[name=gameDate]').val(),
+      gameNumber: Number($(evt.target).find('[name=gameDate]').val()),
       homeTeam: $(evt.target).find('[name=homeTeam]').val(),
-      homeTeamScore: $(evt.target).find('[name=homeTeamScore]').val(),
+      homeTeamScore: Number($(evt.target).find('[name=homeTeamScore]').val()),
       awayTeam: $(evt.target).find('[name=awayTeam]').val(),
-      awayTeamScore: $(evt.target).find('[name=awayTeamScore]').val(),
+      awayTeamScore: Number($(evt.target).find('[name=awayTeamScore]').val()),
       gameType: $(evt.target).find('[name=gameType]').val(),
       gameStatus: $(evt.target).find('[name=gameStatus]').val()
     };

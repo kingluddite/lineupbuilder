@@ -44,12 +44,17 @@ Template.tAddGame.events({
       regionId: $(evt.target).find('[name=regionId]').val(),
       gameTime: $(evt.target).find('[name=gameTime]').val(),
       gameDate: $(evt.target).find('[name=gameDate]').val(),
-      gameNumber: $(evt.target).find('[name=gameNumber]').val(),
+      gameNumber: Number($(evt.target).find('[name=gameNumber]').val()),
       homeTeam: $(evt.target).find('[name=homeTeam]').val(),
-      homeTeamScore: $(evt.target).find('[name=homeTeamScore]').val(),
+      // we need all the scores to be numbers
+      // not strings (default value when coming from
+      // html input objects)
+      homeTeamScore: Number($(evt.target).find('[name=homeTeamScore]').val()),
       awayTeam: $(evt.target).find('[name=awayTeam]').val(),
-      awayTeamScore: $(evt.target).find('[name=awayTeamScore]').val(),
-      gameType: $(evt.target).find('[name=gameType]').val()
+      awayTeamScore: Number($(evt.target).find('[name=awayTeamScore]').val()),
+      gameType: $(evt.target).find('[name=gameType]').val(),
+      gameStatus: $(evt.target).find('[name=gameStatus]').val()
+        // gameResult: Number($(evt.target).find('[name=gameResult]').val())
     };
 
     var errors = validateGame(game);

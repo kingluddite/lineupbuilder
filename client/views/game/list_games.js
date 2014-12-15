@@ -1,3 +1,25 @@
+// how to calculate wins and losses
+// http://stackoverflow.com/questions/24292100/mongodb-aggregating-fields-from-arrays-of-subdocuments
+// http://stackoverflow.com/questions/22301716/mongodb-aggregation-sum-based-on-array-names
+
+/* inserting numbers in meteor collection
+   makes them a string to avoid that...
+    example:
+    Gifts.insert({
+      category: t.find('#selectCat').value,
+      amount: Number(inputAmount),
+      desc: description,
+      createdAt: new Date();
+      createdBy: Meteor.user().username,
+    });
+
+/* adding numbers in a collection
+var total = 0;
+myCollection.find({name: "test3"}).map(function(doc) {
+  total += doc.price;
+});
+*/
+
 // compare mongodb and sql - http://docs.mongodb.org/manual/reference/sql-comparison/
 Template.tListGames.helpers({
   sSeasonId: function() {
@@ -58,6 +80,14 @@ Template.tListGames.helpers({
   didHomeTeamWin: function() {
     if (this.homeTeamScore > this.awayTeamScore) {
       return 'winner';
+    }
+  },
+
+  teamWins: function() {
+    var teamWins = 0;
+    if (this.homeTeamScore > this.awayTeamScore) {
+      teamWins += 1;
+      return teamWins;
     }
   },
 

@@ -4,13 +4,13 @@
     {{> tAddPlayer}}
   {{else}}
     <p>
-      <a href="{{pathFor 'tDetailTeam'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Player</a>
+      <a href="{{pathFor 'tListGames'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Player</a>
     </p>
   {{/if}}
   <h3>Current Players on {{teamName}}</h3>
   <div>
     {{#if cPlayers}}
-      <p>{Select the player to see their profile</p>
+      <p>Select the player to see their profile</p>
       <ul>
         {{#each cPlayers}}
           <li class="player {{selectedClass}}">
