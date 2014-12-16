@@ -1,3 +1,154 @@
+/*
+Aggregating and comparing scores of teams using mongodb
+{ 
+    "_id" : ObjectId("53ae9da2e24682cac4215e0c"), 
+    "match" : ObjectId("53ae9d78e24682cac4215e0b"), 
+    "score" : 1 
+}
+{
+    "_id" : ObjectId("53ae9da5e24682cac4215e0d"),
+    "match" : ObjectId("53ae9d78e24682cac4215e0b"),
+    "score" : 5
+}
+{ 
+    "_id" : ObjectId("53aea6cde24682cac4215e15"),
+    "match" : ObjectId("53aea6c1e24682cac4215e14"), 
+    "score" : 2
+}
+{
+    "_id" : ObjectId("53aea6e4e24682cac4215e16"),
+    "match" : ObjectId("53aea6c1e24682cac4215e14"),
+    "score" : 1
+}
+{ 
+    "_id" : ObjectId("53aea6eae24682cac4215e18"), 
+    "match" : ObjectId("53aea6e6e24682cac4215e17"), 
+    "score" : 2
+}
+{ 
+    "_id" : ObjectId("53aea6ece24682cac4215e19"),
+    "match" : ObjectId("53aea6e6e24682cac4215e17"),
+    "score" : 2
+}
+What that basically represents is the scores for "six" teams in "three" distinct matches.
+
+Given that, my take on getting to results would be this:
+
+db.matches.aggregate([
+
+    // Group on matches and find the "min" and "max" score
+    { "$group": {
+        "_id": "$match",
+        "teams": {
+            "$push": {
+               "_id": "$_id",
+               "score": "$score"
+            }
+        },
+        "minScore": { "$min": "$score" },
+        "maxScore": { "$max": "$score" }
+    }},
+
+    // Unwind the "teams" array created
+    { "$unwind": "$teams" },
+
+    // Compare scores for "win", "loss" or "draw"
+    { "$group": {
+        "_id": "$_id",
+        "win": {
+           "$min": { "$cond": [
+               { "$and": [
+                   { "$eq": [ "$teams.score", "$maxScore" ] },
+                   { "$gt": [ "$teams.score", "$minScore" ] }
+               ]},
+               "$teams",
+               false
+           ]}
+        },
+        "loss": {
+           "$min": { "$cond": [
+               { "$and": [
+                   { "$eq": [ "$teams.score", "$minScore" ] },
+                   { "$lt": [ "$teams.score", "$maxScore" ] }
+               ]},
+               "$teams",
+               false
+           ]}
+        },
+        "draw": {
+            "$push": { "$cond": [
+               { "$eq": [ "$minScore", "$maxScore" ] },
+               "$teams",
+               false
+            ]}
+        },
+        "difference": { 
+            "$max": { "$subtract": [ "$maxScore", "$minScore" ] }
+        }
+    }},
+
+    // Just fix up those "draw" results with a [false,false] array
+    { "$project": {
+        "win": 1,
+        "loss": 1,
+        "draw": { "$cond": [ 
+             { "$gt": [
+                 { "$size": { "$setDifference": [ "$draw", [false] ] } },
+                 0
+             ]},
+             "$draw",
+             false
+        ]},
+        "difference": 1
+    }}
+])
+And this gives you a quite nice result:
+
+{
+    "_id" : ObjectId("53ae9d78e24682cac4215e0b"),
+    "win" : {
+            "_id" : ObjectId("53ae9da5e24682cac4215e0d"),
+            "score" : 5
+    },
+    "loss" : {
+            "_id" : ObjectId("53ae9da2e24682cac4215e0c"),
+            "score" : 1
+    },
+    "draw" : false,
+    "difference" : 4
+}
+{
+    "_id" : ObjectId("53aea6c1e24682cac4215e14"),
+    "win" : {
+            "_id" : ObjectId("53aea6cde24682cac4215e15"),
+            "score" : 2
+    },
+    "loss" : {
+            "_id" : ObjectId("53aea6e4e24682cac4215e16"),
+            "score" : 1
+    },
+    "draw" : false,
+    "difference" : 1
+}
+{
+    "_id" : ObjectId("53aea6e6e24682cac4215e17"),
+    "win" : false,
+    "loss" : false,
+    "draw" : [
+            {
+                    "_id" : ObjectId("53aea6eae24682cac4215e18"),
+                    "score" : 2
+            },
+            {
+                    "_id" : ObjectId("53aea6ece24682cac4215e19"),
+                    "score" : 2
+            }
+    ],
+    "difference" : 0
+}
+That is essentially the results per "match" and determines the "difference" between winner and looser while identifying which team "won" or "lost". The final stage there uses some operators only introduced in MongoDB 2.6, but that really is not necessary if you do not have that version available. Or you could actually still do the same thing if you wanted to by using $unwind and some other processing.
+
+
 // how to calculate wins and losses
 // http://stackoverflow.com/questions/24292100/mongodb-aggregating-fields-from-arrays-of-subdocuments
 // http://stackoverflow.com/questions/22301716/mongodb-aggregation-sum-based-on-array-names
