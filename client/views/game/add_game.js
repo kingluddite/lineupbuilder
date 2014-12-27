@@ -24,7 +24,7 @@ Template.tAddGame.helpers({
 
 Template.tAddGame.events({
   'focus .datepicker': function() {
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker('option', 'dateFormat', 'yyyy-mm-dd');
   },
   'focus .clockpicker': function() {
     $('.clockpicker').clockpicker();

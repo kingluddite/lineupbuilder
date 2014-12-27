@@ -11,7 +11,7 @@
                     Add Team to this Season
                 </a> {{/if}}
 
-  {{#if cGames}}
+  {{#if cGames}}{{cAggTest}}
     <h3>There are {{cGames.count}} games this season.</h3>
     <p>There are {{cTeams.count}} teams in this season.</p>
     <p>Select a team to see their season's schedule.</p>
@@ -44,7 +44,6 @@
               {{#each cGames}}
                 <div class="score-box">
                   <div><strong>Game #</strong>{{gameNumber}}</div>
-                  <div>{{teamWins}}</div>
                   <div class="score full">
                     <div class="scorebox-container {{gameResultStyle}}">
                       <div class="score-content">

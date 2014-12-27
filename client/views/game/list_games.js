@@ -1,4 +1,10 @@
 /*
+
+id, 
+Game, 
+Team, 
+Score,
+Home
 Aggregating and comparing scores of teams using mongodb
 { 
     "_id" : ObjectId("53ae9da2e24682cac4215e0c"), 
@@ -204,7 +210,6 @@ Template.tListGames.helpers({
     });
 
   },
-
   // you need to show the team name and not the id
   // so you have to search the teams collection
   // and pass the id stored in the games collection
@@ -231,14 +236,6 @@ Template.tListGames.helpers({
   didHomeTeamWin: function() {
     if (this.homeTeamScore > this.awayTeamScore) {
       return 'winner';
-    }
-  },
-
-  teamWins: function() {
-    var teamWins = 0;
-    if (this.homeTeamScore > this.awayTeamScore) {
-      teamWins += 1;
-      return teamWins;
     }
   },
 
