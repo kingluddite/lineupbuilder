@@ -14,7 +14,7 @@ iron:router
 sacha:spin
 mrt:numeral
 mizzao:jquery-ui
-meteorhacks:kadira
+#meteorhacks:kadira
 andrasph:clockpicker
 alanning:roles
 meteorhacks:aggregate
