@@ -14,61 +14,62 @@
   <ul>
     {{#each tasks}} {{> tTask}} {{/each}}
   </ul>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4 col-md-4">
-        <div class="post">
-          <div class="post-img-content">
-            <img src="http://placehold.it/460x250/e67e22/ffffff&text=LEAGUE" class="img-responsive" />
-            <span class="post-title"><b>Add Your League</b><br />
+  <div class="row">
+    <div class="col-sm-4 col-md-4">
+      <div class="post">
+        <div class="post-img-content">
+          <img src="http://placehold.it/460x250/e67e22/ffffff&text=LEAGUE" class="img-responsive" />
+          <span class="post-title"><b>Add Your League</b><br />
                         <b>Leagues</b></span>
+        </div>
+        <div class="content">
+          <div>
+            We are trying to create a database of every amateur soccer league in the world. Fill out a short form and your league will populate our world map with a marker. Now anyone will easily be able to find your league.
           </div>
-          <div class="content">
-            <div>
-              We are trying to create a database of every amateur soccer league in the world. Fill out a short form and your league will populate our world map with a marker. Now anyone will easily be able to find your league.
-            </div>
-            <div>
-              <a href="{{pathFor 'tListLeagues'}}" class="btn btn-warning btn-sm">Add My League</a>
-            </div>
+          <div>
+            <a href="{{pathFor 'tListLeagues'}}" class="btn btn-warning btn-sm">Add My League</a>
           </div>
         </div>
       </div>
-      <div class="col-sm-4 col-md-4">
-        <div class="post">
-          <div class="post-img-content">
-            <img src="http://placehold.it/460x250/2980b9/ffffff&text=TEAM" class="img-responsive" />
-            <span class="post-title"><b>Add Your Team</b><br />
+    </div>
+    <div class="col-sm-4 col-md-4">
+      <div class="post">
+        <div class="post-img-content">
+          <img src="http://placehold.it/460x250/2980b9/ffffff&text=TEAM" class="img-responsive" />
+          <span class="post-title"><b>Add Your Team</b><br />
                         <b>Teams</b></span>
+        </div>
+        <div class="content">
+          <div>
+            There are a lot of teams out there. Where are you? What's your logo? This searchable database of teams will hopefully encourage interleague and intercontinental soccer.
           </div>
-          <div class="content">
-            <div>
-              There are a lot of teams out there. Where are you? What's your logo? This searchable database of teams will hopefully encourage interleague and intercontinental soccer.
-            </div>
-            <div>
-              <a href="{{pathFor 'tListTeams'}}" class="btn btn-primary btn-sm">Add My Team</a>
-            </div>
+          <div>
+            <a href="{{pathFor 'tListTeams'}}" class="btn btn-primary btn-sm">Add My Team</a>
           </div>
         </div>
-        </div><!-- END col -->
-        <div class="col-sm-4 col-md-4">
-          <div class="post">
-            <div class="post-img-content">
-              <img src="http://placehold.it/460x250/47A447/ffffff&text=PLAYER" class="img-responsive" />
-              <span class="post-title"><b>I Want To Play Soccer!</b><br />
+      </div>
+    </div>
+    <!-- END col -->
+    <div class="col-sm-4 col-md-4">
+      <div class="post">
+        <div class="post-img-content">
+          <img src="http://placehold.it/460x250/47A447/ffffff&text=PLAYER" class="img-responsive" />
+          <span class="post-title"><b>I Want To Play Soccer!</b><br />
                         <b>Players</b></span>
-            </div>
-            <div class="content">
-              <div>
-                If anyone wants to play soccer it should easy for them to find a team. Add your name, your city and country and teams from around the world will be able to find the players they need.
-              </div>
-              <div>
-                <a href="{{pathFor 'tListPlayers'}}" class="btn btn-success btn-sm">Add Me</a>
-              </div>
-            </div>
+        </div>
+        <div class="content">
+          <div>
+            If anyone wants to play soccer it should easy for them to find a team. Add your name, your city and country and teams from around the world will be able to find the players they need.
           </div>
-        </div><!-- END col -->
-    </div><!-- END end row -->
-    </div><!-- END .container -->
+          <div>
+            <a href="{{pathFor 'tListPlayers'}}" class="btn btn-success btn-sm">Add Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END col -->
+  </div>
+  <!-- END end row -->
 </template>
 
 <template name="tTask">
