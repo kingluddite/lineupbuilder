@@ -3,12 +3,11 @@
   <p class="badge">{{gameDayRosterCount}} players this week</p>
   <p class="badge">{{totalRoster}} total players</p>
   {{#if cRoster}}
-    <ol>
-      {{#each cStarters}}
-        {{> tListPlayers}}
-      {{/each}}
-    </ol>
-
+  <ol>
+    {{#each cStarters}}
+      {{> tListPlayers}}
+    {{/each}}
+  </ol>
   {{else}}
     <p>no starting players</p>
   {{/if}}
