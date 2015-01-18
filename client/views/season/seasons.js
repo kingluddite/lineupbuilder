@@ -1,3 +1,60 @@
+Template.tListSeasons.helpers({
+  sRegionId: function() {
+    return Session.get('sRegionId');
+  },
+  cSeasons: function() {
+    //return Seasons.find();
+    return Seasons.find({
+      regionId: Session.get('sRegionId')
+    });
+  },
+
+  sEditMode: function() {
+    return Session.get('sEditMode');
+  },
+  cRegion: function() {
+    return Regions.findOne({
+      _id: Session.get('sRegionId')
+    });
+  },
+
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  },
+
+  cLeague: function() {
+    return Leagues.findOne({
+      _id: Session.get('sLeagueId')
+    });
+  },
+
+  sSeasonId: function() {
+    return Session.get('sSeasonId');
+  },
+
+  // highlight currently selected item
+  selectedClass: function() {
+    var selectedSeason = Session.get('sSeasonId');
+    var seasonId = this._id;
+    if (selectedSeason === seasonId) {
+      return 'selected';
+    } else {
+      return '';
+    }
+  }
+
+});
+
+Template.tListSeasons.events({
+  'click .add': function() {
+    Session.set('sEditMode', true);
+  },
+  'mouseover li.season': function() {
+    var seasonId = this._id;
+    Session.set('sSeasonId', seasonId);
+  }
+});
+
 Template.tAddSeason.helpers({
   cSeason: function() {
     return Seasons.find();
@@ -60,5 +117,36 @@ Template.tAddSeason.events({
     });
 
     Session.set('sEditMode', false);
+  }
+});
+
+Template.tEditSeason.helpers({
+  sSeasonId: function() {
+    return Session.get('sSeasonId');
+  }
+});
+
+// when someone edits or removes aSeason 
+Template.tEditSeason.events({
+  'click .remove': function(evt) {
+    evt.preventDefault();
+
+    // make sure you want to delete something
+    if (confirm('Delete this Season?')) {
+      Meteor.call('deleteSeason', this._id);
+    }
+  },
+  // when someone edits a Season, open the modal winow, place the cursor in the first box and highlight the current placeholder content
+  'click .edit': function() {
+
+    // need access to session
+    Session.set('sSeasonId', this._id);
+    $('#season-modal-id').modal('show');
+    setTimeout(function() {
+      $('input[name="seasonName"]').focus();
+    }, 500);
+    setTimeout(function() {
+      $('input[name="seasonName"]').select();
+    }, 500);
   }
 });

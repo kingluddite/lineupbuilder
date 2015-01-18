@@ -1,0 +1,31 @@
+<template name="layout">{{> tNav}}
+  <div class="container">
+    {{> errors}} {{> yield}} {{> tAllMyModals}}
+
+    <div class="row">{{> tFooter}}
+    </div>
+  </div>
+  <!-- END .container -->
+</template>
+
+<template name="tComplexLayout">
+  {{> yield region="menu"}}
+  <div class="container">
+    {{> yield}}
+
+    <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  {{> yield region="sidebar"}}
+</div>
+ -->
+    <div class="row">
+      {{> yield region="footer"}}
+    </div>
+  </div>
+</template>
+
+<template name="tHomeLayout">
+  {{> yield region="mainMenu"}}
+  <div class="container">
+    {{> yield}}
+  </div>
+</template>
