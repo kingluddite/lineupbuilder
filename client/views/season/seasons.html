@@ -3,6 +3,9 @@
 </template>
 
 <template name="tListSeasons">
+<div class="row">
+  
+
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
     <div class="jumbotron">
       <h1>Current Seasons</h1>
@@ -16,7 +19,7 @@
       <ul>
         {{#each cSeasons}}
           <li class="season {{selectedClass sSeasonId}}">
-            <a href="{{pathFor 'tDetailSeason'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
+            <a href="{{pathFor 'tGames'}}">{{seasonName}}</a> {{> tEditSeason}}</li>
         {{/each}}
       </ul>
     {{else}}
@@ -25,9 +28,9 @@
   </div>
   <!-- END .col2 -->
   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
+    {{> tAddSeason}}
+  </div><!-- END .col3 -->
   </div>
-  {{> tAddSeason}}
 </template>
 
 <template name="tAddSeason">
@@ -86,7 +89,8 @@
       {{> tAddCancelBtns }}
     </form>
   {{else}}
-    <p><a href="{{pathFor 'tListRegions'}}"><span class="glyphicon glyphicon-arrow-left"></span></a> | <a type="button" class="btn btn-default btn-lg add">Add Season</a>
+  <p>
+    <a type="button" class="btn btn-default btn-lg add">Add Season</a>
     </p>
   {{/if}}
 </template>

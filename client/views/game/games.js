@@ -310,3 +310,131 @@ Template.tListGames.events({
     // var selectedGame = Session.get('sGameId');
   }
 });
+
+Template.tAddGame.helpers({
+  cTeams: function() {
+    return Teams.find({
+      seasonId: Session.get('sSeasonId')
+    }, {
+      sort: {
+        teamName: 1
+      }
+    });
+  },
+  sEditMode: function() {
+    return Session.get('sEditMode');
+  },
+  sSeasonId: function() {
+    return Session.get('sSeasonId');
+  },
+  sRegionId: function() {
+    return Session.get('sRegionId');
+  },
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  }
+});
+
+Template.tAddGame.events({
+  'focus .datepicker': function() {
+    $('.datepicker').datepicker('option', 'dateFormat', 'yyyy-mm-dd');
+  },
+  'focus .clockpicker': function() {
+    $('.clockpicker').clockpicker();
+  }
+});
+
+Template.tAddGame.events({
+  'click .cancel': function() {
+    Session.set('sEditMode', false);
+  },
+  'submit form': function(evt) {
+    evt.preventDefault();
+
+    var game = {
+      leagueId: $(evt.target).find('[name=leagueId]').val(),
+      seasonId: $(evt.target).find('[name=seasonId]').val(),
+      regionId: $(evt.target).find('[name=regionId]').val(),
+      gameTime: $(evt.target).find('[name=gameTime]').val(),
+      gameDate: $(evt.target).find('[name=gameDate]').val(),
+      gameNumber: Number($(evt.target).find('[name=gameNumber]').val()),
+      homeTeam: $(evt.target).find('[name=homeTeam]').val(),
+      // we need all the scores to be numbers
+      // not strings (default value when coming from
+      // html input objects)
+      homeTeamScore: Number($(evt.target).find('[name=homeTeamScore]').val()),
+      awayTeam: $(evt.target).find('[name=awayTeam]').val(),
+      awayTeamScore: Number($(evt.target).find('[name=awayTeamScore]').val()),
+      gameType: $(evt.target).find('[name=gameType]').val(),
+      gameStatus: $(evt.target).find('[name=gameStatus]').val()
+        // gameResult: Number($(evt.target).find('[name=gameResult]').val())
+    };
+
+    var errors = validateGame(game);
+    if (errors.gameTime || errors.gameDate || errors.gameNumber) {
+      return Session.set('postSubmitErrors', errors);
+    }
+
+    Meteor.call('addGame', game, function(error, result) {
+      if (error) {
+        // return alert(error.reason);
+        return throwError(error.reason);
+      }
+      if (result.postExists) {
+        throwError('This link has already been posted');
+      }
+      Session.set('sEditMode', false);
+
+    });
+  }
+});
+
+Template.tEditGame.helpers({
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  },
+  // you need to show the team name and not the id
+  // so you have to search the teams collection
+  // and pass the id stored in the games collection
+  // under awayTeam
+  cAwayTeam: function() {
+    return Teams.findOne({
+      _id: Games.findOne({
+        _id: Session.get('sGameId')
+      })
+    });
+  },
+  cHomeTeam: function() {
+    return Teams.findOne({
+      _id: this.homeTeam
+    });
+  }
+
+});
+
+// when someone edits or removes a league
+Template.tEditGame.events({
+  'click .remove': function(evt) {
+    evt.preventDefault();
+
+    // make sure you want to delete something
+    if (confirm('Delete this Game?')) {
+      Meteor.call('deleteGame', this._id);
+    }
+  },
+  // when someone edits a league, open the modal winow, place the cursor in the first box and highlight the current placeholder content
+  'click .edit': function() {
+    // need access to session
+    Session.set('sHomeTeamId', this.homeTeam);
+    Session.set('sAwayTeamId', this.awayTeam);
+    Session.set('sGameId', this._id);
+    // var homeTeam = Teams.findOne(Session.get('sHomeTeamId'));
+    // var awayTeam = Teams.findOne(Session.get('sAwayTeamId'));
+    var currentGame = Games.findOne(Session.get('sGameId'));
+    // // make dropdown equal to the current value in the collection record
+    $('.game-type').val(currentGame.gameType);
+    $('.game-status').val(currentGame.gameStatus);
+    $('#game-modal-id').modal('show');
+  }
+});
+

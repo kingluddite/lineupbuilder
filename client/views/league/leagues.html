@@ -15,7 +15,7 @@
         <p>Select the league you want to enter.</p>
         <ul>
           {{#each cLeagues}}
-            <li class="league {{selectedClass}}"><a href="{{pathFor 'tDetailLeague'}}">{{leagueName}}</a> {{> tEditLeague}}</li>
+            <li class="league {{selectedClass}}"><a href="{{pathFor 'tRegions'}}">{{leagueName}}</a> {{> tEditLeague}}</li>
           {{/each}}
         </ul>
       {{else}}
@@ -78,9 +78,7 @@ oup {{errorClass 'leagueName'}}">
   {{/if}}
 </template>
 
-<template name="tDetailLeague">
-  {{> tListRegions}}
-</template>
+
 
 <template name="tEditLeague">
   {{> tEditDeleteBtns}}

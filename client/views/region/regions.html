@@ -2,9 +2,9 @@
   {{> tListRegions}}
 </template>
 
-<template name="tDetailRegion">
+<!-- <template name="tDetailRegion">
   {{> tListSeasons}}
-</template>
+</template> -->
 
 <template name="tListRegions">
   <div class="row">
@@ -20,7 +20,7 @@
         <ul>
           {{#each cRegions}}
             <li class="region {{selectedClass}}">
-              <a href="{{pathFor 'tDetailRegion'}}">{{regionName}}</a> {{> tEditRegion}}</li>
+              <a href="{{pathFor 'tSeasons'}}">{{regionName}}</a> {{> tEditRegion}}</li>
           {{/each}}
         </ul>
       {{else}}

@@ -11,6 +11,7 @@
      // get rid of both the first item which is always assumed to be "home",
      // and the last item which we won't display as a link
      var routes = Router.parentRoutes().slice(1, -1);
+     console.log(routes);
      return _.map(routes, function(route) {
        // extract name and label properties from the route
        return {
