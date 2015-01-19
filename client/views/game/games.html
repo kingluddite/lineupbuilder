@@ -2,135 +2,142 @@
   {{> tListGames}}
 </template>
 <template name="tListGames">
-<ol class="breadcrumb">
-    <li><a href="{{pathFor 'tLeagues'}}"><span class="label label-success">League: {{cLeague.leagueName}}</span></a>
-    </li>
-    <li><a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
-    </li>
-    <li><span class="label label-default">Season: {{cSeason.seasonName}}</span>
-    </li>
-    <li><span class="label label-warning">Team: {{cTeam.teamName}}</span>
-    </li>
-  </ol>
- <!--  {{> tAddGame}}
-  {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
-    <a type="button" class="btn btn-default btn-lg add-team">
-                    Add Team to this Season
-                </a> {{/if}} -->
   <div class="row">
+    <ol class="breadcrumb">
+      <li><a href="{{pathFor 'tLeagues'}}"><span class="label label-success">League: {{cLeague.leagueName}}</span></a>
+      </li>
+      <li><a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
+      </li>
+      <li><span class="label label-default">Season: {{cSeason.seasonName}}</span>
+      </li>
+      <li><span class="label label-warning">Team: {{cTeam.teamName}}</span>
+      </li>
+    </ol>
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <div class="jumbotron">
+      <div class="jumbotron">
         <h1>{{cTeam.teamName}}</h1>
       </div>
-    </div><!-- END .col1 -->
+    </div>
+    <!-- END .col1 -->
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    {{#if cGames}}
-      <h4>{{cTeam.teamName}}'s have {{cGames.count}} games this season.</h4>
-    {{else}}
-    <p>Sorry, no games scheduled this season.</p>
-    {{/if}}
-    <p>Choose a different team to see their schedule.</p>
-    <ul>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          {{#each cTeams}}
-            <!-- <li class="dd-team-name"><a href="{{pathFor 'tScheduleTeam'}}">{{teamName}}</a> 
+      {{#if sTeamEditMode}}
+        {{> tAddTeam}}
+      {{else}}
+        <p>
+          <a type="button" class="btn btn-default btn-lg add-team">Add Team to this Season</a>
+        </p>
+      {{/if}}
+
+      {{#if cGames}}
+        <h4>{{cTeam.teamName}}'s have {{cGames.count}} games this season.</h4>
+      {{else}}
+        <p>Sorry, no games scheduled this season.</p>
+      {{/if}}
+      <p>Choose a different team to see their schedule.</p>
+      <ul>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            {{#each cTeams}}
+              <!-- <li class="dd-team-name"><a href="{{pathFor 'tScheduleTeam'}}">{{teamName}}</a> 
             </li>-->
-            <li class="dd-team-name"><a href="{{pathFor ''}}">{{teamName}}</a>
-            </li>
-          {{/each}}
-        </ul>
-      </li>
-    </ul>
+              <li class="dd-team-name"><a href="{{pathFor 'tListGames'}}">{{teamName}}</a>
+              </li>
+            {{/each}}
+          </ul>
+        </li>
+      </ul>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      [put standings here]
+      [put standings here] {{> tListPlayers}}
     </div>
-  </div><!-- END .row1 -->
+  </div>
+  <!-- END .row1 -->
   <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    {{#if cGames}}
-    
-    <h3>{{cTeam.teamName}} Season Schedule</h3>
-    <hr>
-    <div id="scores-page">
-      <div class="scores-page-content">
-        <!-- <div class="score-date-area"></div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      {{#if cGames}}
+
+        <h3>{{cTeam.teamName}} Season Schedule</h3>
+        <hr>
+        <div id="scores-page">
+          <div class="scores-page-content">
+            <!-- <div class="score-date-area"></div>
         <div class="score-calendar-large">Calendar</div> -->
-        <div id="score-leagues">
-          <div class="score-league">
-            <!-- <a href="#">League Name</a>
+            <div id="score-leagues">
+              <div class="score-league">
+                <!-- <a href="#">League Name</a>
             <h4><a href="#">League Name</a></h4>
             <span>(# games)</span> -->
-            <div class="score-group">
-              <!-- <p>league name and season</p> -->
-  {{#each cGames}}
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="score-box">
-                  <div><strong>Game #</strong>{{gameNumber}}</div>
-                  <div class="score full">
-                    <div class="scorebox-container {{gameResultStyle}}">
-                      <div class="score-content">
+                <div class="score-group">
+                  <!-- <p>league name and season</p> -->
+                  {{#each cGames}}
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                      <div class="score-box">
+                        <div><strong>Game #</strong>{{gameNumber}}</div>
+                        <div class="score full">
+                          <div class="scorebox-container {{gameResultStyle}}">
+                            <div class="score-content">
 
-                        <div class="team-names">
-                          <div class="team-name">
-                            <span>
-                  <a href="{{pathFor 'tListGames'}}">{{cAwayTeam.teamName}}(a)</a> 
+                              <div class="team-names">
+                                <div class="team-name away">
+                                  <span>
+                  <a href="{{pathFor 'tGames'}}">{{cAwayTeam.teamName}}(a)</a> 
                 </span>
-                          </div>
-                          <!-- END team-name -->
-                          <div class="team-name">
-                            <span><a href="{{pathFor 'tListGames'}}">{{cHomeTeam.teamName}}</a></span>
-                          </div>
-                          <!-- END .team-name -->
-                        </div>
-                        <!-- END .team-names -->
+                                </div>
+                                <!-- END team-name -->
+                                <div class="team-name home">
+                                  <span><a href="{{pathFor 'tGames'}}">{{cHomeTeam.teamName}}</a></span>
+                                </div>
+                                <!-- END .team-name -->
+                              </div>
+                              <!-- END .team-names -->
 
-                        <div class="team-scores">
-                          <div class="team-score {{didAwayTeamWin}}">
-                            <span>{{awayTeamScore}}</span>
+                              <div class="team-scores">
+                                <div class="team-score {{didAwayTeamWin}}">
+                                  <span>{{awayTeamScore}}</span>
+                                </div>
+                                <!-- END .team-score -->
+                                <div class="team-score {{didHomeTeamWin}}">
+                                  <span>{{homeTeamScore}}</span>
+                                </div>
+                                <!-- END .team-score -->
+                              </div>
+                              <!-- END .team-scores -->
+                              <div class="game-info"><span>{{gameStatusPretty}} {{formatDate gameDate}}</span>
+                              </div>
+                              <!-- END .game-info -->
+                            </div>
+                            <!-- END score-content -->
+                            {{> tEditGame}}
                           </div>
-                          <!-- END .team-score -->
-                          <div class="team-score {{didHomeTeamWin}}">
-                            <span>{{homeTeamScore}}</span>
-                          </div>
-                          <!-- END .team-score -->
+                          <!-- END .scorebox-container -->
                         </div>
-                        <!-- END .team-scores -->
-                        <div class="game-info"><span>{{gameStatusPretty}} {{formatDate gameDate}}</span>
-                        </div>
-                        <!-- END .game-info -->
+                        <!-- END .score -->
                       </div>
-                      <!-- END score-content -->
-                      {{> tEditGame}}
+                      <!-- END .score-box -->
                     </div>
-                    <!-- END .scorebox-container -->
-                  </div>
-                  <!-- END .score -->
+                    <!-- END .col1 -->
+
+                  {{/each}}
+
+
+
                 </div>
-                <!-- END .score-box -->
-</div><!-- END .col1 -->
-
-              {{/each}}
-
-              
+                <!-- END .score-group -->
+              </div>
+              <!-- END .score-league -->
 
             </div>
-            <!-- END .score-group -->
+            <!-- END .score-leagues -->
           </div>
-          <!-- END .score-league -->
-
         </div>
-        <!-- END .score-leagues -->
-      </div>
+      {{else}}
+        <p>Sorry, no games yet</p>
+      {{/if}}
     </div>
-  {{else}}
-    <p>Sorry, no games yet</p>
-  {{/if}}
+
   </div>
-    
-  </div><!-- END .row2 -->
+  <!-- END .row2 -->
 </template>
 
 <template name="tAddGame">

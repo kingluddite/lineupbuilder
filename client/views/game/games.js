@@ -30,7 +30,7 @@ Template.tListGames.helpers({
       _id: Session.get('sSeasonId')
     });
   },
-   cTeam: function() {
+  cTeam: function() {
     return Teams.findOne({
       _id: Session.get('sTeamId')
     });
@@ -131,15 +131,32 @@ Template.tListGames.events({
     Session.set('sTeamId', teamId);
     //console.log(this._id);
   },
-  // peh2 can't get team page to appear when the game teams
-  //  are clicked because they are home and away
-  // and the teams collection is obviously different than the games
-  // collection.
-  // 'click .team-name': function() {
-  //   var teamId = this._id;
-  //   console.log(teamId);
-  //   Session.set('sTeamId', teamId);
-  // },
+
+  'click .player': function() {
+    var playerId = this._id;
+    Session.set('sPlayerId', playerId);
+  },
+  // if either the home or away team is clicked (this and next event handler)
+  //  we capture the team id and store it in the session
+  //  then in our pathFor we call the tGames template
+  //  which uses the sTeamId to query the Games collection
+  //  and return the result set from either the home or away team
+  //  had problems with this code and it took awhile to sort out
+  //  the problem arose from context. I was previously using the
+  //  team collection which capturing the team id was easier because
+  //  it was simply a property of teamId but in the Games collection
+  //  it was a bit trickier because we had two properties to sort out
+  //  for teamId and they were homeTeamName (an ID) and awayTeamName (also an ID)
+  //  the solution came by adding a home or away class in the tGamesList Template
+  //  and creating an event handler for either event scenario
+  'click .team-name.home': function() {
+    var teamId = this.homeTeam;
+    Session.set('sTeamId', teamId);
+  },
+  'click .team-name.away': function() {
+    var teamId = this.awayTeam;
+    Session.set('sTeamId', teamId);
+  },
   // when the add team button is clicked set the session to true
   'click .add-team': function() {
     Session.set('sTeamEditMode', true);

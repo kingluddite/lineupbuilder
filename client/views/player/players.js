@@ -1,3 +1,53 @@
+Template.tPlayer.helpers({
+  sPlayerId: function() {
+    return Session.get('sPlayerId');
+  },
+  cPlayer: function() {
+    return Players.findOne({
+      _id: Session.get('sPlayerId')
+    });
+  }
+});
+Template.tListPlayers.helpers({
+  sTeamId: function() {
+    return Session.get('sTeamId');
+  },
+  // grab the player id
+  sPlayerId: function() {
+    return Session.get('sPlayerId');
+  },
+  cPlayers: function() {
+    return Players.find({
+      teamId: Session.get('sTeamId')
+    });
+  },
+
+  sEditMode: function() {
+    return Session.get('sEditMode');
+  },
+  // highlight currently selected team
+  selectedClass: function() {
+    var selectedTeam = Session.get('sPlayerId');
+    var playerId = this._id;
+    if (selectedTeam === playerId) {
+      return 'selected';
+    }
+  }
+});
+
+Template.tListPlayers.events({
+  'click li.player': function() {
+    var playerId = this._id;
+    Session.set('sPlayerId', playerId);
+  },
+  'click .add': function() {
+    Session.set('sEditMode', true);
+  },
+  'click .remove': function() {
+    Session.set('sEditMode', false);
+  }
+});
+
 Template.tAddPlayer.created = function() {
   Session.set('postSubmitErrors', {});
 };
