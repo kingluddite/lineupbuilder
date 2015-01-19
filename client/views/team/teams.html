@@ -1,0 +1,109 @@
+<template name="tTeams">
+  {{> tListTeams}}
+</template>
+
+<template name="tListTeams">
+  <ol class="breadcrumb">
+    <li><a href="{{pathFor 'tLeagues'}}"><span class="label label-success">League: {{cLeague.leagueName}}</span></a>
+    </li>
+    <li><a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
+    </li>
+    <li><span class="label label-default">Season: {{cSeason.seasonName}}</span>
+    </li>
+  </ol>
+  {{> tAddTeam}}
+
+  {{#if cTeams}}
+    <ul>
+      {{#each cTeams}}
+        <li class="team {{selectedClass}}">
+          <a href="{{pathFor 'tDetailGame'}}">{{teamName}}</a> {{> tEditTeam}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>Sorry, no team yet</p>
+  {{/if}}
+</template>
+
+<template name="tAddTeam">
+  {{#if sEditMode}}
+    <h2>Add Team</h2>
+    <form role="form">
+      <input type="hidden" name="leagueId" class="form-control" value="{{sLeagueId}}">
+      <input type="hidden" name="regionId" class="form-control" value="{{sRegionId}}">
+      <input type="hidden" name="seasonId" class="form-control" value="{{sSeasonId}}">
+
+      <!-- Season Name -->
+      <div class="required-field-block">
+        <input type="text" placeholder="Name" name="teamName" class="form-control">
+        <div class="required-icon">
+          <div class="text">*</div>
+        </div>
+      </div>
+      <!--      <p>
+            <input type="text" placeholder="coachName" name="coachName" class="form-control">
+        </p> -->
+      <p>
+        <select class="form-control" name="seasonDivision" style="margin-top: 10px;">
+          <option>Division</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </p>
+
+      <!-- Season Fee -->
+      <!-- p>
+            <input type="text" placeholder="Season Fee" name="teamFee" class="form-control">
+        </p>  -->
+
+      <!-- <p>
+            <input type="text" placeholder="Home Color" name="teamHomeColor" class="form-control">
+        </p>
+        <p>
+            <input type="text" placeholder="Away Color" name="teamAwayColor" class="form-control">
+        </p>
+        <p>
+            <input type="text" placeholder="Home Field" name="teamHomeField" class="form-control">
+        </p>
+        <p>
+            <input type="text" placeholder="City" name="teamCity" class="form-control">
+        </p>
+        <p>
+            <input type="text" placeholder="State" name="teamState" class="form-control">
+        </p>
+        <p>
+            <input type="text" placeholder="Country" name="teamCountry" class="form-control">
+        </p> -->
+
+      <!-- Season Summary -->
+      <!-- does textarea have a placeholder attribute or does the code go inside it? -->
+      <p>
+        <textarea rows="3" class="form-control" placeholder="About Team" name="aboutTeam"></textarea>
+      </p>
+      <button type="submit" class="btn btn-success add-team">Add</button>
+      <a style="margin-top: 10px" class="btn btn-danger cancel">Cancel</a>
+    </form>
+  {{else}}
+    <p>
+      <a type="button" class="btn btn-default btn-lg add">Add Team</a>
+    </p>
+  {{/if}}
+</template>
+
+<template name="tDetailTeam">
+  {{> tListPlayers}}
+</template>
+
+<template name="tDetailHomeTeam">
+  {{> tListPlayersOnHomeTeam}}
+</template>
+
+<template name="tDetailAwayTeam">
+  {{> tListPlayersOnAwayTeam}}
+</template>
+
+<template name="tEditTeam">
+  {{> tEditDeleteBtns}}
+</template>

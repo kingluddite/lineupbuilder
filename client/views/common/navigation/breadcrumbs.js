@@ -10,8 +10,10 @@
      }
      // get rid of both the first item which is always assumed to be "home",
      // and the last item which we won't display as a link
+     // peh2 - router didn't work so I put console.log(routes)
+     //  and found that I need to kill the detail routes and make sure
+     //  the breadcrumb hierarchy is correct (leagues, regions, seasons... etc)
      var routes = Router.parentRoutes().slice(1, -1);
-     console.log(routes);
      return _.map(routes, function(route) {
        // extract name and label properties from the route
        return {
