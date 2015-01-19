@@ -2,17 +2,34 @@
   {{> tListGames}}
 </template>
 <template name="tListGames">
-  {{> tAddGame}}
+<ol class="breadcrumb">
+    <li><a href="{{pathFor 'tLeagues'}}"><span class="label label-success">League: {{cLeague.leagueName}}</span></a>
+    </li>
+    <li><a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
+    </li>
+    <li><span class="label label-default">Season: {{cSeason.seasonName}}</span>
+    </li>
+    <li><span class="label label-warning">Team: {{cTeam.teamName}}</span>
+    </li>
+  </ol>
+ <!--  {{> tAddGame}}
   {{#if sTeamEditMode}} {{> tAddTeam}} {{else}}
     <a type="button" class="btn btn-default btn-lg add-team">
                     Add Team to this Season
-                </a> {{/if}}
-
-  {{#if cGames}}
-    <h2>My Team: {{cTeams.seasonId}}</h2>
-    <h3>There are {{cGames.count}} games this season.</h3>
-    <p>There are {{cTeams.count}} teams in this season.</p>
-    <p>Select a team to see their season's schedule.</p>
+                </a> {{/if}} -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div class="jumbotron">
+        <h1>{{cTeam.teamName}}</h1>
+      </div>
+    </div><!-- END .col1 -->
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    {{#if cGames}}
+      <h4>{{cTeam.teamName}}'s have {{cGames.count}} games this season.</h4>
+    {{else}}
+    <p>Sorry, no games scheduled this season.</p>
+    {{/if}}
+    <p>Choose a different team to see their schedule.</p>
     <ul>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams <b class="caret"></b></a>
@@ -20,13 +37,23 @@
           {{#each cTeams}}
             <!-- <li class="dd-team-name"><a href="{{pathFor 'tScheduleTeam'}}">{{teamName}}</a> 
             </li>-->
-            <li class="dd-team-name"><a href="{{pathFor 'tListGames'}}">{{teamName}}</a>
+            <li class="dd-team-name"><a href="{{pathFor ''}}">{{teamName}}</a>
             </li>
           {{/each}}
         </ul>
       </li>
     </ul>
-    <p>Select the game you want to enter.</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      [put standings here]
+    </div>
+  </div><!-- END .row1 -->
+  <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    {{#if cGames}}
+    
+    <h3>{{cTeam.teamName}} Season Schedule</h3>
+    <hr>
     <div id="scores-page">
       <div class="scores-page-content">
         <!-- <div class="score-date-area"></div>
@@ -38,8 +65,8 @@
             <span>(# games)</span> -->
             <div class="score-group">
               <!-- <p>league name and season</p> -->
-
-              {{#each cGames}}
+  {{#each cGames}}
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="score-box">
                   <div><strong>Game #</strong>{{gameNumber}}</div>
                   <div class="score full">
@@ -49,12 +76,12 @@
                         <div class="team-names">
                           <div class="team-name">
                             <span>
-                  <a href="{{pathFor 'tDetailAwayTeam'}}">{{cAwayTeam.teamName}}(a)</a> 
+                  <a href="{{pathFor 'tListGames'}}">{{cAwayTeam.teamName}}(a)</a> 
                 </span>
                           </div>
                           <!-- END team-name -->
                           <div class="team-name">
-                            <span><a href="{{pathFor 'tDetailHomeTeam'}}">{{cHomeTeam.teamName}}</a></span>
+                            <span><a href="{{pathFor 'tListGames'}}">{{cHomeTeam.teamName}}</a></span>
                           </div>
                           <!-- END .team-name -->
                         </div>
@@ -83,7 +110,11 @@
                   <!-- END .score -->
                 </div>
                 <!-- END .score-box -->
+</div><!-- END .col1 -->
+
               {{/each}}
+
+              
 
             </div>
             <!-- END .score-group -->
@@ -97,6 +128,9 @@
   {{else}}
     <p>Sorry, no games yet</p>
   {{/if}}
+  </div>
+    
+  </div><!-- END .row2 -->
 </template>
 
 <template name="tAddGame">

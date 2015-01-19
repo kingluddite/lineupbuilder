@@ -2,20 +2,48 @@
 
 // compare mongodb and sql - http://docs.mongodb.org/manual/reference/sql-comparison/
 Template.tListGames.helpers({
+  sLeagueId: function() {
+    return Session.get('sLeagueId');
+  },
+  sRegionId: function() {
+    return Session.get('sRegionId');
+  },
   sSeasonId: function() {
     return Session.get('sSeasonId');
   },
-  // cGames: function() {
-  //   return Games.find({
-  //     seasonId: Session.get('sSeasonId')
-  //   }, {
-  //     sort: {
-  //       gameNumber: 1,
-  //       gameDate: 1,
-  //       gameTime: 1
-  //     }
-  //   });
-  // },
+  sTeamId: function() {
+    return Session.get('sTeamId');
+  },
+
+  cLeague: function() {
+    return Leagues.findOne({
+      _id: Session.get('sLeagueId')
+    });
+  },
+  cRegion: function() {
+    return Regions.findOne({
+      _id: Session.get('sRegionId')
+    });
+  },
+  cSeason: function() {
+    return Seasons.findOne({
+      _id: Session.get('sSeasonId')
+    });
+  },
+   cTeam: function() {
+    return Teams.findOne({
+      _id: Session.get('sTeamId')
+    });
+  },
+
+  // all teams in dropdown when a team is
+  //  selected only that season will appear
+  cTeams: function() {
+    return Teams.find({
+      seasonId: Session.get('sSeasonId')
+    });
+  },
+
   cGames: function() {
     // compare mongodb and sql - http://docs.mongodb.org/manual/reference/sql-comparison/
     return Games.find({
@@ -46,21 +74,6 @@ Template.tListGames.helpers({
     return Teams.findOne({
       _id: this.homeTeam
     });
-  },
-
-  // all teams in dropdown when a team is
-  //  selected only that season will appear
-  cTeams: function() {
-    return Teams.find({
-      seasonId: Session.get('sSeasonId')
-    });
-  },
-
-  cTeam: function() {
-    // grab a random team from the Teams collection
-    //  of teams in this season
-    var randNum = Math.floor(Math.random() * 10);
-    return Teams[randNum];
   },
 
   didHomeTeamWin: function() {
@@ -100,18 +113,6 @@ Template.tListGames.helpers({
     }
   },
 
-  sLeagueId: function() {
-    return Session.get('sSeasonId');
-  },
-  cLeague: function() {
-    return Leagues.find(Session.get('sSeasonId'));
-  },
-  sRegionId: function() {
-    return Session.get('sRegionId');
-  },
-  cRegion: function() {
-    return Regions.find(Session.get('sRegionId'));
-  },
   sEditMode: function() {
     return Session.get('sEditMode');
   },
@@ -130,6 +131,15 @@ Template.tListGames.events({
     Session.set('sTeamId', teamId);
     //console.log(this._id);
   },
+  // peh2 can't get team page to appear when the game teams
+  //  are clicked because they are home and away
+  // and the teams collection is obviously different than the games
+  // collection.
+  // 'click .team-name': function() {
+  //   var teamId = this._id;
+  //   console.log(teamId);
+  //   Session.set('sTeamId', teamId);
+  // },
   // when the add team button is clicked set the session to true
   'click .add-team': function() {
     Session.set('sTeamEditMode', true);

@@ -12,12 +12,12 @@
     </li>
   </ol>
   {{> tAddTeam}}
-
+<p>There are {{cTeams.count}} teams in this season.</p>
   {{#if cTeams}}
     <ul>
       {{#each cTeams}}
         <li class="team {{selectedClass}}">
-          <a href="{{pathFor 'tDetailGame'}}">{{teamName}}</a> {{> tEditTeam}}</li>
+          <a href="{{pathFor 'tGames'}}">{{teamName}}</a> {{> tEditTeam}}</li>
       {{/each}}
     </ul>
   {{else}}
@@ -92,9 +92,9 @@
   {{/if}}
 </template>
 
-<template name="tDetailTeam">
+<!-- <template name="tDetailTeam">
   {{> tListPlayers}}
-</template>
+</template> -->
 
 <template name="tDetailHomeTeam">
   {{> tListPlayersOnHomeTeam}}
