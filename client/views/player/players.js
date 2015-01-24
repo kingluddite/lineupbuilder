@@ -110,3 +110,42 @@ Template.tAddPlayer.events({
     Session.set('sEditMode', false);
   }
 });
+
+Template.tPlayer.helpers({
+  // sLeagueId: function() {
+  //   return Session.get('sLeagueId');
+  // },
+  // sRegionId: function() {
+  //   return Session.get('sRegionId');
+  // },
+  // sSeasonId: function() {
+  //   return Session.get('sSeasonId');
+  // },
+  // sTeamId: function() {
+  //   return Session.get('sTeamId');
+  // },
+  // sPlayerId: function() {
+  //   return Session.get('sPlayerId');
+  // },
+
+  cLeague: function() {
+    return Leagues.findOne({
+      _id: Session.get('sLeagueId')
+    });
+  },
+  cRegion: function() {
+    return Regions.findOne({
+      _id: Session.get('sRegionId')
+    });
+  },
+  cSeason: function() {
+    return Seasons.findOne({
+      _id: Session.get('sSeasonId')
+    });
+  },
+  cTeam: function() {
+    return Teams.findOne({
+      _id: Session.get('sTeamId')
+    });
+  }
+});

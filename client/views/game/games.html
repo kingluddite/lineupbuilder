@@ -8,7 +8,8 @@
       </li>
       <li><a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
       </li>
-      <li><span class="label label-default">Season: {{cSeason.seasonName}}</span>
+      <li>
+        <a href="{{pathFor 'tSeasons'}}"><span class="label label-default">Season: {{cSeason.seasonName}}</span></a>
       </li>
       <li><span class="label label-warning">Team: {{cTeam.teamName}}</span>
       </li>
@@ -29,6 +30,7 @@
       {{/if}}
 
       {{#if cGames}}
+        {{> tAddGame}}
         <h4>{{cTeam.teamName}}'s have {{cGames.count}} games this season.</h4>
       {{else}}
         <p>Sorry, no games scheduled this season.</p>

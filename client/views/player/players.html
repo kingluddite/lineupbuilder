@@ -3,23 +3,38 @@
 </template>
 
 <template name="tListPlayers">
-  {{> tAddPlayer}}
-  <h3>Current Players list players template</h3>
-  <div>
-    {{#if cPlayers}}
-      <p>Select the player to see their profilea</p>
-      <a href="{{pathFor 'tPlayer'}}">{{firstName}} {{lastNameInitial}}</a>
-      <ol>
-        {{#each cPlayers}}
-          <li class="player {{selectedClass}}">
-            <a href="{{pathFor 'tPlayer'}}">{{firstName}}</a> {{> tEditPlayer}}
-          </li>
-        {{/each}}
-      </ol>
-    {{else}}
-      <p>Sorry, this team has no players.</p>
-    {{/if}}
-  </div>
+  <!-- <div class="row"> -->
+  <!--    <ol class="breadcrumb">
+      <li><a href="{{pathFor 'tLeagues'}}"><span class="label label-success">League: {{cLeague.leagueName}}</span></a>
+      </li>
+      <li>
+        <a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
+      </li>
+      <li><a href="{{pathFor 'tSeasons'}}"><span class="label label-default">Season: {{cSeason.seasonName}}</span></a>
+      </li>
+      <li><a href="{{pathFor 'tTeams'}}"><span class="label label-warning">Team: {{cTeam.teamName}}</span></a>
+      </li>
+      <li><span class="label label-warning">Player: {{cPlayer.firstName}}</span>
+      </li>
+    </ol> -->
+
+
+
+  <h3>Current Players list players template</h3> {{> tAddPlayer}}
+  {{#if cPlayers}}
+    <p>Select the player to see their profilea</p>
+    <a href="{{pathFor 'tPlayer'}}">{{firstName}} {{lastNameInitial}}</a>
+    <ol>
+      {{#each cPlayers}}
+        <li class="player {{selectedClass}}">
+          <a href="{{pathFor 'tPlayer'}}">{{firstName}}</a> {{> tEditPlayer}}
+        </li>
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>Sorry, this team has no players.</p>
+  {{/if}}
+
 </template>
 
 <template name="tAddPlayer">
@@ -82,12 +97,37 @@
 </template>
 
 <template name="tPlayer">
+  <div class="row">
+    <ol class="breadcrumb">
+      <li><a href="{{pathFor 'tLeagues'}}"><span class="label label-success">League: {{cLeague.leagueName}}</span></a>
+      </li>
+      <li>
+        <a href="{{pathFor 'tRegions'}}"><span class="label label-info">Region: {{cRegion.regionName}}</span></a>
+      </li>
+      <li><a href="{{pathFor 'tSeasons'}}"><span class="label label-default">Season: {{cSeason.seasonName}}</span></a>
+      </li>
+      <li><a href="{{pathFor 'tTeams'}}"><span class="label label-warning">Team: {{cTeam.teamName}}</span></a>
+      </li>
+      <li><span class="label label-warning">Player: {{cPlayer.firstName}}</span>
+      </li>
+    </ol>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="jumbotron">
+        <h1>Player</h1>
+      </div>
+    </div>
+    <!-- END .col1 -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <p>First Name: {{cPlayer.firstName}}</p>
+      <p>Last Name: {{cPlayer.lastName}}</p>
+      <p>Team: {{cTeam.teamName}}</p>
+      <p>League: {{cPlayer.leagueId}}</p>
+      {{> tEditPlayer}}
 
-  <p>First Name: {{cPlayer.firstName}}</p>
-  <p>Last Name: {{cPlayer.lastName}}</p>
-  <p>Team: {{cPlayer.teamId}}</p>
-  <p>League: {{cPlayer.leagueId}}</p>
-  {{> tEditPlayer}}
+    </div>
+    <!-- END .col2 -->
+  </div>
+  <!-- END .row1 -->
 </template>
 
 <template name="tEditPlayer">

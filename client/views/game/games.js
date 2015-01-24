@@ -212,6 +212,10 @@ Template.tAddGame.events({
       leagueId: $(evt.target).find('[name=leagueId]').val(),
       seasonId: $(evt.target).find('[name=seasonId]').val(),
       regionId: $(evt.target).find('[name=regionId]').val(),
+      match: {
+        homeT: $(evt.target).find('[name=homeTeam]').val(),
+        homeS: Number($(evt.target).find('[name=homeTeamScore]').val())
+      },
       gameTime: $(evt.target).find('[name=gameTime]').val(),
       gameDate: $(evt.target).find('[name=gameDate]').val(),
       gameNumber: Number($(evt.target).find('[name=gameNumber]').val()),

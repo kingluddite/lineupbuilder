@@ -1,19 +1,20 @@
 <template name="tHome">
-  <header>
-    <h1>Todo List ({{incompleteCount}})</h1>
-    <label class="hide-completed">
-      <input type="checkbox" checked="{{hideCompleted}}" /> Hide Completed Tasks
-    </label>
-    {{#if currentUser}}
-      <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
-      </form>
-    {{/if}}
-  </header>
+  <!-- <header>
+  <h1>Todo List ({{incompleteCount}})</h1>
+  <label class="hide-completed">
+    <input type="checkbox" checked="{{hideCompleted}}" /> Hide Completed Tasks
+  </label>
+  {{#if currentUser}}
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Type to add new tasks" />
+    </form>
+  {{/if}}
+</header>
 
-  <ul>
-    {{#each tasks}} {{> tTask}} {{/each}}
-  </ul>
+<ul>
+  {{#each tasks}} {{> tTask}} {{/each}}
+</ul>
+ -->
   <div class="row">
     <div class="col-sm-4 col-md-4">
       <div class="post">
@@ -52,7 +53,7 @@
             There are a lot of teams out there. Where are you? What's your logo? This searchable database of teams will hopefully encourage interleague and intercontinental soccer.
           </p>
           <p>
-            <a href="{{pathFor 'tListTeams'}}" class="btn btn-primary btn-sm">Add My Team</a>
+            <a href="{{pathFor 'tTeams'}}" class="btn btn-primary btn-sm">Add My Team</a>
           </p>
         </div>
       </div>
@@ -62,7 +63,7 @@
       <div class="post">
         <div class="post-img-content">
           <p>
-            <a href="{{pathFor 'tPlayers'}}"><img src="http://placehold.it/460x250/47A447/ffffff&text=PLAYER" class="img-responsive" />
+            <a href="#"><img src="http://placehold.it/460x250/47A447/ffffff&text=PLAYER" class="img-responsive" />
             </a>
           </p>
           <p>
@@ -75,7 +76,7 @@
             If anyone wants to play soccer it should easy for them to find a team. Add your name, your city and country and teams from around the world will be able to find the players they need.
           </p>
           <p>
-            <a href="{{pathFor 'tListPlayers'}}" class="btn btn-success btn-sm">Add Me</a>
+            <a href="#" class="btn btn-success btn-sm">Add Me</a>
           </p>
         </div>
       </div>
@@ -85,7 +86,7 @@
   <!-- END end row -->
 </template>
 
-<template name="tTask">
+<!-- <template name="tTask">
   <li class="{{#if checked}}checked {{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
 
@@ -104,3 +105,4 @@
     <span class="text"><strong>{{username}} - {{text}}</strong></span>
   </li>
 </template>
+ -->

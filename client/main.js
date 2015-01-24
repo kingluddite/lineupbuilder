@@ -12,3 +12,6 @@ Session.setDefault('sGameId', null);
 Session.setDefault('sPlayerId', null);
 Session.setDefault('sHomeTeamId', null);
 Session.setDefault('sAwayTeamId', null);
+// initially hide completed tasks
+//  couldn't figure out come back to this
+Session.setDefault('sHideCompleted', false);

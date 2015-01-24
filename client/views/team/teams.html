@@ -19,8 +19,8 @@
     </div>
     <!-- END .col1 -->
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <p>
-        There are {{cTeams.count}} teams in this season.</p>
+      {{> tAddTeam}}
+      <h3>There are {{cTeams.count}} teams in this season</h3>.
       {{#if cTeams}}
         <ul>
           {{#each cTeams}}
