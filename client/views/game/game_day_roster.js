@@ -1,8 +1,9 @@
 Template.tGameDayRoster.helpers({
   cRoster: function() {
+    'use strict';
     return Players.find({
       gameStatus: {
-        $in: ["starting", "sub"]
+        $in: ['starting', 'sub']
       }
     }, {
       sort: {
@@ -14,9 +15,10 @@ Template.tGameDayRoster.helpers({
 
 Template.tGameDayRoster.helpers({
   cStarters: function() {
+    'use strict';
     return Players.find({
       gameStatus: {
-        $in: ["starting"]
+        $in: ['starting']
       }
     }, {
       sort: {
@@ -27,12 +29,14 @@ Template.tGameDayRoster.helpers({
 });
 
 Template.tGameDayRoster.sPlayerId = function() {
+  'use strict';
   return Session.get('sPlayerId');
 };
 
 Template.tGameDayRoster.playersOff = function() {
+  'use strict';
   return Players.find({
-    gameStatus: "out"
+    gameStatus: 'out'
   }, {
     sort: {
       firstName: 1
@@ -41,39 +45,43 @@ Template.tGameDayRoster.playersOff = function() {
 };
 
 Template.tGameDayRoster.helpers({
-
   gameDayRosterCount: function() {
+    'use strict';
     return Players.find({
       gameStatus: {
-        $in: ["starting", "sub"]
+        $in: ['starting', 'sub']
       }
     }).count();
   },
   totalRoster: function() {
+    'use strict';
     return Players.find().count();
   }
 });
 
 Template.tSubs.helpers({
   cPlayer: function() {
+    'use strict';
     return Players.findOne({
-      _id: Session.get("sPlayerId")
+      _id: Session.get('sPlayerId')
     });
   }
 });
 
 Template.tSubs.helpers({
   sPlayerId: function() {
-    Session.get("sPlayerId");
+    'use strict';
+    Session.get('sPlayerId');
   }
 });
 
 Template.tSubs.helpers({
   cPlayers: function() {
     // var currentUserId = Meteor.userId();
+    'use strict';
     return Players.find({
       // createdBy: currentUserId,
-      gameStatus: "sub"
+      gameStatus: 'sub'
     }, {
       sort: {
         firstName: 1
@@ -84,25 +92,28 @@ Template.tSubs.helpers({
 
 Template.tSubs.helpers({
   haveSubs: function() {
+    'use strict';
     if (Players.find({
-        gameStatus: "sub"
+        gameStatus: 'sub'
       }).count() > 0) {
       return true;
     } else {
-      return "no subs";
+      return 'no subs';
     }
   },
   subCount: function() {
+    'use strict';
     return Players.find({
-      gameStatus: "sub"
+      gameStatus: 'sub'
     }).count();
   }
 });
 
 Template.tStartingLineup.helpers({
-  cStarters: function () {
+  cStarters: function() {
+    'use strict';
     return Players.find({
-      gameStatus: "starting"
+      gameStatus: 'starting'
     }, {
       sort: {
         firstName: 1
@@ -112,13 +123,30 @@ Template.tStartingLineup.helpers({
 });
 
 Template.tStartingLineup.helpers({
-  sPlayerId: function () {
-    return Session.get("sPlayerId");
+  sPlayerId: function() {
+    'use strict';
+    return Session.get('sPlayerId');
   }
 });
 
 Template.tField.cPlayers = function() {
+  'use strict';
   return Players.find({
-    gameStatus: "starting"
+    gameStatus: 'starting'
   });
 };
+
+Template.tWaitingForReply.helpers({
+  cWaitingForReply: function() {
+    'use strict';
+    return Players.find({
+      gameStatus: 'noReply'
+    }, {
+      sort: {
+        firstName: 1
+      }
+
+    });
+  }
+
+});

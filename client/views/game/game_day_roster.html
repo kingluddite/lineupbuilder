@@ -3,11 +3,11 @@
   <p class="badge">{{gameDayRosterCount}} players this week</p>
   <p class="badge">{{totalRoster}} total players</p>
   {{#if cRoster}}
-  <ol>
-    {{#each cStarters}}
-      {{> tListPlayers}}
-    {{/each}}
-  </ol>
+    <ol>
+      {{#each cStarters}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
   {{else}}
     <p>no starting players</p>
   {{/if}}
@@ -45,6 +45,16 @@
   {{/if}}
 </template>
 
-<template name="tNotPlaying">
-
+<template name="tWaitingForReply">
+  <h2>Waiting For Reply</h2> {{cWaitingForReply.count}}
+  <p class="badge">{{potentialPlayerCount}} Potential Players</p>
+  {{#if cWaitingForReply}}
+    <ol>
+      {{#each cWaitingForReply}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no additional players expected today</p>
+  {{/if}}
 </template>
