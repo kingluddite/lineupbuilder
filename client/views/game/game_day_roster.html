@@ -15,7 +15,7 @@
 
 <template name="tStartingLineup">
   {{#each cStarters}}
-    <div class="btn-group {{fieldPosition}}">
+    <div class="btn-group {{fieldPosition}} draggable">
       <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
       {{#if currentUser}}
         {{> tEditPlayer}}
@@ -26,6 +26,12 @@
 
 <template name="tField">
   <div class="field">
+    <div class="droppable ui-widget-header left">
+      <p>drop here</p>
+    </div>
+    <div class="droppable ui-widget-header right">
+      <p>drop here</p>
+    </div>
     {{> tStartingLineup}}
   </div>
   <!-- END .field -->
