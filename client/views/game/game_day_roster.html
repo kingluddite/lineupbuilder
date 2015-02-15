@@ -58,3 +58,16 @@
     <p>no additional players expected today</p>
   {{/if}}
 </template>
+
+<template name="tFullRoster">
+  <h2>Full Roster</h2> {{cFullRoster.count}}
+  {{#if cFullRoster}}
+    <ol>
+      {{#each cFullRoster}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no players on roster yet</p>
+  {{/if}}
+</template>

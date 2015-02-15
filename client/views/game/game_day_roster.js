@@ -150,3 +150,18 @@ Template.tWaitingForReply.helpers({
   }
 
 });
+
+Template.tFullRoster.helpers({
+  cFullRoster: function() {
+    'use strict';
+    return Players.find({
+      teamId: 'bdFEn5jZfHdG4xPKD'
+    }, {
+      sort: {
+        firstName: 1
+      }
+
+    });
+  }
+
+});
