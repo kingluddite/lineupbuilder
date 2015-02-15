@@ -1,0 +1,112 @@
+<template name="tGameReminder">
+  <div class="page-header">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <img src="/images/civitas_logo.jpg" alt="Civitas Logo">
+    </div>
+
+    <h1>Game
+      <small>Reminder</small>
+    </h1>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <h2>Pre Game Notes</h2>
+        <p>Tomorrow will be our toughest match of the season. We are playing Long Beach, a team from the A division which, as history has taught us, are usually a team staffed with younger, faster and more skilled players than us.</p>
+
+        <p>Not tomorrow! We have 18 solid players and I feel we have the youth, speed and skill we lacked in past matchups. Don't get me wrong, it will still be a battle but a battle we are capable of winning.</p>
+
+        <p>With 7 subs, we have the ability to pressure them the entire match. If we limit our touches and let the ball do the work, we increase our chances of coming out on top when the final whistle blows.</p>
+      </div>
+      {{> tCalendar}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      {{> tWillPlay}}
+    </div>
+    <!-- END yes -->
+
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      {{> tWillNotPlay}}
+
+    </div>
+    <!-- END no -->
+
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      {{> tDidNotReply}}
+    </div>
+    <!-- END no reply -->
+  </div>
+</template>
+
+
+<template name="tWillPlay">
+  <h2>Yes
+    <span class="badge">{{cYesCount}}</span>
+  </h2>
+  {{#if cWillPlay}}
+    <ol>
+      {{#each cWillPlay}} {{> tListPlayers}} {{/each}}
+    </ol>
+
+  {{else}}
+    <p>no players on this team</p>
+  {{/if}}
+</template>
+
+<template name="tWillNotPlay">
+  <h2>No
+    <span class="badge">{{cNoCount}}</span>
+  </h2>
+
+  {{#if cWillNotPlay}}
+    <ol>
+      {{#each cWillNotPlay}}
+        {{> tListPlayers}}
+        <!-- <ul>
+          <li>{{playerNotes}}</li>
+      </ul> -->
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>All Players that replied will play.</p>
+  {{/if}}
+
+</template>
+
+<template name="tDidNotReply">
+  <h2>Did Not Reply
+    <span class="badge">{{cNoReply}}</span>
+  </h2>
+
+  {{#if cDidNotReply}}
+    <ol>
+      {{#each cDidNotReply}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+
+  {{else}}
+    <p>All players reponded to the email.</p>
+  {{/if}}
+</template>
+
+<template name="tCalendar">
+  <div class="row">
+
+    <div class="col-sm-4">
+      <hr/>
+      <div class="date-picker" data-date="2014/11/16">
+        <div class="date-container pull-left">
+          <h4 class="weekday">Monday</h4>
+          <h2 class="date">Februray 4th</h2>
+          <h4 class="year pull-right">2014</h4>
+        </div>
+        <span data-toggle="datepicker" data-type="subtract" data-amt="1" class="fa fa-angle-left pull-left"></span>
+        <span data-toggle="datepicker" data-amt="1" class="fa fa-angle-right pull-right"></span>
+      </div>
+    </div>
+    <div class="col-sm-4" style="text-align:center">
+      <span style="font-size: 36px; font-family: 'Roboto', sans-serif;">@ 11:15am</span>
+    </div>
+  </div>
+</template>

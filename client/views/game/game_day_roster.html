@@ -1,0 +1,73 @@
+<template name="tGameDayRoster">
+  <h2>Game Day Starting Lineup</h2>
+  <p class="badge">{{gameDayRosterCount}} players this week</p>
+  <p class="badge">{{totalRoster}} total players</p>
+  {{#if cRoster}}
+    <ol>
+      {{#each cStarters}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no starting players</p>
+  {{/if}}
+</template>
+
+<template name="tStartingLineup">
+  {{#each cStarters}}
+    <div class="btn-group {{fieldPosition}}">
+      <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
+      {{#if currentUser}}
+        {{> tEditPlayer}}
+      {{/if}}
+    </div>
+  {{/each}}
+</template>
+
+<template name="tField">
+  <div class="field">
+    {{> tStartingLineup}}
+  </div>
+  <!-- END .field -->
+</template>
+
+<template name="tSubs">
+  <h2>Substitutes</h2>
+  <p class="badge">{{subCount}} Subs</p>
+  {{#if haveSubs}}
+    <ol>
+      {{#each cPlayers}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no subs</p>
+  {{/if}}
+</template>
+
+<template name="tWaitingForReply">
+  <h2>Waiting For Reply</h2> {{cWaitingForReply.count}}
+  <p class="badge">{{potentialPlayerCount}} Potential Players</p>
+  {{#if cWaitingForReply}}
+    <ol>
+      {{#each cWaitingForReply}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no additional players expected today</p>
+  {{/if}}
+</template>
+
+<template name="tFullRoster">
+  <h2>Full Roster</h2> {{cFullRoster.count}}
+  {{#if cFullRoster}}
+    <ol>
+      {{#each cFullRoster}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no players on roster yet</p>
+  {{/if}}
+</template>
