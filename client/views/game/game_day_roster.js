@@ -1,3 +1,16 @@
+Template.tGameDayRoster.rendered = function() {
+  $('.draggable').draggable();
+  $('.droppable').droppable({
+    drop: function(event, ui) {
+      $(this)
+        .addClass('ui-state-highlight')
+        .find('p')
+        .html('dropped');
+      console.log(ui);
+    }
+  });
+};
+
 Template.tGameDayRoster.helpers({
   cRoster: function() {
     'use strict';

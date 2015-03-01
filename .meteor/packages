@@ -6,6 +6,7 @@
 standard-app-packages
 less
 mizzao:bootstrap-3
+mizzao:jquery-ui
 jquery
 natestrauser:font-awesome
 ian:accounts-ui-bootstrap-3

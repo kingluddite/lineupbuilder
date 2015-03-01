@@ -1,3 +1,4 @@
+
 /* emmet
 html - ! creates standard html doc
 closing comments! (using filters)
@@ -42,11 +43,28 @@ command pallette - ssx
 @-webkit-keyframes identifier {
   from {  }
   to {  }
+=======
+html, body {
+  background-color: #333;
+  color: #fff;
+  font-family: helvetica, arial, sans-serif;
+}
+.droppable {
+  width: 150px;
+  height: 150px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px;
+}
+.field {
+  background-color: #20991F;
+>>>>>>> reminder_fixes
 }
 @-o-keyframes identifier {
   from {  }
   to {  }
 }
+<<<<<<< HEAD
 @-moz-keyframes identifier {
   from {  }
   to {  }
@@ -178,6 +196,14 @@ command pallette - ssx
 // input, textarea, button {
 //   margin-top: 10px
 // }
+
+/* shows highlight when hovering over items */
+
+.selected {
+  background-color: #ccc;
+  color: #000;
+  font-weight: bold;
+}
 /* Required field START */
 
 .required-field-block {
@@ -187,8 +213,9 @@ command pallette - ssx
   display: inline-block;
   vertical-align: middle;
   margin: -0.25em 0.25em 0em;
-  background-color: @required-white;
-  border-color: @required-white;
+
+  background-color: #E8E8E8;
+  border-color: #E8E8E8;
   padding: 0.5em 0.8em;
   color: rgba(0, 0, 0, 0.65);
   text-transform: uppercase;
@@ -241,6 +268,7 @@ command pallette - ssx
   margin: -3px 0 0 12px;
 }
 /* Required field END */
+<<<<<<< HEAD
 /* We're defining a fadeOut CSS animation that specifies four keyframes for the opacity property (at 0%, 10%, 90%, and 100% of the total animation duration), and applying this animation to the .alert class. */
 
 @-webkit-keyframes fadeOut {
@@ -294,3 +322,5 @@ command pallette - ssx
   margin-bottom: 5px;
   pointer-events: auto;
 }
+=======
+>>>>>>> reminder_fixes

@@ -1,0 +1,19 @@
+<template name="tBreadcrumbs">
+  <ol class="breadcrumb">
+    <li>
+      {{#linkTo route="tHome" }}
+        <i class="fa fa-lg fa-fw fa-home"></i>
+      {{/linkTo}}
+    </li>
+    {{#each intermediateRoutes}}
+      <li>
+        {{#linkTo route=name}}
+          <strong>{{label}}</strong>
+        {{/linkTo}}
+      </li>
+    {{/each}}
+    <li class="active">
+      <strong>{{currentRouteLabel}}</strong>
+    </li>
+  </ol>
+</template>
