@@ -14,9 +14,14 @@ accounts-password
 iron:router
 sacha:spin
 mrt:numeral
-mizzao:jquery-ui
 #meteorhacks:kadira
 andrasph:clockpicker
 alanning:roles
 meteorhacks:aggregate
 mrt:moment
+meteorhacks:npm
+
+
+npm-container
+pfafman:filesaver
+coffeescript
