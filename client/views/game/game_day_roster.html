@@ -16,7 +16,7 @@
 <template name="tStartingLineup">
   {{#each cStarters}}
     <div class="btn-group {{fieldPosition}} draggable">
-      <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}}</a>
+      <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> {{firstName}} {{lastNameInitial}}</a>
       {{#if currentUser}}
         {{> tEditPlayer}}
       {{/if}}
