@@ -4,19 +4,30 @@
   <div id="main" class="row">
     <strong></strong>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-
-
-
-
-      {{#if currentUser}} {{> tAddPlayer}} {{/if}} {{> tGameDayRoster}}
-
+      {{#if currentUser}} {{> tAddPlayer}} {{/if}} {{> tGameDayRoster}} }
     </div>
     <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
       {{> tField}}
     </div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-      {{> tSubs}}
+     
+ {{> tListSubs}}
       {{#if currentUser}} {{> tFullRoster}} {{/if}}
     </div>
   </div>
 </template>
+<!-- <template name="gameDayRoster">
+  <div id="listOfAvailablePlayers">
+    <h1>Drag these</h1>
+    <li>one</li>
+    <li>two</li>
+  </div>
+</template>
+<template name="starters">
+  <div id="myStarters">
+    <h1>Drop them here</h1>
+    <ul>
+      <li class="placeholder">Add Players here</li>
+    </ul>
+  </div>
+</template> -->
