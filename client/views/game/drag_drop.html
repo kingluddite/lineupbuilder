@@ -1,0 +1,39 @@
+<template name="tDragDrop">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    {{> tStartingLineupRoster}}
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    {{> tSubstitutes}}
+  </div>
+</template>
+<!-- END this
+ -->
+<template name="tStartingLineupRoster">
+  <h2>Game Day Starting Lineup</h2>
+  <p class="badge">{{gameDayRosterCount}} players this week</p>
+  <p class="badge">{{totalRoster}} total players</p>
+  {{#if cRoster}}
+    <ol>
+      {{#each cStarters}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no starting players</p>
+  {{/if}}
+</template>
+<!-- END this
+ -->
+<template name="tSubstitutes">
+  <h2>Substitutes</h2>
+  <p class="badge">{{subCount}} Subs</p>
+  {{#if haveSubs}}
+    <ol>
+      {{#each cPlayers}}
+        {{> tListPlayers}}
+      {{/each}}
+    </ol>
+  {{else}}
+    <p>no subs</p>
+  {{/if}}
+</template>

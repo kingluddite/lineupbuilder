@@ -1,5 +1,5 @@
 <template name="tListPlayers">
-  <li>{{firstName}} {{lastNameInitial}}
+  <li class="draggable droppable">{{firstName}} {{lastNameInitial}}
     <ul>
       {{#if currentUser}}
         <li>{{> tEditPlayer}}</li>
